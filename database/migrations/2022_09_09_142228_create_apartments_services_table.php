@@ -14,7 +14,8 @@ class CreateApartmentsServicesTable extends Migration
     public function up()
     {
         Schema::create('apartments_services', function (Blueprint $table) {
-            $table->id();
+            $table->foreignId('apartments_id')->constrained();
+            $table->foreignId('services_id')->constrained();
             $table->timestamps();
         });
     }
