@@ -6,5 +6,28 @@ use Illuminate\Database\Eloquent\Model;
 
 class Apartment extends Model
 {
-    //
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
+
+    public function messages(){
+        return $this->hasMany('App\Models\Message');
+    }
+
+    public function visits(){
+        return $this->hasMany('App\Models\Visit');
+    }
+
+    public function services(){
+        return $this->belongsToMany('App\Models\Service');
+    }
+
+    public function sponsorships(){
+        return $this->belongsToMany('App\Models\Sponsorship');
+    }
+
+
 }
+
+
+
