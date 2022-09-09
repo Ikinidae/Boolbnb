@@ -14,8 +14,12 @@ class CreateApartmentsSponsorshipsTable extends Migration
     public function up()
     {
         Schema::create('apartments_sponsorships', function (Blueprint $table) {
-            $table->foreignId('apartments_id')->constrained();
-            $table->foreignId('sponsorship_id')->constrained();
+            $table->unsignedBigInteger('apartment_id');
+            $table->foreignId('apartment_id')->references('id')->on('apartments');
+
+            $table->unsignedBigInteger('sponsorship_id');
+            $table->foreignId('sponsorship_id')->references('id')->on('sponsorships');
+
             $table->date('expire_date');
             $table->timestamps();
         });

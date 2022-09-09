@@ -14,8 +14,12 @@ class CreateApartmentsServicesTable extends Migration
     public function up()
     {
         Schema::create('apartments_services', function (Blueprint $table) {
-            $table->foreignId('apartments_id')->constrained();
-            $table->foreignId('services_id')->constrained();
+            $table->unsignedBigInteger('apartment_id');
+            $table->foreignId('apartment_id')->references('id')->on('apartments');
+
+            $table->unsignedBigInteger('service_id');
+            $table->foreignId('service_id')->references('id')->on('services');
+
             $table->timestamps();
         });
     }
