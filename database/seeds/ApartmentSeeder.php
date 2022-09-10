@@ -14,4 +14,7 @@ class ApartmentSeeder extends Seeder
     public function run(Faker $faker)
     {
 
+
+    }
+
 }
