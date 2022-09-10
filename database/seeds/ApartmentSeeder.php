@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\User;
+use Faker\Generator as Faker;
 use Illuminate\Database\Seeder;
 
 class ApartmentSeeder extends Seeder
@@ -9,8 +11,7 @@ class ApartmentSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        //
-    }
+
 }
