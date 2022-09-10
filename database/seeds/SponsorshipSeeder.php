@@ -11,33 +11,57 @@ class SponsorshipSeeder extends Seeder
      * @return void
      */
 
-    private $names = [
-        'Silver',
-        'Gold',
-        'Platinum'
-    ];
+    // private $names = [
 
-    private $prices = [
-        '1,99',
-        '5,99',
-        '9,99'
-    ];
+    //     'Gold',
+    //     'Platinum'
+    // ];
 
-    private $durations = [
-        '24',
-        '72',
-        '144'
-    ];
+    // private $prices = [
+
+    //     '5,99',
+    //     '9,99'
+    // ];
+
+    // private $durations = [
+    //     '24',
+    //     '72',
+    //     '144'
+    // ];
 
     public function run()
     {
-        for ($i=0; $i<3; $i++) {
-            $sponsorship = new Sponsorship;
-            $sponsorship -> name = $this -> names[$i];
-            $sponsorship -> price = $this -> prices[$i];
-            $sponsorship -> duration = $this -> durations[$i];
+        $sponsorships = [
+            [
+                'name' => 'Silver',
+                'price' => 1,99,
+                'duration' => 24
+            ],
+            [
+                'name' => 'Gold',
+                'price' => 5,99,
+                'duration' => 72
+            ],
+            [
+                'name' => 'Platinum',
+                'price' => 9,99,
+                'duration' => 144
+            ]
+        ];
 
-            $sponsorship -> save();
+        foreach ($sponsorships as $sponsorship) {
+            Sponsorship::create([
+                $sponsorship
+            ]);
         }
-    }
+
+    //     for ($i=0; $i<3; $i++) {
+    //         $sponsorship = new Sponsorship;
+    //         $sponsorship -> name = $this -> names[$i];
+    //         $sponsorship -> price = $this -> prices[$i];
+    //         $sponsorship -> duration = $this -> durations[$i];
+
+    //         $sponsorship -> save();
+    //     }
+    // }
 }
