@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('ura.layouts.base')
 
-@section('content')
+@section('mainContent')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
