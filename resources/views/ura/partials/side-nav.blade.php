@@ -16,7 +16,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a  class="nav-link" href="">New Post</a>
+                <a  class="nav-link" href="{{route('ura.apartments.create')}}">Add Apartment</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="">
