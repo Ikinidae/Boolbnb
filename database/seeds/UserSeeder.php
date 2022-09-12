@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
         $user = new User();
         $user -> email = 'asdf@asdf.com';
         $user -> password = Hash::make('asdfasdf');
+        $user -> name = 'Team 4';
         $user -> save();
 
         for ($i=0; $i<10; $i++) {

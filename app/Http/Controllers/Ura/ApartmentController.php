@@ -14,21 +14,21 @@ class ApartmentController extends Controller
 {
 
     protected $validation_rules = [
-        'user_id' => 'required|numeric|exists:user_id|unique:users',
-        'title'   => 'required|text|max:100',
-        'description' => 'required|text|max:1000',
-        'price' => 'required|numeric',
-        'rooms' => 'required|numeric',
-        'beds' => 'required|numeric',
-        'bathrooms' => 'required|numeric',
-        'mq' => 'required|numeric',
-        'address' => 'required|string|max:255',
-        'latitude' => 'required|numeric',
-        'longitude' => 'required|numeric',
-        'image' => 'required|string|max:255',
-        'visible' => 'required|boolean'
-
+        'user_id'       => 'required|numeric|exists:user_id|unique:users',
+        'title'         => 'required|text|max:100',
+        'description'   => 'required|text|max:1000',
+        'price'         => 'required|numeric',
+        'rooms'         => 'required|numeric',
+        'beds'          => 'required|numeric',
+        'bathrooms'     => 'required|numeric',
+        'mq'            => 'required|numeric',
+        'address'       => 'required|string|max:255',
+        'latitude'      => 'required|numeric',
+        'longitude'     => 'required|numeric',
+        'image'         => 'required|string|max:255',
+        'visible'       => 'required|boolean'
     ];
+
     /**
      * Display a listing of the resource.
      *

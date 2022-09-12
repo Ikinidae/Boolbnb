@@ -20,8 +20,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::middleware('auth')
    ->namespace('Ura')
    ->name('ura.')
@@ -30,5 +28,5 @@ Route::middleware('auth')
         // Route::get('/', 'AdminController@dashboard')->name('dashboard');
         // Route::get('users', 'UserController@index')->name('users.index');
         Route::resource('apartments', 'ApartmentController');
-
+        Route::get('/home', 'HomeController@index')->name('home');
    });
