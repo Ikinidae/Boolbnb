@@ -18,9 +18,9 @@ class VisitSeeder extends Seeder
             $visit = new Visit();
             $apartments_id = Apartment::all()->pluck('id');
 
-            $visit -> apartments_id = $faker ->randomElement('apartments_id') ;
+            $visit -> apartment_id = $faker ->randomElement($apartments_id) ;
             $visit -> date = $faker -> date('Y_m_d');
-            $visit -> ip_adress = $faker -> localIpv4();
+            $visit -> ip_address = $faker -> localIpv4();
             $visit -> save();
         }
     }
