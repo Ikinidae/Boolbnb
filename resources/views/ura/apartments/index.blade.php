@@ -38,6 +38,7 @@
                     <td>{{ $apartment->latitude }}</td>
                     <td>{{ $apartment->longitude }}</td>
                     <td>{{ $apartment->image }}</td>
+                    <td>campo dove inserire i servizi</td>
                     {{-- <td>{{ $apartment->services }}</td> --}}
                     <td>{{ $apartment->visible }}</td>
 
