@@ -51,15 +51,15 @@
                     </td> --}}
 
 
-                    {{-- <td>
-                        <a href="{{ route('admin.apartments.show', ['apartment' => $apartment]) }}" class="btn btn-primary">View</a>
+                    <td>
+                        <a href="{{ route('ura.apartments.show', ['apartment' => $apartment]) }}" class="btn btn-primary">View</a>
                     </td>
                     <td>
-                        <a href="{{ route('admin.apartments.edit', ['apartment' => $apartment]) }}" class="btn btn-warning">Edit</a>
+                        <a href="{{ route('ura.apartments.edit', ['apartment' => $apartment]) }}" class="btn btn-warning">Edit</a>
                     </td>
                     <td>
                         <button class="btn btn-danger js-delete">Delete</button>
-                    </td> --}}
+                    </td>
                 </tr>
             @endforeach
         </tbody>
