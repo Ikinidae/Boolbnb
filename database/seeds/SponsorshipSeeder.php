@@ -34,25 +34,23 @@ class SponsorshipSeeder extends Seeder
         $sponsorships = [
             [
                 'name' => 'Silver',
-                'price' => 1,99,
+                'price' => 1.99,
                 'duration' => 24
             ],
             [
                 'name' => 'Gold',
-                'price' => 5,99,
+                'price' => 5.99,
                 'duration' => 72
             ],
             [
                 'name' => 'Platinum',
-                'price' => 9,99,
+                'price' => 9.99,
                 'duration' => 144
             ]
         ];
 
         foreach ($sponsorships as $sponsorship) {
-            Sponsorship::create([
-                $sponsorship
-            ]);
+            Sponsorship::create($sponsorship);
         }
 
     //     for ($i=0; $i<3; $i++) {
@@ -63,5 +61,5 @@ class SponsorshipSeeder extends Seeder
 
     //         $sponsorship -> save();
     //     }
-    // }
+    }
 }

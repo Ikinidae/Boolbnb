@@ -1,8 +1,9 @@
 <?php
 
+use App\Models\Apartment;
 use App\Models\Message;
-use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
+use Illuminate\Database\Seeder;
 
 class MessageSeeder extends Seeder
 {
@@ -15,8 +16,8 @@ class MessageSeeder extends Seeder
     {
         for ($i=0; $i<50; $i++) {
             $message = new Message();
-            // va messa questa riga?
-            // $message -> apartments_id = $faker -> ;
+            $apartment_ids = Apartment::all()->pluck('id');
+            $message -> apartment_id = $faker->randomElement($apartment_ids);
 
             $message -> text = $faker -> text(rand(5,500));
             $message -> name = $faker -> name();

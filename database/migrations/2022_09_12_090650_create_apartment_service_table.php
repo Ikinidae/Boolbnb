@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateApartmentsServicesTable extends Migration
+class CreateApartmentServiceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateApartmentsServicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('apartments_services', function (Blueprint $table) {
-            // QUESTA FORMA NON FUNZIONA
+        Schema::create('apartment_service', function (Blueprint $table) {
+           // QUESTA FORMA NON FUNZIONA
             // $table->unsignedBigInteger('apartment_id');
             // $table->foreignId('apartment_id')->references('id')->on('apartments');
 
@@ -26,7 +26,6 @@ class CreateApartmentsServicesTable extends Migration
 
             // FUNZIONA QUESTA FORMA ABBREVIATA
             $table->foreignId('service_id')->constrained();
-            $table->timestamps();
         });
     }
 
@@ -37,6 +36,6 @@ class CreateApartmentsServicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('apartments_services');
+        Schema::dropIfExists('apartment_service');
     }
 }
