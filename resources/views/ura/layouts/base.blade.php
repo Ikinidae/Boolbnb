@@ -20,7 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    {{-- @include('ura.partials.top-nav') --}}
+    @include('ura.partials.top-nav')
     <div class="container-fluid">
         <div class="row">
             @include('ura.partials.side-nav')
