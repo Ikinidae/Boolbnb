@@ -12,22 +12,29 @@ use Illuminate\Support\Facades\Auth;
 
 class ApartmentController extends Controller
 {
+    protected $validation_rules = [
+        'title'         => 'required|string|max:100',
+        'description'   => 'required|string|max:1000',
+        'price'         => 'required|numeric|integer',
+        'rooms'         => 'required|numeric|integer',
+        'beds'          => 'required|numeric|integer',
+        'bathrooms'     => 'required|numeric|integer',
+        'mq'            => 'required|numeric|integer',
+        'address'       => 'required|string|max:255',
+        'latitude'      => 'required|numeric|integer',
+        'longitude'     => 'required|numeric|integer',
+        'image'         => 'required|string|max:255',
+        'visible'       => 'boolean',
+    ];
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    // public function apartments()
-    // {
-    //     return $this->hasMany(Apartment::class);
-    // }
-
     public function index()
     {
-        // if (Auth::id() != $apartment->user_id) abort(401);
         $apartments = Apartment::All()->where('user_id', auth()->user()->id);
-
         return view('ura.apartments.index', compact('apartments'));
     }
 
@@ -55,41 +62,18 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
-
-        // NOSTRO STORE
-
         $apartment = new Apartment();
         $user_id = Auth::user()->id;
-
-
-        $request->validate([
-            'title'         => 'required|string|max:100',
-            'description'   => 'required|string|max:1000',
-            'price'         => 'required|numeric|integer',
-            'rooms'         => 'required|numeric|integer',
-            'beds'          => 'required|numeric|integer',
-            'bathrooms'     => 'required|numeric|integer',
-            'mq'            => 'required|numeric|integer',
-            'address'       => 'required|string|max:255',
-            'latitude'      => 'required|numeric|integer',
-            'longitude'     => 'required|numeric|integer',
-            'image'         => 'required|string|max:255',
-            'visible'       => 'boolean',
-
-        ]);
+        $request->validate($this->validation_rules);
 
         $data = $request->all();
         $data['user_id'] = $user_id;
 
-
         $apartment->fill($data);
-
         $apartment->save();
-
         $apartment->services()->sync($data['services']);
 
         return redirect()->route('ura.apartments.index');
-
     }
 
     /**
@@ -111,7 +95,14 @@ class ApartmentController extends Controller
      */
     public function edit(Apartment $apartment)
     {
-        //
+        $services = Service::all();
+        // $sponsorships = Sponsorship::all();
+
+        return view('ura.apartments.edit', [
+            'services'      => $services,
+            'apartment'     => $apartment
+            // 'sponsorships'  => $sponsorships,
+        ]);
     }
 
     /**
@@ -123,7 +114,14 @@ class ApartmentController extends Controller
      */
     public function update(Request $request, Apartment $apartment)
     {
-        //
+        $request->validate($this->validation_rules);
+
+        $data = $request->all();
+
+        $apartment->update($data);
+        $apartment->services()->sync($data['services']);
+
+        return redirect()->route('ura.apartments.show', ['apartment' => $apartment]);
     }
 
     /**
