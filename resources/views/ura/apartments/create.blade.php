@@ -17,16 +17,6 @@
             @enderror
         </div>
 
-        {{-- <div class="mb-3">
-            <label class="form-label" for="users_id">Users_id</label>
-            <input class="form-control @error('users_id') is-invalid @enderror" type="text" name="users_id" id="users_id" value="{{ old('users_id') }}">
-            @error('users_id')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div> --}}
-
         <div class="mb-3">
             <label class="form-label" for="description">Description</label>
             <input class="form-control @error('description') is-invalid @enderror" type="text" name="description" id="description" value="{{ old('description') }}">
@@ -115,7 +105,9 @@
             @enderror
         </div>
 
-        <div class="mb-3">
+        {{-- QUESTI SONO I SERVIZI DA AGGIUNGERE --}}
+
+        {{-- <div class="mb-3">
             <label class="form-label" for="image">Image</label>
             <input class="form-control @error('image') is-invalid @enderror" type="file" name="image" id="image" accept="image/*">
             @error('image')
@@ -125,22 +117,22 @@
             @enderror
 
             <img id="preview" class="img-fluid" src="">
-        </div>
+        </div> --}}
 
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <label class="form-label" for="visible">Visible</label>
             <input class="form-control @error('visible') is-invalid @enderror" type="text" name="visible" id="visible" value="{{ old('visible') }}">
-            {{-- <button type="button" class="btn btn-primary">Reset</button> --}}
+
             @error('visible')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
             @enderror
-        </div>
+        </div> --}}
 
 
         {{-- DA SISTEMARE IL CHECKBOX DELLA VISIBLE --}}
-        <fieldset class="mb-3">
+        {{-- <fieldset class="mb-3">
             <legend>Services</legend>
             @foreach ($services as $service)
                 <div class="form-check">
@@ -164,7 +156,7 @@
                     </div>
                 @endforeach
             @endforeach
-        </fieldset>
+        </fieldset> --}}
 
         <button type="submit" class="btn btn-primary">Save</button>
     </form>
