@@ -13,6 +13,11 @@
     <h3>Visible: {{ $apartment->visible }}</h3>
     <p>{{ $apartment->description }}</p>
 
+    @foreach ($apartment->services as $service)
+        <span class="tag">{{ $service->name }}</span>
+    @endforeach
+
+
 
     {{-- Opzione 1 immagine di default --}}
     {{-- <img class="img-fluid" src="{{ asset($apartment->image ? 'storage/' . $apartment->image : 'img/fallback.png') }}" alt="{{ $apartment->title }}"> --}}

@@ -12,23 +12,6 @@ use Illuminate\Support\Facades\Auth;
 
 class ApartmentController extends Controller
 {
-
-
-        // 'user_id'       => 'required|numeric|exists:user_id|unique:users',
-        // 'title'         => 'required|string|max:100',
-        // 'description'   => 'required|string|max:1000',
-        // 'price'         => 'required|numeric',
-        // 'rooms'         => 'required|numeric',
-        // 'beds'          => 'required|numeric',
-        // 'bathrooms'     => 'required|numeric',
-        // 'mq'            => 'required|numeric',
-        // 'address'       => 'required|string|max:255',
-        // 'latitude'      => 'required|numeric',
-        // 'longitude'     => 'required|numeric',
-        // 'image'         => 'required|string|max:255',
-        // 'visible'       => 'required|boolean',
-
-
     /**
      * Display a listing of the resource.
      *
@@ -104,24 +87,6 @@ class ApartmentController extends Controller
         $apartment->save();
 
         $apartment->services()->sync($data['services']);
-
-
-
-        // STORE HENRY
-
-        // $data = $request->all();
-
-        // $data = $data + [
-        //     'user_id'       => Auth::id(),
-        // ];
-
-        // dd($data);
-        // $apartment = Apartment::create($data);
-        // $apartment->services()->sync($data['services']);
-
-
-
-        // dd( $apartment);
 
         return redirect()->route('ura.apartments.index');
 
