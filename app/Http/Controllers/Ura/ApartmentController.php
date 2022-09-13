@@ -73,16 +73,21 @@ class ApartmentController extends Controller
     public function store(Request $request)
     {
 
-        $apartment = new Apartment();
+        $new_apartment = new Apartment();
         $user_id = Auth::user()->id;
+        $apartment_id = Apartment::pluck('id');
+        // dd($apartment_id);
 
 
         $data = $request->all();
         $data['user_id'] = $user_id;
+        $data['apartment_id'] = $apartment_id;
 
-        $apartment->fill($data);
-        // dd($apartment);
-        $apartment->save();
+        $new_apartment->fill($data);
+        dd($new_apartment);
+        $new_apartment->services()->sync($data['services']);
+
+        $new_apartment->save();
 
         return redirect()->route('ura.apartments.index');
 
