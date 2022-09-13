@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Ura;
 use App\Models\Service;
 use App\Models\Apartment;
 use App\Models\Sponsorship;
-use Illuminate\Validation\Rule;
+// use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Auth;
 class ApartmentController extends Controller
 {
 
-    protected $validation_rules = [
-        'user_id'       => 'required|numeric|exists:user_id|unique:users',
+
+        // 'user_id'       => 'required|numeric|exists:user_id|unique:users',
         // 'title'         => 'required|string|max:100',
         // 'description'   => 'required|string|max:1000',
         // 'price'         => 'required|numeric',
@@ -27,7 +27,7 @@ class ApartmentController extends Controller
         // 'longitude'     => 'required|numeric',
         // 'image'         => 'required|string|max:255',
         // 'visible'       => 'required|boolean',
-    ];
+
 
     /**
      * Display a listing of the resource.
@@ -56,11 +56,11 @@ class ApartmentController extends Controller
     public function create()
     {
         $services = Service::all();
-        $sponsorships = Sponsorship::all();
+        // $sponsorships = Sponsorship::all();
 
         return view('ura.apartments.create', [
             'services'      => $services,
-            'sponsorships'  => $sponsorships,
+            // 'sponsorships'  => $sponsorships,
         ]);
     }
 
@@ -75,31 +75,50 @@ class ApartmentController extends Controller
 
         // NOSTRO STORE
 
-        // $new_apartment = new Apartment();
-        // $user_id = Auth::user()->id;
-
-        // $data = $request->all();
-        // $data['user_id'] = $user_id;
+        $apartment = new Apartment();
+        $user_id = Auth::user()->id;
 
 
-        // $new_apartment->fill($data);
+        $request->validate([
+            'title'         => 'required|string|max:100',
+            'description'   => 'required|string|max:1000',
+            'price'         => 'required|numeric|integer',
+            'rooms'         => 'required|numeric|integer',
+            'beds'          => 'required|numeric|integer',
+            'bathrooms'     => 'required|numeric|integer',
+            'mq'            => 'required|numeric|integer',
+            'address'       => 'required|string|max:255',
+            'latitude'      => 'required|numeric|integer',
+            'longitude'     => 'required|numeric|integer',
+            'image'         => 'required|string|max:255',
+            'visible'       => 'boolean',
 
-        // $new_apartment->save();
-        // $new_apartment->services()->sync($data['services']);
+        ]);
+
+        $data = $request->all();
+        $data['user_id'] = $user_id;
+
+
+        $apartment->fill($data);
+
+        $apartment->save();
+
+        $apartment->services()->sync($data['services']);
 
 
 
         // STORE HENRY
 
-        $data = $request->all();
+        // $data = $request->all();
 
-        $data = $data + [
-            'user_id'       => Auth::id(),
-        ];
+        // $data = $data + [
+        //     'user_id'       => Auth::id(),
+        // ];
 
-        $apartment = Apartment::create($data);
-        $apartment->services()->sync($data['services']);
-        dd($apartment);
+        // dd($data);
+        // $apartment = Apartment::create($data);
+        // $apartment->services()->sync($data['services']);
+
 
 
         // dd( $apartment);
