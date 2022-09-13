@@ -140,7 +140,7 @@
 
 
         {{-- DA SISTEMARE IL CHECKBOX DELLA VISIBLE --}}
-        {{-- <fieldset class="mb-3">
+        <fieldset class="mb-3">
             <legend>Services</legend>
             @foreach ($services as $service)
                 <div class="form-check">
@@ -164,7 +164,7 @@
                     </div>
                 @endforeach
             @endforeach
-        </fieldset> --}}
+        </fieldset>
 
         <button type="submit" class="btn btn-primary">Save</button>
     </form>
