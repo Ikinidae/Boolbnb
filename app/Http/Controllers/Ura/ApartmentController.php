@@ -34,10 +34,16 @@ class ApartmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    // public function apartments()
+    // {
+    //     return $this->hasMany(Apartment::class);
+    // }
+
     public function index()
     {
         // if (Auth::id() != $apartment->user_id) abort(401);
-        $apartments = Apartment::All();
+        $apartments = Apartment::All()->where('user_id', auth()->user()->id);
 
         return view('ura.apartments.index', compact('apartments'));
     }
