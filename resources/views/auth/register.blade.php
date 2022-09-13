@@ -77,12 +77,12 @@
                         </div>
 
                         <div class="form-group row mb-2">
-                            <label for="birth" class="col-md-4 col-form-label text-md-right">{{ __('Birth') }}</label>
+                            <label for="birthdate" class="col-md-4 col-form-label text-md-right">{{ __('Birth date') }}</label>
 
                             <div class="col-md-6">
-                                <input id="birth" type="date" class="form-control @error('birth') is-invalid @enderror" name="birth" value="{{ old('birth') }}" autocomplete="birth" autofocus>
+                                <input id="birthdate" type="date" class="form-control @error('birthdate') is-invalid @enderror" name="birthdate" value="{{ old('birthdate') }}" autocomplete="birthdate" autofocus>
 
-                                @error('birth')
+                                @error('birthdate')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

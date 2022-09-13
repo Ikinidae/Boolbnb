@@ -28,18 +28,7 @@
                   Users
                 </a>
             </li> --}}
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="fa-solid fa-bell-concierge"></i>
-                    Services
-                </a>
-            </li>
-            <li class="nav-item">
-                <a  class="nav-link" href="#">
-                    <i class="fa-solid fa-plus"></i>
-                    Add Service
-                </a>
-            </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="#">
                     <i class="fa-solid fa-subscript"></i>
