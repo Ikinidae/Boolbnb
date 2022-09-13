@@ -138,10 +138,23 @@
             <img id="preview" class="img-fluid" src="">
         </div>
 
+        {{-- DA SISTEMARE IL CHECKBOX DELLA VISIBLE --}}
         <div class="mb-3">
-            <label class="form-label" for="visible">Visible</label>
-            <input class="form-control @error('visible') is-invalid @enderror" type="text" name="visible" id="visible" value="{{ old('visible') }}">
-            {{-- <button type="button" class="btn btn-primary">Reset</button> --}}
+            <div>
+                <label for="visible">Visible</label>
+            </div>
+            <div>
+                <label class="form-label" for="visible">
+                    Yes
+                    <input class="@error('visible') is-invalid @enderror" type="radio" name="visible" id="visible" value="true">
+                </label>
+            </div>
+            <div>
+                <label class="form-label" for="visible">
+                    No
+                    <input class="@error('visible') is-invalid @enderror" type="radio" name="visible" id="visible" value="false">
+                </label>
+            </div>
             @error('visible')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -150,7 +163,6 @@
         </div>
 
 
-        {{-- DA SISTEMARE IL CHECKBOX DELLA VISIBLE --}}
         <fieldset class="mb-3">
             <legend>Services</legend>
             @foreach ($services as $service)
