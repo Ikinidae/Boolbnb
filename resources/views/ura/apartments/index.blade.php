@@ -58,7 +58,11 @@
                         <a href="{{ route('ura.apartments.edit', ['apartment' => $apartment]) }}" class="btn btn-warning">Edit</a>
                     </td>
                     <td>
-                        <button class="btn btn-danger js-delete">Delete</button>
+                        <form action="{{ route('ura.apartments.destroy', ['apartment' => $apartment]) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach

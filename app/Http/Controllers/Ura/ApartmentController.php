@@ -132,6 +132,9 @@ class ApartmentController extends Controller
      */
     public function destroy(Apartment $apartment)
     {
-        //
+        $apartment->services()->sync([]);
+        $apartment->delete();
+
+        return redirect()->route('ura.apartments.index')->with('deleted', "Il post {$apartment->title} è stato eliminato");
     }
 }
