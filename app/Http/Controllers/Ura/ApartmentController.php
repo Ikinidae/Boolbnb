@@ -37,6 +37,7 @@ class ApartmentController extends Controller
     {
         $apartments = Apartment::All()->where('user_id', auth()->user()->id);
         return view('ura.apartments.index', compact('apartments'));
+
     }
 
     /**
@@ -128,7 +129,7 @@ class ApartmentController extends Controller
         $img_path = Storage::put('uploads', $data['image']);
         $data['image'] = $img_path;
 
-        dd($data);
+        // dd($data);
 
         $apartment->update($data);
         $apartment->services()->sync($data['services']);
