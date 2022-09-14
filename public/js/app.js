@@ -40110,7 +40110,17 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 
 var app = new Vue({
   el: '#app'
-});
+}); // Tomtom search
+// const API_KEY = 'k8V0aFCAwuHo8eDICtxR16HCuAjRAWff';
+// var handleResults = function(result) {
+//     console.log('log3', result);
+// };
+// var search = function(){
+//     tt.services.fuzzySearch({
+//         key: API_KEY,
+//         query: document.getElementById("query").value,
+//     }).then(handleResults);
+// }
 
 /***/ }),
 

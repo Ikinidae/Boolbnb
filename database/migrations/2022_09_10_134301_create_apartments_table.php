@@ -24,8 +24,8 @@ class CreateApartmentsTable extends Migration
             $table->tinyInteger('bathrooms');
             $table->smallInteger('mq');
             $table->string('address');
-            $table->float('latitude', 7, 5);
-            $table->float('longitude', 8, 5);
+            $table->float('latitude', 7, 5)->nullable();
+            $table->float('longitude', 8, 5)->nullable();
             $table->string('image');
             $table->boolean('visible');
             $table->timestamps();

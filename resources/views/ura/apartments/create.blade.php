@@ -85,7 +85,9 @@
 
         <div class="mb-3">
             <label class="form-label" for="address">Address</label>
-            <input class="form-control @error('address') is-invalid @enderror" type="text" name="address" id="address" value="{{ old('address') }}">
+            <input onkeyup="search()" class="form-control @error('address') is-invalid @enderror" type="text" name="address" id="query" value="{{ old('address') }}">
+                {{-- <input onkeyup="search()"  type="text" id="query" value=""> --}}
+                {{-- <button onclick="search()">SEARCH</button> --}}
             {{-- <button type="button" class="btn btn-primary">Reset</button> --}}
             @error('address')
                 <div class="invalid-feedback">
@@ -97,7 +99,6 @@
         {{-- <div class="mb-3">
             <label class="form-label" for="latitude">Latitude</label>
             <input class="form-control @error('latitude') is-invalid @enderror" type="text" name="latitude" id="latitude" value="{{ old('latitude') }}">
-            <button type="button" class="btn btn-primary">Reset</button>
             @error('latitude')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -186,5 +187,30 @@
 
         <button type="submit" class="btn btn-primary">Save</button>
     </form>
+
+
+    <script>
+        const API_KEY = 'k8V0aFCAwuHo8eDICtxR16HCuAjRAWff';
+
+        var handleResults = function(result) {
+            let latLong = result.results[0].position;
+            console.log('log3', latLong);
+            // return JSON.stringify(latLong);
+            // console.log(JSON.stringify(latLong));
+            // return latLong;
+        };
+
+        // let latitude = latLong.lat;
+        // let longitude = latLong.lng;
+        // console.log(latitude);
+        // let latLongA = latLong;
+
+        var search = function(){
+            tt.services.fuzzySearch({
+                key: API_KEY,
+                query: document.getElementById("query").value,
+            }).then(handleResults);
+        }
+    </script>
 @endsection
 
