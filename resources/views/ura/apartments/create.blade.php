@@ -117,11 +117,7 @@
 
         <div class="mb-3">
             <label class="form-label" for="image">Image</label>
-<<<<<<< HEAD
-            <input class="form-control @error('image') is-invalid @enderror" type="text" name="image" id="image" accept="image/*" value="{{ old('image') }}">
-=======
             <input class="form-control @error('image') is-invalid @enderror" type="file" name="image" id="image" accept="image/*">
->>>>>>> 00b3d391d2928b3f37fc3b65b04f48b592273a57
             @error('image')
                 <div class="invalid-feedback">
                     {{ $message }}
