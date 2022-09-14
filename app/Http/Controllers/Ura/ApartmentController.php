@@ -149,7 +149,9 @@ class ApartmentController extends Controller
         $apartment->sponsorships()->detach();
 
         $apartment->messages()->delete();
+        $apartment->visits()->delete();
 
+        $apartment->delete();
         return redirect()->route('ura.apartments.index')->with('deleted', "Il post {$apartment->title} è stato eliminato");
     }
 }
