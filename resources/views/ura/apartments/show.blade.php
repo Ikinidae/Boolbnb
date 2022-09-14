@@ -2,7 +2,7 @@
 
 @section('mainContent')
     <h1>{{ $apartment->title }}</h1>
-    <img src="{{ $apartment->image }}" alt="{{ $apartment->title }}">
+    <img src="{{ asset('storage/' . $apartment->image) }}" alt="{{ $apartment->title }}">
     <h3>Price: {{ $apartment->price }}€ per night</h3>
     <h3>Rooms: {{ $apartment->rooms }}</h3>
     <h3>Bathrooms: {{ $apartment->bathrooms }}</h3>

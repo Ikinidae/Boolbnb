@@ -108,7 +108,6 @@
         <div class="mb-3">
             <label class="form-label" for="longitude">Longitude</label>
             <input class="form-control @error('longitude') is-invalid @enderror" type="text" name="longitude" id="longitude" value="{{ old('longitude') }}">
-            {{-- <button type="button" class="btn btn-primary">Reset</button> --}}
             @error('longitude')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -118,7 +117,7 @@
 
         <div class="mb-3">
             <label class="form-label" for="image">Image</label>
-            <input class="form-control @error('image') is-invalid @enderror" type="text" name="image" id="image" accept="image/*">
+            <input class="form-control @error('image') is-invalid @enderror" type="file" name="image" id="image" accept="image/*">
             @error('image')
                 <div class="invalid-feedback">
                     {{ $message }}
