@@ -117,7 +117,7 @@
             @enderror
         </div> --}}
 
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <label class="form-label" for="image">Image</label>
             <input class="form-control mb-3 @error('image') is-invalid @enderror" type="file" name="image" id="image" accept="image/*" value="{{ old('image', $apartment->image) }}">
             @error('image')
@@ -127,7 +127,7 @@
             @enderror
 
             <img id="preview" class="img-fluid" src="{{ asset('storage/' . $apartment ->image) }}">
-        </div>
+        </div> --}}
 
         <div class="mb-3">
             <div>

@@ -22,9 +22,9 @@ class ApartmentController extends Controller
         'bathrooms'     => 'required|numeric|integer',
         'mq'            => 'required|numeric|integer',
         'address'       => 'required|string|max:255',
-        'latitude'      => 'required|numeric|integer',
-        'longitude'     => 'required|numeric|integer',
-        'image'         => 'required|file|image|max:1024',
+        'latitude'      => 'numeric|integer',
+        'longitude'     => 'numeric|integer',
+        'image'         => 'file|image|max:1024',
         // 'visible'       => 'boolean',
     ];
 
@@ -123,12 +123,13 @@ class ApartmentController extends Controller
         $request->validate($this->validation_rules);
 
         $data = $request->all();
+        // dd($data);
 
-        if (key_exists('image', $data)) {
-            Storage::delete($apartment->image);
-        }
-        $img_path = Storage::put('uploads', $data['image']);
-        $data['image'] = $img_path;
+        // if (key_exists('image', $data)) {
+        //     Storage::delete($apartment->image);
+        // }
+        // $img_path = Storage::put('uploads', $data['image']);
+        // $data['image'] = $img_path;
 
         $apartment->update($data);
         $apartment->services()->sync($data['services']);
