@@ -128,7 +128,7 @@ class ApartmentController extends Controller
         $img_path = Storage::put('uploads', $data['image']);
         $data['image'] = $img_path;
 
-        dd($data);
+        // dd($data);
 
         $apartment->update($data);
         $apartment->services()->sync($data['services']);
