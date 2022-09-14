@@ -118,7 +118,7 @@
 
         <div class="mb-3">
             <label class="form-label" for="image">Image</label>
-            <input class="form-control @error('image') is-invalid @enderror" type="text" name="image" id="image" accept="image/*">
+            <input class="form-control @error('image') is-invalid @enderror" type="text" name="image" id="image" accept="image/*" value="{{ old('image') }}">
             @error('image')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -129,6 +129,9 @@
         </div>
 
         <div class="mb-3">
+            <div>
+                <label for="visible">Visible</label>
+            </div>
             <div class="form-check">
                 <input class="form-check-input @error('flexRadioDefault1') is-invalid @enderror" type="radio" name="visible" id="flexRadioDefault1" value="1">
                 <label class="form-check-label" for="flexRadioDefault1">

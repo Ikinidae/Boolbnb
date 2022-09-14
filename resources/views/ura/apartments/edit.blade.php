@@ -95,10 +95,10 @@
             @enderror
         </div>
 
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <label class="form-label" for="latitude">Latitude</label>
             <input class="form-control @error('latitude') is-invalid @enderror" type="text" name="latitude" id="latitude" value="{{ old('latitude', $apartment->latitude) }}">
-            {{-- <button type="button" class="btn btn-primary">Reset</button> --}}
+            <button type="button" class="btn btn-primary">Reset</button>
             @error('latitude')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -109,13 +109,13 @@
         <div class="mb-3">
             <label class="form-label" for="longitude">Longitude</label>
             <input class="form-control @error('longitude') is-invalid @enderror" type="text" name="longitude" id="longitude" value="{{ old('longitude', $apartment->longitude) }}">
-            {{-- <button type="button" class="btn btn-primary">Reset</button> --}}
+            <button type="button" class="btn btn-primary">Reset</button>
             @error('longitude')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
             @enderror
-        </div>
+        </div> --}}
 
         <div class="mb-3">
             <label class="form-label" for="image">Image</label>
@@ -129,24 +129,29 @@
             <img id="preview" class="img-fluid" src="">
         </div>
 
-        {{-- DA SISTEMARE IL CHECKBOX DELLA VISIBLE --}}
         <div class="mb-3">
             <div>
                 <label for="visible">Visible</label>
             </div>
             <div>
-
-                <input class="@error('visible') is-invalid @enderror" type="radio" name="visible" id="visible" value="true">
-                <label class="form-label" for="visible">Yes</label>
-
-                <input class="@error('visible') is-invalid @enderror" type="radio" name="visible" id="visible" value="false">
-                <label class="form-label" for="visible">No</label>
+                <div class="form-check">
+                    <input class="form-check-input @error('flexRadioDefault1') is-invalid @enderror" type="radio" name="visible" id="flexRadioDefault1" value="1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Yes
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input @error('flexRadioDefault2') is-invalid @enderror" type="radio" name="visible" id="flexRadioDefault2" value="0">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      No
+                    </label>
+                </div>
             </div>
-            @error('visible')
+            {{-- @error('visible')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
-            @enderror
+            @enderror --}}
         </div>
 
 
