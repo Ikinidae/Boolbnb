@@ -9,6 +9,7 @@ use App\Models\Sponsorship;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ApartmentController extends Controller
 {
@@ -23,7 +24,7 @@ class ApartmentController extends Controller
         'address'       => 'required|string|max:255',
         'latitude'      => 'required|numeric|integer',
         'longitude'     => 'required|numeric|integer',
-        'image'         => 'required|string|max:255',
+        'image'         => 'required|file|image|max:1024',
         // 'visible'       => 'boolean',
     ];
 
@@ -62,6 +63,7 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $apartment = new Apartment();
         $user_id = Auth::user()->id;
         $request->validate($this->validation_rules);
@@ -69,7 +71,9 @@ class ApartmentController extends Controller
         $data = $request->all();
         $data['user_id'] = $user_id;
 
-        // dd($data);
+        $img_path = Storage::put('uploads', $data['image']);
+        $data['image'] = $img_path;
+
         $apartment->fill($data);
         // dd($apartment);
         $apartment->save();
@@ -119,6 +123,12 @@ class ApartmentController extends Controller
         $request->validate($this->validation_rules);
 
         $data = $request->all();
+
+        if (key_exists('image', $data)) {
+            Storage::delete($apartment->image);
+        }
+        $img_path = Storage::put('uploads', $data['image']);
+        $data['image'] = $img_path;
 
         $apartment->update($data);
         $apartment->services()->sync($data['services']);
