@@ -27,7 +27,7 @@ class CreateApartmentsTable extends Migration
             $table->float('latitude', 7, 5);
             $table->float('longitude', 8, 5);
             $table->string('image');
-            $table->boolean('visible')->default(true);
+            $table->boolean('visible');
             $table->timestamps();
 
         });

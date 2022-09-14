@@ -24,7 +24,7 @@ class ApartmentController extends Controller
         'latitude'      => 'required|numeric|integer',
         'longitude'     => 'required|numeric|integer',
         'image'         => 'required|string|max:255',
-        'visible'       => 'boolean',
+        // 'visible'       => 'boolean',
     ];
 
     /**
@@ -69,7 +69,9 @@ class ApartmentController extends Controller
         $data = $request->all();
         $data['user_id'] = $user_id;
 
+        // dd($data);
         $apartment->fill($data);
+        // dd($apartment);
         $apartment->save();
         $apartment->services()->sync($data['services']);
 

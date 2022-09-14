@@ -135,16 +135,12 @@
                 <label for="visible">Visible</label>
             </div>
             <div>
-                <label class="form-label" for="visible">
-                    Yes
-                    <input class="@error('visible') is-invalid @enderror" type="radio" name="visible" id="visible" value="true">
-                </label>
-            </div>
-            <div>
-                <label class="form-label" for="visible">
-                    No
-                    <input class="@error('visible') is-invalid @enderror" type="radio" name="visible" id="visible" value="false">
-                </label>
+
+                <input class="@error('visible') is-invalid @enderror" type="radio" name="visible" id="visible" value="true">
+                <label class="form-label" for="visible">Yes</label>
+
+                <input class="@error('visible') is-invalid @enderror" type="radio" name="visible" id="visible" value="false">
+                <label class="form-label" for="visible">No</label>
             </div>
             @error('visible')
                 <div class="invalid-feedback">

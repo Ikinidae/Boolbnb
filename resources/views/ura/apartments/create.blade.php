@@ -128,28 +128,24 @@
             <img id="preview" class="img-fluid" src="">
         </div>
 
-        {{-- DA SISTEMARE IL CHECKBOX DELLA VISIBLE --}}
         <div class="mb-3">
-            <div>
-                <label for="visible">Visible</label>
-            </div>
-            <div>
-                <label class="form-label" for="visible">
-                    Yes
-                    <input class="@error('visible') is-invalid @enderror" type="radio" name="visible" id="visible" value="true">
+            <div class="form-check">
+                <input class="form-check-input @error('flexRadioDefault1') is-invalid @enderror" type="radio" name="visible" id="flexRadioDefault1" value="1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Yes
                 </label>
             </div>
-            <div>
-                <label class="form-label" for="visible">
-                    No
-                    <input class="@error('visible') is-invalid @enderror" type="radio" name="visible" id="visible" value="false">
+            <div class="form-check">
+                <input class="form-check-input @error('flexRadioDefault2') is-invalid @enderror" type="radio" name="visible" id="flexRadioDefault2" value="0" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                  No
                 </label>
             </div>
-            @error('visible')
+            {{-- @error('visible')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
-            @enderror
+            @enderror --}}
         </div>
 
 
