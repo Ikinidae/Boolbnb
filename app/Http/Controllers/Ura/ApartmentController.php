@@ -122,13 +122,13 @@ class ApartmentController extends Controller
     {
         $request->validate($this->validation_rules);
         $data = $request->all();
-        // dd($data);
 
-        // if (key_exists('image', $data)) {
-        //     Storage::delete($apartment->image);
-        // }
-        // $img_path = Storage::put('uploads', $data['image']);
-        // $data['image'] = $img_path;
+        Storage::delete($apartment->image);
+
+        $img_path = Storage::put('uploads', $data['image']);
+        $data['image'] = $img_path;
+
+        dd($data);
 
         $apartment->update($data);
         $apartment->services()->sync($data['services']);
