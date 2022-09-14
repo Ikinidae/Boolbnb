@@ -121,7 +121,6 @@ class ApartmentController extends Controller
     public function update(Request $request, Apartment $apartment)
     {
         $request->validate($this->validation_rules);
-
         $data = $request->all();
 
         if (key_exists('image', $data)) {
@@ -144,8 +143,11 @@ class ApartmentController extends Controller
      */
     public function destroy(Apartment $apartment)
     {
-        $apartment->services()->sync([]);
-        $apartment->delete();
+        // $apartment->services()->sync([]);
+        $apartment->services()->detach();
+        $apartment->sponsorships()->detach();
+
+        $apartment->messages()->delete();
 
         return redirect()->route('ura.apartments.index')->with('deleted', "Il post {$apartment->title} è stato eliminato");
     }
