@@ -16,15 +16,16 @@ class ApartmentController extends Controller
     protected $validation_rules = [
         'title'         => 'required|string|max:100',
         'description'   => 'required|string|max:1000',
-        'price'         => 'required|numeric|integer',
-        'rooms'         => 'required|numeric|integer',
-        'beds'          => 'required|numeric|integer',
-        'bathrooms'     => 'required|numeric|integer',
-        'mq'            => 'required|numeric|integer',
+        'price'         => 'required|numeric|integer|min:0',
+        'rooms'         => 'required|numeric|integer|min:0',
+        'beds'          => 'required|numeric|integer|min:0',
+        'bathrooms'     => 'required|numeric|integer|min:0',
+        'mq'            => 'required|numeric|integer|min:0',
         'address'       => 'required|string|max:255',
-        'latitude'      => 'numeric|integer',
-        'longitude'     => 'numeric|integer',
-        'image'         => 'file|image|max:1024',
+        // 'latitude'      => 'numeric|integer|min:0',
+        // 'longitude'     => 'numeric|integer|min:0',
+        'image'         => 'required|file|image|max:1024',
+        'services'      => 'required'
         // 'visible'       => 'boolean',
     ];
 
@@ -37,6 +38,7 @@ class ApartmentController extends Controller
     {
         $apartments = Apartment::All()->where('user_id', auth()->user()->id);
         return view('ura.apartments.index', compact('apartments'));
+
     }
 
     /**
@@ -128,7 +130,7 @@ class ApartmentController extends Controller
         $img_path = Storage::put('uploads', $data['image']);
         $data['image'] = $img_path;
 
-        dd($data);
+        // dd($data);
 
         $apartment->update($data);
         $apartment->services()->sync($data['services']);

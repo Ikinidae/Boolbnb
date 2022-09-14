@@ -94,10 +94,10 @@
             @enderror
         </div>
 
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <label class="form-label" for="latitude">Latitude</label>
             <input class="form-control @error('latitude') is-invalid @enderror" type="text" name="latitude" id="latitude" value="{{ old('latitude') }}">
-            {{-- <button type="button" class="btn btn-primary">Reset</button> --}}
+            <button type="button" class="btn btn-primary">Reset</button>
             @error('latitude')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -113,7 +113,7 @@
                     {{ $message }}
                 </div>
             @enderror
-        </div>
+        </div> --}}
 
         <div class="mb-3">
             <label class="form-label" for="image">Image</label>
@@ -143,21 +143,22 @@
                   No
                 </label>
             </div>
-            {{-- @error('visible')
+            @error('visible')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
-            @enderror --}}
+            @enderror
         </div>
 
 
         <fieldset class="mb-3">
             <legend>Services</legend>
+            <p>*Insert at least one service</p>
             @foreach ($services as $service)
                 <div class="form-check">
 
                     <input
-                        class="form-check-input"
+                        class="form-check-input @error('services') is-invalid @enderror"
                         type="checkbox"
                         name="services[]"
                         value="{{ $service->id }}"
@@ -165,16 +166,22 @@
                         @if(in_array($service->id, old('services') ?: [])) checked @endif
                     >
                     <label class="form-check-label" for="service-{{ $service->id }}">{{ $service->name }}</label>
-                </div>
-            @endforeach
 
-            @foreach ($errors->get('services.*') as $messages)
-                @foreach ($messages as $message)
-                    <div class="invalid-feedback d-block">
+                </div>
+                @endforeach
+
+                {{-- @foreach ($errors->get('services.*') as $messages)
+                    @foreach ($messages as $message)
+                        <div class="invalid-feedback d-block">
+                            {{ $message }}
+                        </div>
+                    @endforeach
+                @endforeach --}}
+                {{-- @error('services')
+                    <div class="invalid-feedback">
                         {{ $message }}
                     </div>
-                @endforeach
-            @endforeach
+                @enderror --}}
         </fieldset>
 
         <button type="submit" class="btn btn-primary">Save</button>
