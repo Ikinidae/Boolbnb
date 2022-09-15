@@ -15,6 +15,14 @@
   </div>
 @endif
 
+{{-- @if ()
+<div>
+
+</div>
+@endif --}}
+
+
+
     <h1>Apartments</h1>
     <table class="table table-striped">
         <thead>
