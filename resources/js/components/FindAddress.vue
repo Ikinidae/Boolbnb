@@ -38,8 +38,8 @@ export default {
         return{
             api_key: 'k8V0aFCAwuHo8eDICtxR16HCuAjRAWff',
             latLong: [],
-            latitude: 10,
-            longitude: 21,
+            latitude: null,
+            longitude: null,
         };
     },
     mounted() {
@@ -48,11 +48,17 @@ export default {
     methods: {
         addressSearch() {
             tt.services.fuzzySearch({
-                key: api_key,
+                key: this.api_key,
                 query: document.getElementById("query").value,
-            }).then(handleResults);
+            }).then(this.handleResults);
         },
-        handleResults() {
+        handleResults(result) {
+            this.latLong = result.results[0].position;
+            this.latitude = this.latLong.lat;
+            this.longitude = this.latLong.lng;
+            console.log('log1', this.latLong);
+            console.log('log2', this.latitude);
+            console.log('log3', this.longitude);
 
         }
     }
