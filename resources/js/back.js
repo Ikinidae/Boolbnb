@@ -8,7 +8,7 @@ import FindAddress from './components/FindAddress.vue';
 
 const app = new Vue({
     el: '#root',
-    render: h=>h(FindAddress)
+    render: h => h(FindAddress)
 });
 
 
@@ -27,18 +27,25 @@ const app = new Vue({
 //     }).then(handleResults);
 // }
 
+const password = document.getElementById('password');
+const passwordConfirm = document.getElementById('password_confirm');
 
-// function dio() {
-//     const password = document.getElementById('password');
-//     const passwordConfirm = document.getElementById('password_confirm');
+passwordConfirm.addEventListener("input", (event) => {
+    if (password.value !== passwordConfirm.value) {
+        passwordConfirm.setCustomValidity("Passwords don't match");
+        passwordConfirm.reportValidity();
+    } else {
+        passwordConfirm.setCustomValidity("");
+    }
+});
 
-//     if (password.value !== passwordConfirm.value) {
-//         alert("Le password non corrispondono");
-//         console.log("ca la facciamo");
-//     };
-// }
+const email = document.getElementById("email");
 
-
-// function pippo() {
-//     console.log("daje");
-// }
+email.addEventListener("input", (event) => {
+    if (email.validity.typeMismatch) {
+        email.setCustomValidity("I am expecting an e-mail address!");
+        email.reportValidity();
+    } else {
+        email.setCustomValidity("");
+    }
+});

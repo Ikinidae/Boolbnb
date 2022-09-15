@@ -40194,17 +40194,26 @@ var app = new Vue({
 //         query: document.getElementById("query").value,
 //     }).then(handleResults);
 // }
-// function dio() {
-//     const password = document.getElementById('password');
-//     const passwordConfirm = document.getElementById('password_confirm');
-//     if (password.value !== passwordConfirm.value) {
-//         alert("Le password non corrispondono");
-//         console.log("ca la facciamo");
-//     };
-// }
-// function pippo() {
-//     console.log("daje");
-// }
+
+var password = document.getElementById('password');
+var passwordConfirm = document.getElementById('password_confirm');
+passwordConfirm.addEventListener("input", function (event) {
+  if (password.value !== passwordConfirm.value) {
+    passwordConfirm.setCustomValidity("Passwords don't match");
+    passwordConfirm.reportValidity();
+  } else {
+    passwordConfirm.setCustomValidity("");
+  }
+});
+var email = document.getElementById("email");
+email.addEventListener("input", function (event) {
+  if (email.validity.typeMismatch) {
+    email.setCustomValidity("I am expecting an e-mail address!");
+    email.reportValidity();
+  } else {
+    email.setCustomValidity("");
+  }
+});
 
 /***/ }),
 
