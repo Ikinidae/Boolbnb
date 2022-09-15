@@ -85,7 +85,7 @@
 
         <div class="mb-3">
             <label class="form-label" for="address">Address</label>
-            <input onkeyup="search()" class="form-control @error('address') is-invalid @enderror" type="text" name="address" id="query" value="{{ old('address') }}">
+            <input onchange="search()" class="form-control @error('address') is-invalid @enderror" type="text" name="address" id="query" value="{{ old('address') }}">
                 {{-- <input onkeyup="search()"  type="text" id="query" value=""> --}}
                 {{-- <button onclick="search()">SEARCH</button> --}}
             {{-- <button type="button" class="btn btn-primary">Reset</button> --}}
@@ -192,14 +192,18 @@
     <script>
         const API_KEY = 'k8V0aFCAwuHo8eDICtxR16HCuAjRAWff';
 
+        // let latitude = null;
+        // let longitude = null;
         var handleResults = function(result) {
             let latLong = result.results[0].position;
             console.log('log3', latLong);
             // return JSON.stringify(latLong);
             // console.log(JSON.stringify(latLong));
             // return latLong;
+            // this.latitude = latLong.
         };
 
+        // let placeName =
         // let latitude = latLong.lat;
         // let longitude = latLong.lng;
         // console.log(latitude);
