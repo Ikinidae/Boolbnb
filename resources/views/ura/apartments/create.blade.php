@@ -159,7 +159,7 @@
                 <div class="form-check">
 
                     <input
-                        class="form-check-input @error('services') is-invalid @enderror"
+                        class="form-check-input @error('services') is-invalid @enderror @error('services') is-invalid @enderror"
                         type="checkbox"
                         name="services[]"
                         value="{{ $service->id }}"
@@ -167,22 +167,22 @@
                         @if(in_array($service->id, old('services') ?: [])) checked @endif
                     >
                     <label class="form-check-label" for="service-{{ $service->id }}">{{ $service->name }}</label>
-
                 </div>
-                @endforeach
+            @endforeach
 
-                {{-- @foreach ($errors->get('services.*') as $messages)
-                    @foreach ($messages as $message)
-                        <div class="invalid-feedback d-block">
-                            {{ $message }}
-                        </div>
-                    @endforeach
-                @endforeach --}}
-                {{-- @error('services')
-                    <div class="invalid-feedback">
+            @error('services')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
+
+            {{-- @foreach ($errors->get('services.*') as $messages)
+                @foreach ($messages as $message)
+                    <div class="invalid-feedback d-block">
                         {{ $message }}
                     </div>
-                @enderror --}}
+                @endforeach
+            @endforeach --}}
         </fieldset>
 
         <button type="submit" class="btn btn-primary">Save</button>
