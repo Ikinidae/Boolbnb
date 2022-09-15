@@ -157,7 +157,7 @@
                 <div class="form-check">
 
                     <input
-                        class="form-check-input"
+                        class="form-check-input @error('services') is-invalid @enderror"
                         type="checkbox"
                         name="services[]"
                         value="{{ $service->id }}"
@@ -168,13 +168,19 @@
                 </div>
             @endforeach
 
-            @foreach ($errors->get('services.*') as $messages)
+            @error('services')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
+
+            {{-- @foreach ($errors->get('services.*') as $messages)
                 @foreach ($messages as $message)
                     <div class="invalid-feedback d-block">
                         {{ $message }}
                     </div>
                 @endforeach
-            @endforeach
+            @endforeach --}}
         </fieldset>
 
         <button type="submit" class="btn btn-primary">Save</button>
