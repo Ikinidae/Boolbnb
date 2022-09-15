@@ -1,6 +1,20 @@
 @extends('ura.layouts.base')
 
+
 @section('mainContent')
+@if (session('deleted'))
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {!! session('deleted') !!}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+@endif
+@if (session('created'))
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {!! session('created') !!}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+@endif
+
     <h1>Apartments</h1>
     <table class="table table-striped">
         <thead>
@@ -65,7 +79,7 @@
                         <form action="{{ route('ura.apartments.destroy', ['apartment' => $apartment]) }}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Sei sicuro di voler eliminare {{$apartment ->title}}?')">Delete</button>
                         </form>
                     </td>
                 </tr>
@@ -76,7 +90,7 @@
     {{-- {{ $posts->links() }} --}}
 
     {{-- <section class="overlay d-none">
-        <form class="popup" data-action="{{ route('admin.posts.destroy', ['post' => '*****']) }}" method="post">
+        <form class="popup" data-action="{{ route('ura.apartaments.destroy', ['apartament' => '*****']) }}" method="post">
             @csrf
             @method('DELETE')
 

@@ -81,7 +81,8 @@ class ApartmentController extends Controller
         $apartment->save();
         $apartment->services()->sync($data['services']);
 
-        return redirect()->route('ura.apartments.index');
+        return redirect()->route('ura.apartments.index')->with('created', "The apartment {$apartment->title} has been created");
+
     }
 
     /**
@@ -154,6 +155,6 @@ class ApartmentController extends Controller
         $apartment->visits()->delete();
 
         $apartment->delete();
-        return redirect()->route('ura.apartments.index')->with('deleted', "Il post {$apartment->title} è stato eliminato");
+        return redirect()->route('ura.apartments.index')->with('deleted', "The apartment {$apartment->title} has been deleted");
     }
 }
