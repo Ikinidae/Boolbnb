@@ -85,7 +85,9 @@
 
         <div class="mb-3">
             <label class="form-label" for="address">Address</label>
-            <input class="form-control @error('address') is-invalid @enderror" type="text" name="address" id="address" value="{{ old('address') }}">
+            <input onkeyup="search()" class="form-control @error('address') is-invalid @enderror" type="text" name="address" id="query" value="{{ old('address') }}">
+                {{-- <input onkeyup="search()"  type="text" id="query" value=""> --}}
+                {{-- <button onclick="search()">SEARCH</button> --}}
             {{-- <button type="button" class="btn btn-primary">Reset</button> --}}
             @error('address')
                 <div class="invalid-feedback">
@@ -94,10 +96,9 @@
             @enderror
         </div>
 
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <label class="form-label" for="latitude">Latitude</label>
             <input class="form-control @error('latitude') is-invalid @enderror" type="text" name="latitude" id="latitude" value="{{ old('latitude') }}">
-            {{-- <button type="button" class="btn btn-primary">Reset</button> --}}
             @error('latitude')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -113,7 +114,7 @@
                     {{ $message }}
                 </div>
             @enderror
-        </div>
+        </div> --}}
 
         <div class="mb-3">
             <label class="form-label" for="image">Image</label>
@@ -143,21 +144,22 @@
                   No
                 </label>
             </div>
-            {{-- @error('visible')
+            @error('visible')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
-            @enderror --}}
+            @enderror
         </div>
 
 
         <fieldset class="mb-3">
             <legend>Services</legend>
+            <p>*Insert at least one service</p>
             @foreach ($services as $service)
                 <div class="form-check">
 
                     <input
-                        class="form-check-input @error('services') is-invalid @enderror"
+                        class="form-check-input @error('services') is-invalid @enderror @error('services') is-invalid @enderror"
                         type="checkbox"
                         name="services[]"
                         value="{{ $service->id }}"
@@ -185,5 +187,30 @@
 
         <button type="submit" class="btn btn-primary">Save</button>
     </form>
+
+
+    <script>
+        const API_KEY = 'k8V0aFCAwuHo8eDICtxR16HCuAjRAWff';
+
+        var handleResults = function(result) {
+            let latLong = result.results[0].position;
+            console.log('log3', latLong);
+            // return JSON.stringify(latLong);
+            // console.log(JSON.stringify(latLong));
+            // return latLong;
+        };
+
+        // let latitude = latLong.lat;
+        // let longitude = latLong.lng;
+        // console.log(latitude);
+        // let latLongA = latLong;
+
+        var search = function(){
+            tt.services.fuzzySearch({
+                key: API_KEY,
+                query: document.getElementById("query").value,
+            }).then(handleResults);
+        }
+    </script>
 @endsection
 

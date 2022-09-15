@@ -147,21 +147,22 @@
                     </label>
                 </div>
             </div>
-            {{-- @error('visible')
+            @error('visible')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
-            @enderror --}}
+            @enderror
         </div>
 
 
         <fieldset class="mb-3">
             <legend>Services</legend>
+            <p>*Insert at least one service</p>
             @foreach ($services as $service)
                 <div class="form-check">
 
                     <input
-                        class="form-check-input"
+                        class="form-check-input @error('services') is-invalid @enderror"
                         type="checkbox"
                         name="services[]"
                         value="{{ $service->id }}"
