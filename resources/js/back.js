@@ -27,3 +27,18 @@ const app = new Vue({
 //     }).then(handleResults);
 // }
 
+
+// function dio() {
+//     const password = document.getElementById('password');
+//     const passwordConfirm = document.getElementById('password_confirm');
+
+//     if (password.value !== passwordConfirm.value) {
+//         alert("Le password non corrispondono");
+//         console.log("ca la facciamo");
+//     };
+// }
+
+
+// function pippo() {
+//     console.log("daje");
+// }

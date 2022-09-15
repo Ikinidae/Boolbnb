@@ -5153,19 +5153,26 @@ __webpack_require__.r(__webpack_exports__);
     return {
       api_key: 'k8V0aFCAwuHo8eDICtxR16HCuAjRAWff',
       latLong: [],
-      latitude: 10,
-      longitude: 21
+      latitude: null,
+      longitude: null
     };
   },
   mounted: function mounted() {},
   methods: {
     addressSearch: function addressSearch() {
       tt.services.fuzzySearch({
-        key: api_key,
+        key: this.api_key,
         query: document.getElementById("query").value
-      }).then(handleResults);
+      }).then(this.handleResults);
     },
-    handleResults: function handleResults() {}
+    handleResults: function handleResults(result) {
+      this.latLong = result.results[0].position;
+      this.latitude = this.latLong.lat;
+      this.longitude = this.latLong.lng;
+      console.log('log1', this.latLong);
+      console.log('log2', this.latitude);
+      console.log('log3', this.longitude);
+    }
   }
 });
 
@@ -5258,6 +5265,14 @@ var render = function render() {
         _vm.longitude = $event.target.value;
       }
     }
+  }), _vm._v(" "), _c("div", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.latLong.length > 0,
+      expression: "latLong.length > 0"
+    }],
+    staticClass: "form-create address-form2"
   })]);
 };
 
@@ -28924,7 +28939,7 @@ function createTextVNode(val) {
 // multiple renders, cloning them avoids errors when DOM manipulations rely
 // on their elm reference.
 function cloneVNode(vnode) {
-    const cloned = new VNode(vnode.tag, vnode.data, 
+    const cloned = new VNode(vnode.tag, vnode.data,
     // #7975
     // clone children array to avoid mutating original in case of cloning
     // a child.
@@ -30298,7 +30313,7 @@ function bindObjectListeners(data, value) {
     return data;
 }
 
-function resolveScopedSlots(fns, res, 
+function resolveScopedSlots(fns, res,
 // the following are added in 2.6
 hasDynamicKeys, contentHashKey) {
     res = res || { $stable: !hasDynamicKeys };
@@ -32334,7 +32349,7 @@ let uid$1 = 0;
  */
 class Watcher {
     constructor(vm, expOrFn, cb, options, isRenderWatcher) {
-        recordEffectScope(this, 
+        recordEffectScope(this,
         // if the active effect scope is manually created (not a component scope),
         // prioritize it
         activeEffectScope && !activeEffectScope._vm
@@ -33234,14 +33249,14 @@ function createComponent(Ctor, data, context, children, tag) {
     const name = getComponentName(Ctor.options) || tag;
     const vnode = new VNode(
     // @ts-expect-error
-    `vue-component-${Ctor.cid}${name ? `-${name}` : ''}`, data, undefined, undefined, undefined, context, 
+    `vue-component-${Ctor.cid}${name ? `-${name}` : ''}`, data, undefined, undefined, undefined, context,
     // @ts-expect-error
     { Ctor, propsData, listeners, tag, children }, asyncFactory);
     return vnode;
 }
 function createComponentInstanceForVnode(
 // we know it's MountedComponentVNode but flow doesn't
-vnode, 
+vnode,
 // activeInstance in lifecycle state
 parent) {
     const options = {
@@ -35304,7 +35319,7 @@ function createPatchFunction(backend) {
                 const oldElm = oldVnode.elm;
                 const parentElm = nodeOps.parentNode(oldElm);
                 // create new node
-                createElm(vnode, insertedVnodeQueue, 
+                createElm(vnode, insertedVnodeQueue,
                 // extremely rare edge case: do not insert if old element is in a
                 // leaving transition. Only happens when combining transition +
                 // keep-alive + HOCs. (#4590)
@@ -36202,7 +36217,7 @@ function add(name, handler, capture, passive) {
     target.addEventListener(name, handler, supportsPassive ? { capture, passive } : capture);
 }
 function remove(name, handler, capture, _target) {
-    (_target || target).removeEventListener(name, 
+    (_target || target).removeEventListener(name,
     //@ts-expect-error
     handler._wrapper || handler, capture);
 }
@@ -40179,6 +40194,17 @@ var app = new Vue({
 //         query: document.getElementById("query").value,
 //     }).then(handleResults);
 // }
+// function dio() {
+//     const password = document.getElementById('password');
+//     const passwordConfirm = document.getElementById('password_confirm');
+//     if (password.value !== passwordConfirm.value) {
+//         alert("Le password non corrispondono");
+//         console.log("ca la facciamo");
+//     };
+// }
+// function pippo() {
+//     console.log("daje");
+// }
 
 /***/ }),
 
@@ -40253,7 +40279,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   null,
   null,
   null
-  
+
 )
 
 /* hot reload */
@@ -40273,7 +40299,7 @@ component.options.__file = "resources/js/components/FindAddress.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FindAddress_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./FindAddress.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FindAddress.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FindAddress_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FindAddress_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 /***/ }),
 
@@ -40313,8 +40339,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/giovanniciotta/Documents/Boolean/esercizi/boolbnb/resources/js/back.js */"./resources/js/back.js");
-module.exports = __webpack_require__(/*! /Users/giovanniciotta/Documents/Boolean/esercizi/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/Ikaa/Desktop/Esercizi/Progetto finale/Boolbnb/resources/js/back.js */"./resources/js/back.js");
+module.exports = __webpack_require__(/*! /Users/Ikaa/Desktop/Esercizi/Progetto finale/Boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

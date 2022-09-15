@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open 'D:\\Boolean\\Corso\\Seconda Parte Corso\\Settembre\\progettoFinale\\BoolBnB\\Boolbnb\\resources\\js\\app.js'");
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/Users/Ikaa/Desktop/Esercizi/Progetto finale/Boolbnb/resources/js/app.js'");
 
 /***/ }),
 
@@ -115,8 +115,8 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Boolean\Corso\Seconda Parte Corso\Settembre\progettoFinale\BoolBnB\Boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Boolean\Corso\Seconda Parte Corso\Settembre\progettoFinale\BoolBnB\Boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/Ikaa/Desktop/Esercizi/Progetto finale/Boolbnb/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/Ikaa/Desktop/Esercizi/Progetto finale/Boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
