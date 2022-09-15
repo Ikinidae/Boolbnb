@@ -16,9 +16,10 @@ mix.js('resources/js/back.js', 'public/js')
     .copy(
         'node_modules/@fortawesome/fontawesome-free/webfonts',
         'public/webfonts'
-    );
+    )
+    .options({
+        processCssUrls: false
+    });
 
 
-    // .options({
-    //     processCssUrls: false
-    // });                          da rivedere
+

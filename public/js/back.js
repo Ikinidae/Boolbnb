@@ -40186,6 +40186,17 @@ var app = new Vue({
 //         query: document.getElementById("query").value,
 //     }).then(handleResults);
 // }
+// function dio() {
+//     const password = document.getElementById('password');
+//     const passwordConfirm = document.getElementById('password_confirm');
+//     if (password.value !== passwordConfirm.value) {
+//         alert("Le password non corrispondono");
+//         console.log("ca la facciamo");
+//     };
+// }
+// function pippo() {
+//     console.log("daje");
+// }
 
 /***/ }),
 
@@ -40320,8 +40331,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Boolean\Corso\Seconda Parte Corso\Settembre\progettoFinale\BoolBnB\Boolbnb\resources\js\back.js */"./resources/js/back.js");
-module.exports = __webpack_require__(/*! D:\Boolean\Corso\Seconda Parte Corso\Settembre\progettoFinale\BoolBnB\Boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/Ikaa/Desktop/Esercizi/Progetto finale/Boolbnb/resources/js/back.js */"./resources/js/back.js");
+module.exports = __webpack_require__(/*! /Users/Ikaa/Desktop/Esercizi/Progetto finale/Boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
