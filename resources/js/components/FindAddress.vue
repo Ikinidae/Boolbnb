@@ -5,27 +5,27 @@
         <input
             required
             autocomplete="off"
-            @change="addressSearch"
+            @keyup="addressSearch"
             type="text"
             class="form-control form-create address-form"
             name="address"
             id="query"
-            v-model="address"
+            v-model="searchAddess"
         />
-        <input type="text"  name="latitude" v-model="latitude" />
-        <input type="text"  name="longitude" v-model="longitude" />
-        <div class="form-create address-form2" v-show="latLong.length > 0">
-            <!-- <ul class="list-type">
+        <input type="text" hidden name="latitude" v-model="latitude" />
+        <input type="text" hidden name="longitude" v-model="longitude" />
+        <div class="form-create address-form2" v-show="nameAddress.length > 0">
+            <ul class="list-type">
                 <li
                     :key="i"
-                    v-for="(result, i) in results"
+                    v-for="(name, i) in nameAddress"
                     @click="selectAddress(i)"
                     style="cursor: pointer"
                     class="li-hover"
                 >
-                    {{ result.address.freeformAddress }}
+                    {{ name.address.freeformAddress }}
                 </li>
-            </ul> -->
+            </ul>
         </div>
     </div>
 </template>
@@ -37,9 +37,10 @@ export default {
     data(){
         return{
             api_key: 'k8V0aFCAwuHo8eDICtxR16HCuAjRAWff',
-            latLong: [],
             latitude: null,
             longitude: null,
+            nameAddress: [],
+            searchAddess:[]
         };
     },
     mounted() {
@@ -53,13 +54,23 @@ export default {
             }).then(this.handleResults);
         },
         handleResults(result) {
-            this.latLong = result.results[0].position;
-            this.latitude = this.latLong.lat;
-            this.longitude = this.latLong.lng;
-            console.log('log1', this.latLong);
-            console.log('log2', this.latitude);
-            console.log('log3', this.longitude);
+            this.nameAddress = result.results;
+            console.log('risultati',this.nameAddress);
+            // console.log('log1', this.latLong);
+            // console.log('log2', this.latitude);
+            // console.log('log3', this.longitude);
+        },
+        selectAddress(i){
+            this.searchAddess = this.nameAddress[i].address.freeformAddress;
+            this.latitude = this.nameAddress[i].position.lat;
+            this.longitude = this.nameAddress[i].position.lng;
+            this.nameAddress = []
+            // console.log('address', this.nameAddress);
+            // console.log('lat', this.latitude);
+            // console.log('lon', this.longitude);
         }
+
+
     }
 
 }

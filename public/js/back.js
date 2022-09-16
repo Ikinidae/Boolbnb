@@ -5152,9 +5152,10 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       api_key: 'k8V0aFCAwuHo8eDICtxR16HCuAjRAWff',
-      latLong: [],
       latitude: null,
-      longitude: null
+      longitude: null,
+      nameAddress: [],
+      searchAddess: []
     };
   },
   mounted: function mounted() {},
@@ -5166,12 +5167,18 @@ __webpack_require__.r(__webpack_exports__);
       }).then(this.handleResults);
     },
     handleResults: function handleResults(result) {
-      this.latLong = result.results[0].position;
-      this.latitude = this.latLong.lat;
-      this.longitude = this.latLong.lng;
-      console.log('log1', this.latLong);
-      console.log('log2', this.latitude);
-      console.log('log3', this.longitude);
+      this.nameAddress = result.results;
+      console.log('risultati', this.nameAddress); // console.log('log1', this.latLong);
+      // console.log('log2', this.latitude);
+      // console.log('log3', this.longitude);
+    },
+    selectAddress: function selectAddress(i) {
+      this.searchAddess = this.nameAddress[i].address.freeformAddress;
+      this.latitude = this.nameAddress[i].position.lat;
+      this.longitude = this.nameAddress[i].position.lng;
+      this.nameAddress = []; // console.log('address', this.nameAddress);
+      // console.log('lat', this.latitude);
+      // console.log('lon', this.longitude);
     }
   }
 });
@@ -5204,8 +5211,8 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.address,
-      expression: "address"
+      value: _vm.searchAddess,
+      expression: "searchAddess"
     }],
     staticClass: "form-control form-create address-form",
     attrs: {
@@ -5216,13 +5223,13 @@ var render = function render() {
       id: "query"
     },
     domProps: {
-      value: _vm.address
+      value: _vm.searchAddess
     },
     on: {
-      change: _vm.addressSearch,
+      keyup: _vm.addressSearch,
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.address = $event.target.value;
+        _vm.searchAddess = $event.target.value;
       }
     }
   }), _vm._v(" "), _c("input", {
@@ -5234,6 +5241,7 @@ var render = function render() {
     }],
     attrs: {
       type: "text",
+      hidden: "",
       name: "latitude"
     },
     domProps: {
@@ -5254,6 +5262,7 @@ var render = function render() {
     }],
     attrs: {
       type: "text",
+      hidden: "",
       name: "longitude"
     },
     domProps: {
@@ -5269,11 +5278,26 @@ var render = function render() {
     directives: [{
       name: "show",
       rawName: "v-show",
-      value: _vm.latLong.length > 0,
-      expression: "latLong.length > 0"
+      value: _vm.nameAddress.length > 0,
+      expression: "nameAddress.length > 0"
     }],
     staticClass: "form-create address-form2"
-  })]);
+  }, [_c("ul", {
+    staticClass: "list-type"
+  }, _vm._l(_vm.nameAddress, function (name, i) {
+    return _c("li", {
+      key: i,
+      staticClass: "li-hover",
+      staticStyle: {
+        cursor: "pointer"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.selectAddress(i);
+        }
+      }
+    }, [_vm._v("\n                " + _vm._s(name.address.freeformAddress) + "\n            ")]);
+  }), 0)])]);
 };
 
 var staticRenderFns = [];
@@ -40337,7 +40361,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: Can't find stylesheet to import.\n   ╷\n12 │ @import \"~@fortawesome/fontawesome-free/scss/fontawesome\";\r\n   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   ╵\n  C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\resources\\sass\\app.scss 12:9  root stylesheet\n    at C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\webpack\\lib\\NormalModule.js:316:20\n    at C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18\n    at context.callback (C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\loader-runner\\lib\\LoaderRunner.js:111:13)\n    at C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\sass-loader\\dist\\index.js:73:7\n    at Function.call$2 (C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\sass\\sass.dart.js:101407:16)\n    at render_closure1.call$2 (C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\sass\\sass.dart.js:86406:12)\n    at _RootZone.runBinary$3$3 (C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\sass\\sass.dart.js:30016:18)\n    at _FutureListener.handleError$1 (C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\sass\\sass.dart.js:28545:21)\n    at _Future__propagateToListeners_handleError.call$0 (C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\sass\\sass.dart.js:28852:49)\n    at Object._Future__propagateToListeners (C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\sass\\sass.dart.js:3911:77)\n    at _Future._completeError$2 (C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\sass\\sass.dart.js:28698:9)\n    at _AsyncAwaitCompleter.completeError$2 (C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\sass\\sass.dart.js:28346:12)\n    at Object._asyncRethrow (C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\sass\\sass.dart.js:3713:17)\n    at C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\sass\\sass.dart.js:20090:20\n    at _wrapJsFunctionForAsync_closure.$protected (C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\sass\\sass.dart.js:3738:15)\n    at _wrapJsFunctionForAsync_closure.call$2 (C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\sass\\sass.dart.js:28365:12)\n    at _awaitOnObject_closure0.call$2 (C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\sass\\sass.dart.js:28359:25)\n    at _RootZone.runBinary$3$3 (C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\sass\\sass.dart.js:30016:18)\n    at _FutureListener.handleError$1 (C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\sass\\sass.dart.js:28545:21)\n    at _Future__propagateToListeners_handleError.call$0 (C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\sass\\sass.dart.js:28852:49)\n    at Object._Future__propagateToListeners (C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\sass\\sass.dart.js:3911:77)\n    at _Future._completeError$2 (C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\sass\\sass.dart.js:28698:9)\n    at _AsyncAwaitCompleter.completeError$2 (C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\sass\\sass.dart.js:28346:12)\n    at Object._asyncRethrow (C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\sass\\sass.dart.js:3713:17)\n    at C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\sass\\sass.dart.js:15501:20\n    at _wrapJsFunctionForAsync_closure.$protected (C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\sass\\sass.dart.js:3738:15)\n    at _wrapJsFunctionForAsync_closure.call$2 (C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\sass\\sass.dart.js:28365:12)\n    at _awaitOnObject_closure0.call$2 (C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\sass\\sass.dart.js:28359:25)\n    at _RootZone.runBinary$3$3 (C:\\Users\\Tommaso\\Desktop\\BOOLEAN\\ESERCIZI\\Boolbnb\\node_modules\\sass\\sass.dart.js:30016:18)");
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
