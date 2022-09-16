@@ -8,6 +8,8 @@
         @csrf
         @method('put')
 
+
+        {{-- Title --}}
         <div class="mb-3">
             <label class="form-label" for="title">Title</label>
             <input class="form-control @error('title') is-invalid @enderror" type="text" name="title" id="title" value="{{ old('title', $apartment->title) }}">
@@ -18,10 +20,11 @@
             @enderror
         </div>
 
+        {{-- Description --}}
         <div class="mb-3">
             <label class="form-label" for="description">Description</label>
             <input class="form-control @error('description') is-invalid @enderror" type="text" name="description" id="description" value="{{ old('description', $apartment->description) }}">
-            {{-- <button type="button" class="btn btn-primary">Reset</button> --}}
+
             @error('description')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -29,10 +32,11 @@
             @enderror
         </div>
 
+        {{-- Price --}}
         <div class="mb-3">
             <label class="form-label" for="price">Price</label>
             <input class="form-control @error('price') is-invalid @enderror" type="text" name="price" id="price" value="{{ old('price', $apartment->price) }}">
-            {{-- <button type="button" class="btn btn-primary">Reset</button> --}}
+
             @error('price')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -40,10 +44,11 @@
             @enderror
         </div>
 
+        {{-- Rooms --}}
         <div class="mb-3">
             <label class="form-label" for="rooms">Rooms</label>
             <input class="form-control @error('rooms') is-invalid @enderror" type="text" name="rooms" id="rooms" value="{{ old('rooms', $apartment->rooms) }}">
-            {{-- <button type="button" class="btn btn-primary">Reset</button> --}}
+
             @error('rooms')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -51,10 +56,11 @@
             @enderror
         </div>
 
+         {{-- Beds --}}
         <div class="mb-3">
             <label class="form-label" for="beds">Beds</label>
             <input class="form-control @error('beds') is-invalid @enderror" type="text" name="beds" id="beds" value="{{ old('beds', $apartment->beds) }}">
-            {{-- <button type="button" class="btn btn-primary">Reset</button> --}}
+
             @error('beds')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -62,10 +68,11 @@
             @enderror
         </div>
 
+         {{-- Bathrooms --}}
         <div class="mb-3">
             <label class="form-label" for="bathrooms">Bathrooms</label>
             <input class="form-control @error('bathrooms') is-invalid @enderror" type="text" name="bathrooms" id="bathrooms" value="{{ old('bathrooms', $apartment->bathrooms) }}">
-            {{-- <button type="button" class="btn btn-primary">Reset</button> --}}
+
             @error('bathrooms')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -73,10 +80,11 @@
             @enderror
         </div>
 
+         {{-- Mq --}}
         <div class="mb-3">
             <label class="form-label" for="mq">mq</label>
             <input class="form-control @error('mq') is-invalid @enderror" type="text" name="mq" id="mq" value="{{ old('mq', $apartment->mq) }}">
-            {{-- <button type="button" class="btn btn-primary">Reset</button> --}}
+
             @error('mq')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -84,46 +92,15 @@
             @enderror
         </div>
 
-        {{-- ADDRESS --}}
+
+        {{-- Address --}}
         <div id="root">
             <find-address></find-address>
         </div>
 
-        {{-- <div class="mb-3">
-            <label class="form-label" for="address">Address</label>
-            <input class="form-control @error('address') is-invalid @enderror" type="text" name="address" id="address" value="{{ old('address', $apartment->address) }}">
-            <button type="button" class="btn btn-primary">Reset</button>
-            @error('address')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div> --}}
 
 
-
-        {{-- <div class="mb-3">
-            <label class="form-label" for="latitude">Latitude</label>
-            <input class="form-control @error('latitude') is-invalid @enderror" type="text" name="latitude" id="latitude" value="{{ old('latitude', $apartment->latitude) }}">
-            <button type="button" class="btn btn-primary">Reset</button>
-            @error('latitude')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label" for="longitude">Longitude</label>
-            <input class="form-control @error('longitude') is-invalid @enderror" type="text" name="longitude" id="longitude" value="{{ old('longitude', $apartment->longitude) }}">
-            <button type="button" class="btn btn-primary">Reset</button>
-            @error('longitude')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div> --}}
-
+         {{-- Image --}}
         <div class="mb-3">
             <label class="form-label" for="image">Image</label>
             <input class="form-control mb-3 @error('image') is-invalid @enderror" type="file" name="image" id="image" accept="image/*" value="{{ old('image', $apartment->image) }}">
@@ -136,6 +113,8 @@
             <img id="preview" class="img-fluid" src="{{ asset('storage/' . $apartment ->image) }}">
         </div>
 
+
+         {{-- Visible --}}
         <div class="mb-3">
             <div>
                 <label for="visible">Visible</label>
@@ -162,6 +141,7 @@
         </div>
 
 
+         {{-- Services --}}
         <fieldset class="mb-3">
             <legend>Services</legend>
             <p>*Insert at least one service</p>
