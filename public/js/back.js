@@ -27860,26 +27860,7 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window.Vue = require('vue');
-// Vue.component('find-address', require('./components/FindAddress.vue').default);
-// import { h } from 'vue';
-// import FindAddress from './components/FindAddress.vue';
-// const app = new Vue({
-//     el: '#root',
-//     render: h => h(FindAddress)
-// });
-// Tomtom search
-// const API_KEY = 'k8V0aFCAwuHo8eDICtxR16HCuAjRAWff';
-// var handleResults = function(result) {
-//     console.log('log3', result);
-// };
-// var search = function(){
-//     tt.services.fuzzySearch({
-//         key: API_KEY,
-//         query: document.getElementById("query").value,
-//     }).then(handleResults);
-// }
-
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 var password = document.getElementById('password');
 var passwordConfirm = document.getElementById('password_confirm');
@@ -27965,8 +27946,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Tommaso\Desktop\BOOLEAN\ESERCIZI\Boolbnb\resources\js\back.js */"./resources/js/back.js");
-module.exports = __webpack_require__(/*! C:\Users\Tommaso\Desktop\BOOLEAN\ESERCIZI\Boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Boolean\Corso\Seconda Parte Corso\Settembre\progettoFinale\BoolBnB\Boolbnb\resources\js\back.js */"./resources/js/back.js");
+module.exports = __webpack_require__(/*! D:\Boolean\Corso\Seconda Parte Corso\Settembre\progettoFinale\BoolBnB\Boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

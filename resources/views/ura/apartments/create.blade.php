@@ -88,9 +88,8 @@
 
             {{-- Managed from Vue --}}
             <div id="root">
-
+                {{-- Non serve ma lo abbiamo lasciato per chiarezza nostra --}}
                 <find-address></find-address>
-
             </div>
 
             {{-- Image --}}
@@ -162,7 +161,7 @@
         </form>
     </div>
 
-    <script src="{{ asset('js/vue.js') }}" defer></script>
+    <script src="{{ asset('js/findAddress.js') }}" defer></script>
 @endsection
 
 

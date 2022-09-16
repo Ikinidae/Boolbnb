@@ -1,5 +1,6 @@
 {
     "/js/back.js": "/js/back.js",
     "/css/app.css": "/css/app.css",
-    "/js/vue.js": "/js/vue.js"
+    "/js/findAddress.js": "/js/findAddress.js",
+    "/js/front.js": "/js/front.js"
 }
