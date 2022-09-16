@@ -171,5 +171,6 @@
 
         <button type="submit" class="btn btn-primary">Save</button>
     </form>
+<script src="{{ asset('js/vue.js') }}" defer></script>
 @endsection
 
