@@ -84,16 +84,23 @@
             @enderror
         </div>
 
-        <div class="mb-3">
+        {{-- ADDRESS --}}
+        <div id="root">
+            <find-address></find-address>
+        </div>
+
+        {{-- <div class="mb-3">
             <label class="form-label" for="address">Address</label>
             <input class="form-control @error('address') is-invalid @enderror" type="text" name="address" id="address" value="{{ old('address', $apartment->address) }}">
-            {{-- <button type="button" class="btn btn-primary">Reset</button> --}}
+            <button type="button" class="btn btn-primary">Reset</button>
             @error('address')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
             @enderror
-        </div>
+        </div> --}}
+
+
 
         {{-- <div class="mb-3">
             <label class="form-label" for="latitude">Latitude</label>
