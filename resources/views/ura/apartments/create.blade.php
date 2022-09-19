@@ -157,7 +157,7 @@
             </fieldset>
 
             {{-- Save Button --}}
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button onclick="validationApartments()" id="submit" type="submit" class="btn btn-primary">Save</button>
         </form>
     </div>
 

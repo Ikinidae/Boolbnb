@@ -64,9 +64,6 @@
         </style>
     </head>
     <body>
-        <div id="app">
-
-        </div>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
 
@@ -86,8 +83,8 @@
             <div class="title m-b-md">
                 BoolBnb
             </div>
-
-
+        </div>
+        <div id="app">
 
         </div>
         <script src="{{ asset('js/front.js') }}" defer></script>

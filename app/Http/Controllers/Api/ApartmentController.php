@@ -15,8 +15,11 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        $apartments = Apartment::paginate(5);
-        return response()->json($apartments);
+        $apartments = Apartment::with('services')->paginate(25);
+        return response()->json([
+            'success' => true,
+            'response' => $apartments,
+        ]);
     }
 
     /**
