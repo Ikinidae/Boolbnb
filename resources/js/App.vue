@@ -1,5 +1,5 @@
 <template>
-    <div class="col-sm-6 col-md-4">
+    <div container-fluid>
         <!-- navbar component -->
         <NavBar @mysearch="getApartment"></NavBar>
 
@@ -9,7 +9,7 @@
         </div>
 
         <!-- card component -->
-        <CardApartment v-for="apartment in apartments" :key="apartment.id" :apartment="apartment" class="card h-100"></CardApartment>
+        <CardApartment v-for="apartment in apartments" :key="apartment.id" :apartment="apartment" ></CardApartment>
     </div>
 </template>
 
@@ -47,5 +47,5 @@ export default {
 
 </script>
 <style lang="scss" scoped>
-    // @import 'bootstrap/scss/bootstrap';
+    @import 'bootstrap/scss/bootstrap';
 </style>
