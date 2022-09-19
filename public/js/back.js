@@ -38784,26 +38784,7 @@ module.exports = function(module) {
 var _require = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"),
     event = _require.event;
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // const password = document.getElementById('password');
-// const passwordConfirm = document.getElementById('password_confirm');
-// passwordConfirm.addEventListener("input", (event) => {
-//     if (password.value !== passwordConfirm.value) {
-//         passwordConfirm.setCustomValidity("Passwords don't match");
-//         passwordConfirm.reportValidity();
-//     } else {
-//         passwordConfirm.setCustomValidity("");
-//     }
-// });
-// const email = document.getElementById("email");
-// email.addEventListener("input", (event) => {
-//     if (email.validity.typeMismatch) {
-//         email.setCustomValidity("I am expecting an e-mail address!");
-//         email.reportValidity();
-//     } else {
-//         email.setCustomValidity("");
-//     }
-// });
-// window.prova = function () {
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window.prova = function () {
 //     console.log('ciao');
 // }
 // window.check_title = function() {
@@ -38939,8 +38920,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/Ikaa/Desktop/Esercizi/Progetto finale/Boolbnb/resources/js/back.js */"./resources/js/back.js");
-module.exports = __webpack_require__(/*! /Users/Ikaa/Desktop/Esercizi/Progetto finale/Boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Boolean\Corso\Seconda Parte Corso\Settembre\progettoFinale\BoolBnB\Boolbnb\resources\js\back.js */"./resources/js/back.js");
+module.exports = __webpack_require__(/*! D:\Boolean\Corso\Seconda Parte Corso\Settembre\progettoFinale\BoolBnB\Boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

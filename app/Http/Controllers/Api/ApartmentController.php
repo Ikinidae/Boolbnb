@@ -15,11 +15,16 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        $apartments = Apartment::with('services')->paginate(25);
+        $apartments = Apartment::with('services')->paginate(5);
         return response()->json([
             'success' => true,
             'response' => $apartments,
         ]);
+    }
+
+    public function getApartments(Request $request) {
+        $data = Apartment::with('services')->where('address', 'LIKE','%'. $request->keyword .'%')->get();
+        return response()->json($data);
     }
 
     /**
