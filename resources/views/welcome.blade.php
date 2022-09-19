@@ -18,24 +18,29 @@
 
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
 
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/ura/home') }}">{{ Auth::user()->name }}</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+            <div class="flex-center position-ref full-height">
+                @if (Route::has('login'))
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-        </div>
-        <div id="app">
+                    <div class="top-right links">
+                        @auth
+                            <a href="{{ url('/ura/home') }}">{{ Auth::user()->name }}</a>
+                        @else
+                            <a href="{{ route('login') }}">Login</a>
 
-        </div>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}">Register</a>
+                            @endif
+                        @endauth
+                    </div>
+                @endif
+
+            </div>
+            <div id="app">
+
+            </div>
+
+
+
     </body>
 </html>

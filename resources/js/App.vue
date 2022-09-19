@@ -4,12 +4,15 @@
         <NavBar @mysearch="getApartment"></NavBar>
 
         <!-- main -->
-        <div class="title m-b-md">
+        <div class="text-center">
                 BoolBnb
         </div>
 
         <!-- card component -->
-        <CardApartment v-for="apartment in apartments" :key="apartment.id" :apartment="apartment" ></CardApartment>
+        <div class="row row-cols row-cols-md-2 g-4">
+            <CardApartment class="container " v-for="apartment in apartments" :key="apartment.id" :apartment="apartment" ></CardApartment>
+        </div>
+
     </div>
 </template>
 

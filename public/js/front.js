@@ -5263,15 +5263,18 @@ var render = function render() {
       mysearch: _vm.getApartment
     }
   }), _vm._v(" "), _c("div", {
-    staticClass: "title m-b-md"
-  }, [_vm._v("\n            BoolBnb\n    ")]), _vm._v(" "), _vm._l(_vm.apartments, function (apartment) {
+    staticClass: "text-center"
+  }, [_vm._v("\n            BoolBnb\n    ")]), _vm._v(" "), _c("div", {
+    staticClass: "row row-cols row-cols-md-2 g-4"
+  }, _vm._l(_vm.apartments, function (apartment) {
     return _c("CardApartment", {
       key: apartment.id,
+      staticClass: "container",
       attrs: {
         apartment: apartment
       }
     });
-  })], 2);
+  }), 1)], 1);
 };
 
 var staticRenderFns = [];
@@ -5295,10 +5298,8 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("main", [_c("div", {
-    staticClass: "row row-cols-1 row-cols-md-3 g-4"
-  }, [_c("div", {
-    staticClass: "col"
+  return _c("div", {
+    staticClass: "col-sm-6 col-md-4 g-4"
   }, [_c("div", {
     staticClass: "card h-100"
   }, [_c("img", {
@@ -5317,7 +5318,7 @@ var render = function render() {
     staticClass: "card-footer"
   }, [_c("small", {
     staticClass: "text-muted"
-  }, [_vm._v(_vm._s(_vm.apartment.price) + "€")])])])])])]);
+  }, [_vm._v(_vm._s(_vm.apartment.price) + "€")])])])]);
 };
 
 var staticRenderFns = [];
@@ -5344,7 +5345,7 @@ var render = function render() {
   return _c("div", [_c("nav", {
     staticClass: "navbar navbar-expand-lg bg-light"
   }, [_c("div", {
-    staticClass: "container-fluid"
+    staticClass: "container"
   }, [_vm._m(0), _vm._v(" "), _c("a", {
     staticClass: "navbar-brand",
     attrs: {
