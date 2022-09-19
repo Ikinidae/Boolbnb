@@ -2,5 +2,6 @@
     "/js/back.js": "/js/back.js",
     "/css/app.css": "/css/app.css",
     "/js/findAddress.js": "/js/findAddress.js",
-    "/js/front.js": "/js/front.js"
+    "/js/front.js": "/js/front.js",
+    "/js/registerValidation.js": "/js/registerValidation.js"
 }

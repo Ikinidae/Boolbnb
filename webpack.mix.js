@@ -14,6 +14,7 @@ const mix = require('laravel-mix');
 mix.js('resources/js/back.js', 'public/js')
     .js('resources/js/findAddress.js', 'public/js')
     .js('resources/js/front.js', 'public/js')
+    .js('resources/js/registerValidation.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .copy(
         'node_modules/@fortawesome/fontawesome-free/webfonts',

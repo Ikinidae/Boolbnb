@@ -125,4 +125,5 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('js/registerValidation.js') }}" defer></script>
 @endsection

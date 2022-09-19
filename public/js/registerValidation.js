@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -38774,109 +38774,6 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./resources/js/back.js":
-/*!******************************!*\
-  !*** ./resources/js/back.js ***!
-  \******************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var _require = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"),
-    event = _require.event;
-
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // const password = document.getElementById('password');
-// const passwordConfirm = document.getElementById('password_confirm');
-// passwordConfirm.addEventListener("input", (event) => {
-//     if (password.value !== passwordConfirm.value) {
-//         passwordConfirm.setCustomValidity("Passwords don't match");
-//         passwordConfirm.reportValidity();
-//     } else {
-//         passwordConfirm.setCustomValidity("");
-//     }
-// });
-// const email = document.getElementById("email");
-// email.addEventListener("input", (event) => {
-//     if (email.validity.typeMismatch) {
-//         email.setCustomValidity("I am expecting an e-mail address!");
-//         email.reportValidity();
-//     } else {
-//         email.setCustomValidity("");
-//     }
-// });
-// window.prova = function () {
-//     console.log('ciao');
-// }
-// window.check_title = function() {
-//     const title = document.getElementById('title');
-//     if (title.value == "") {
-//         console.log('ciao');
-//         title.setCustomValidity("Insert a title");
-//         title.reportValidity();
-//         title.focus();
-//         return false;
-//     }
-// };
-
-
-window.validationApartments = function () {
-  // const submit = document.getElementById('submit');
-  var title = document.getElementById('title');
-  var description = document.getElementById('description');
-  var price = document.getElementById('price');
-  var rooms = document.getElementById('rooms');
-  var beds = document.getElementById('beds');
-  var bathrooms = document.getElementById('bathrooms');
-  var mq = document.getElementById('mq');
-
-  if (title.value == "") {
-    // title.setCustomValidity("Insert a title");
-    // submit.preventDefault();
-    window.alert("Insert a title");
-    title.focus();
-    return false;
-  }
-
-  if (description.value == "") {
-    window.alert("Insert a description");
-    description.focus();
-    return false;
-  }
-
-  if (isNaN(price.value)) {
-    window.alert("Insert a price");
-    price.focus();
-    return false;
-  }
-
-  if (isNaN(rooms.value)) {
-    window.alert("Insert a valid number");
-    rooms.focus();
-    return false;
-  }
-
-  if (isNaN(beds.value)) {
-    window.alert("Insert a valid number");
-    beds.focus();
-    return false;
-  }
-
-  if (isNaN(bathrooms.value)) {
-    window.alert("Insert a valid number");
-    bathrooms.focus();
-    return false;
-  }
-
-  if (isNaN(mq.value)) {
-    window.alert("Insert a valid number");
-    mq.focus();
-    return false;
-  }
-
-  return true;
-};
-
-/***/ }),
-
 /***/ "./resources/js/bootstrap.js":
 /*!***********************************!*\
   !*** ./resources/js/bootstrap.js ***!
@@ -38921,26 +38818,49 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/sass/app.scss":
-/*!*********************************!*\
-  !*** ./resources/sass/app.scss ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 0:
-/*!**************************************************************!*\
-  !*** multi ./resources/js/back.js ./resources/sass/app.scss ***!
-  \**************************************************************/
+/***/ "./resources/js/registerValidation.js":
+/*!********************************************!*\
+  !*** ./resources/js/registerValidation.js ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/Ikaa/Desktop/Esercizi/Progetto finale/Boolbnb/resources/js/back.js */"./resources/js/back.js");
-module.exports = __webpack_require__(/*! /Users/Ikaa/Desktop/Esercizi/Progetto finale/Boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+var _require = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"),
+    event = _require.event;
+
+console.log("ti prego");
+var password = document.getElementById('password');
+var passwordConfirm = document.getElementById('password_confirm');
+passwordConfirm.addEventListener("input", function (event) {
+  if (password.value !== passwordConfirm.value) {
+    passwordConfirm.setCustomValidity("Passwords don't match");
+    passwordConfirm.reportValidity();
+  } else {
+    passwordConfirm.setCustomValidity("");
+  }
+});
+var email = document.getElementById("email");
+email.addEventListener("input", function (event) {
+  if (email.validity.typeMismatch) {
+    email.setCustomValidity("I am expecting an e-mail address!");
+    email.reportValidity();
+  } else {
+    email.setCustomValidity("");
+  }
+});
+
+/***/ }),
+
+/***/ 3:
+/*!**************************************************!*\
+  !*** multi ./resources/js/registerValidation.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! /Users/Ikaa/Desktop/Esercizi/Progetto finale/Boolbnb/resources/js/registerValidation.js */"./resources/js/registerValidation.js");
 
 
 /***/ })
