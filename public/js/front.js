@@ -5255,9 +5255,7 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    attrs: {
-      "container-fluid": ""
-    }
+    staticClass: "container"
   }, [_c("NavBar", {
     on: {
       mysearch: _vm.getApartment
@@ -5314,7 +5312,9 @@ var render = function render() {
     staticClass: "card-title"
   }, [_vm._v(_vm._s(_vm.apartment.title))]), _vm._v(" "), _c("p", {
     staticClass: "card-text mb-auto pb-3"
-  }, [_vm._v(_vm._s(_vm.apartment.description))])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.apartment.description))]), _vm._v(" "), _c("p", {
+    staticClass: "card-text mb-auto pb-3"
+  }, [_vm._v(_vm._s(_vm.apartment.address))])]), _vm._v(" "), _c("div", {
     staticClass: "card-footer"
   }, [_c("small", {
     staticClass: "text-muted"
@@ -5345,7 +5345,7 @@ var render = function render() {
   return _c("div", [_c("nav", {
     staticClass: "navbar navbar-expand-lg bg-light"
   }, [_c("div", {
-    staticClass: "container"
+    staticClass: "container-fluid"
   }, [_vm._m(0), _vm._v(" "), _c("a", {
     staticClass: "navbar-brand",
     attrs: {

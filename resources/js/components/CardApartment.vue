@@ -16,6 +16,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{ apartment.title }}</h5>
                 <p class="card-text mb-auto pb-3">{{ apartment.description }}</p>
+                <p class="card-text mb-auto pb-3">{{ apartment.address }}</p>
             </div>
             <div class="card-footer">
                 <small class="text-muted">{{ apartment.price }}€</small>

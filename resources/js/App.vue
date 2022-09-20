@@ -1,5 +1,5 @@
 <template>
-    <div container-fluid>
+    <div class="container ">
         <!-- navbar component -->
         <NavBar @mysearch="getApartment"></NavBar>
 
