@@ -29,7 +29,6 @@ class ApartmentController extends Controller
 
     public function radiusSearch($radius, $lat, $lon)
     {
-
         // $allApartments = DB::table('apartments')
         //     ->where('is_visible', '=', true)
         //     // ->services()
@@ -69,7 +68,6 @@ class ApartmentController extends Controller
                 array_push($apartments, $apartment);
             }
         }
-
         return response()->json($apartments);
     }
 

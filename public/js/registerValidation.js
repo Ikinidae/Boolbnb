@@ -38860,7 +38860,7 @@ email.addEventListener("input", function (event) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Tommaso\Desktop\BOOLEAN\ESERCIZI\Boolbnb\resources\js\registerValidation.js */"./resources/js/registerValidation.js");
+module.exports = __webpack_require__(/*! D:\Boolean\Corso\Seconda Parte Corso\Settembre\progettoFinale\BoolBnB\Boolbnb\resources\js\registerValidation.js */"./resources/js/registerValidation.js");
 
 
 /***/ })

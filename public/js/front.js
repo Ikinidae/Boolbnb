@@ -5173,7 +5173,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getApartment: function getApartment(textUser) {
       this.apartments = textUser;
-      console.log('ciao');
+      console.log('app.vue', this.apartments);
     }
   }
 });
@@ -5214,11 +5214,15 @@ __webpack_require__.r(__webpack_exports__);
       api_key: 'k8V0aFCAwuHo8eDICtxR16HCuAjRAWff',
       latitude: null,
       longitude: null,
-      radius: null,
+      radius: 20,
+      rooms: 'Any',
+      beds: 'Any',
       nameAddress: [],
       searchAddress: [],
       // array dove salveremo i risultati da stampare
-      Apartments: []
+      Apartments: [] // nuovo array filtrato per camere
+      // filteredApt: []
+
     };
   },
   methods: {
@@ -5242,7 +5246,8 @@ __webpack_require__.r(__webpack_exports__);
       this.searchAddress = this.nameAddress[i].address.freeformAddress;
       this.latitude = this.nameAddress[i].position.lat;
       this.longitude = this.nameAddress[i].position.lng;
-      this.nameAddress = []; // console.log('address', this.nameAddress);
+      this.nameAddress = [];
+      this.getApartments(this.radius, this.latitude, this.longitude); // console.log('address', this.nameAddress);
       // console.log('lat', this.latitude);
       // console.log('lon', this.longitude);
     },
@@ -5251,9 +5256,18 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/distance/" + radius + "/" + lat + "/" + lon).then(function (res) {
         _this.Apartments = res.data;
-        console.log('risultato res', res);
+        console.log('risultato chiamata axios da navbar', _this.Apartments);
       });
-    }
+    } // selectRooms(){
+    //     for (let i = 0; i < this.Apartments.length; i++) {
+    //         if (this.Apartments[i].rooms >= this.rooms) {
+    //             this.filteredApt.push(this.Apartments[i])
+    //         }
+    //     }
+    //     this.Apartments = this.filteredApt;
+    //     console.log(this.filteredApt);
+    // }
+
   }
 });
 
@@ -5334,7 +5348,11 @@ var render = function render() {
     staticClass: "card-text mb-auto pb-3"
   }, [_vm._v(_vm._s(_vm.apartment.description))]), _vm._v(" "), _c("p", {
     staticClass: "card-text mb-auto pb-3"
-  }, [_vm._v(_vm._s(_vm.apartment.address))])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Address: " + _vm._s(_vm.apartment.address))]), _vm._v(" "), _c("p", {
+    staticClass: "card-text mb-auto pb-3"
+  }, [_vm._v("Rooms: " + _vm._s(_vm.apartment.rooms))]), _vm._v(" "), _c("p", {
+    staticClass: "card-text mb-auto pb-3"
+  }, [_vm._v("Beds: " + _vm._s(_vm.apartment.beds))])]), _vm._v(" "), _c("div", {
     staticClass: "card-footer"
   }, [_c("small", {
     staticClass: "text-muted"
@@ -5363,7 +5381,7 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", [_c("nav", {
-    staticClass: "navbar navbar-expand-lg bg-light"
+    staticClass: "navbar navbar-expand-lg bg-light w-75"
   }, [_c("div", {
     staticClass: "container-fluid"
   }, [_vm._m(0), _vm._v(" "), _c("a", {
@@ -5417,7 +5435,7 @@ var render = function render() {
       id: "radius"
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
           return o.selected;
         }).map(function (o) {
@@ -5425,7 +5443,9 @@ var render = function render() {
           return val;
         });
         _vm.radius = $event.target.multiple ? $$selectedVal : $$selectedVal[0];
-      }
+      }, function ($event) {
+        return _vm.getApartments(_vm.radius, _vm.latitude, _vm.longitude);
+      }]
     }
   }, [_c("option", {
     attrs: {
@@ -5439,7 +5459,15 @@ var render = function render() {
     attrs: {
       value: "30"
     }
-  }, [_vm._v("30")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("30")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "40"
+    }
+  }, [_vm._v("40")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "50"
+    }
+  }, [_vm._v("50")])]), _vm._v(" "), _c("div", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -5469,7 +5497,7 @@ var render = function render() {
     },
     on: {
       click: function click($event) {
-        return _vm.getApartments(_vm.radius, _vm.latitude, _vm.longitude);
+        return _vm.$emit("mysearch", _vm.Apartments);
       }
     }
   }, [_vm._v("Search")])])])])]);
@@ -41322,7 +41350,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Tommaso\Desktop\BOOLEAN\ESERCIZI\Boolbnb\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! D:\Boolean\Corso\Seconda Parte Corso\Settembre\progettoFinale\BoolBnB\Boolbnb\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })

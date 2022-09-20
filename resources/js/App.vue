@@ -43,7 +43,7 @@ export default {
     methods: {
         getApartment(textUser){
             this.apartments = textUser;
-            console.log('ciao');
+            console.log('app.vue', this.apartments);
         }
     }
 };

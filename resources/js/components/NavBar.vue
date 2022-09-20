@@ -27,19 +27,36 @@
                         id="query"
                         v-model="searchAddress"
                     />
-                    <!-- input con 3 value 10,20,30 km il value viene salvato in una variabile nel data -->
 
+                    <!-- Input per radiante -->
+                    <label for="radius">Choose radius distance</label>
+                    <select @change="getApartments(radius,latitude,longitude)" name="radius" id="radius" v-model="radius">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                        <option value="50">50</option>
+                    </select>
 
-                        <label for="radius">Choose radius distance</label>
-                        <select name="radius" id="radius" v-model="radius">
-                            <option value="10">10</option>
-                            <option value="20">20</option>
-                            <option value="30">30</option>
+                    <!-- <label for="rooms">Choose min rooms</label>
+                    <select @change="selectRooms" name="rooms" id="rooms" v-model="rooms">
+                        <option value="Any">Any</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
 
-                        </select>
-
-
-
+                    <label for="beds">Choose min beds</label>
+                    <select @change="" name="beds" id="beds" v-model="beds">
+                        <option value="Any">Any</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select> -->
 
                     <!-- nel button viene fatta partire la funzione getApartments(lat long radius) con i valori di lat lon e radius  -->
                     <div class="form-create address-form2" v-show="nameAddress.length > 0">
@@ -56,8 +73,8 @@
                         </ul>
                     </div>
 
-                    <!-- <button @click="$emit('mysearch', Apartments)" class="btn btn-outline-success" type="submit">Search</button> -->
-                    <button @click="getApartments(radius,latitude,longitude)" class="btn btn-outline-success" type="submit">Search</button>
+                    <button @click="$emit('mysearch', Apartments)" class="btn btn-outline-success" type="submit">Search</button>
+                    <!-- <button @click="getApartments(radius,latitude,longitude)" class="btn btn-outline-success" type="submit">Search</button> -->
                 <!-- </form> -->
                 </div>
             </div>
@@ -74,12 +91,16 @@ export default {
             api_key: 'k8V0aFCAwuHo8eDICtxR16HCuAjRAWff',
             latitude: null,
             longitude: null,
-            radius: null,
+            radius: 20,
+            rooms: 'Any',
+            beds: 'Any',
             nameAddress: [],
             searchAddress:[],
 
             // array dove salveremo i risultati da stampare
-            Apartments: []
+            Apartments: [],
+            // nuovo array filtrato per camere
+            // filteredApt: []
         };
     },
 
@@ -108,6 +129,7 @@ export default {
             this.latitude = this.nameAddress[i].position.lat;
             this.longitude = this.nameAddress[i].position.lng;
             this.nameAddress = []
+            this.getApartments(this.radius,this.latitude,this.longitude)
             // console.log('address', this.nameAddress);
             // console.log('lat', this.latitude);
             // console.log('lon', this.longitude);
@@ -125,13 +147,18 @@ export default {
                 )
                 .then((res) => {
                     this.Apartments = res.data;
-                    console.log('risultato res',res);
-
+                    console.log('risultato chiamata axios da navbar', this.Apartments);
                 });
         },
-
-
-
+        // selectRooms(){
+        //     for (let i = 0; i < this.Apartments.length; i++) {
+        //         if (this.Apartments[i].rooms >= this.rooms) {
+        //             this.filteredApt.push(this.Apartments[i])
+        //         }
+        //     }
+        //     this.Apartments = this.filteredApt;
+        //     console.log(this.filteredApt);
+        // }
     }
 }
 </script>

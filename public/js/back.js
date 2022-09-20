@@ -38784,77 +38784,79 @@ module.exports = function(module) {
 var _require = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"),
     event = _require.event;
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window.prova = function () {
-//     console.log('ciao');
-// }
-// window.check_title = function() {
-//     const title = document.getElementById('title');
-//     if (title.value == "") {
-//         console.log('ciao');
-//         title.setCustomValidity("Insert a title");
-//         title.reportValidity();
-//         title.focus();
-//         return false;
-//     }
-// };
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+var form = document.getElementById("form");
 
-window.validationApartments = function () {
-  // const submit = document.getElementById('submit');
-  var title = document.getElementById('title');
-  var description = document.getElementById('description');
-  var price = document.getElementById('price');
-  var rooms = document.getElementById('rooms');
-  var beds = document.getElementById('beds');
-  var bathrooms = document.getElementById('bathrooms');
-  var mq = document.getElementById('mq');
+if (form) {
+  form.onsubmit = function () {
+    return validationForm();
+  };
+}
 
-  if (title.value == "") {
-    // title.setCustomValidity("Insert a title");
-    // submit.preventDefault();
-    window.alert("Insert a title");
-    title.focus();
-    return false;
-  }
+function validationForm() {
+  var title = document.getElementById('title').value;
+  var description = document.getElementById('description').value;
+  var price = document.getElementById('price').value;
+  var rooms = document.getElementById('rooms').value;
+  var beds = document.getElementById('beds').value;
+  var bathrooms = document.getElementById('bathrooms').value;
+  var mq = document.getElementById('mq').value;
+  var image = document.getElementById('image').value;
+  var services = document.getElementById('services').value;
 
-  if (description.value == "") {
-    window.alert("Insert a description");
-    description.focus();
-    return false;
-  }
+  if (title != "" & description != "" & price != "" & rooms != "" & beds != "" & bathrooms != "" & mq != "" & image != "") {
+    if (title.length == 0) {
+      alert('Required field');
+      return false;
+    }
 
-  if (isNaN(price.value)) {
-    window.alert("Insert a price");
-    price.focus();
-    return false;
-  }
+    if (description.length == 0) {
+      alert('Required field');
+      return false;
+    }
 
-  if (isNaN(rooms.value)) {
-    window.alert("Insert a valid number");
-    rooms.focus();
-    return false;
-  }
+    if (price.length == 0) {
+      alert('Required field');
+      return false;
+    }
 
-  if (isNaN(beds.value)) {
-    window.alert("Insert a valid number");
-    beds.focus();
-    return false;
-  }
+    if (rooms.length == 0) {
+      alert('Required field');
+      return false;
+    }
 
-  if (isNaN(bathrooms.value)) {
-    window.alert("Insert a valid number");
-    bathrooms.focus();
-    return false;
-  }
+    if (beds.length == 0) {
+      alert('Required field');
+      return false;
+    }
 
-  if (isNaN(mq.value)) {
-    window.alert("Insert a valid number");
-    mq.focus();
+    if (bathrooms.length == 0) {
+      alert('Required field');
+      return false;
+    }
+
+    if (mq.length == 0) {
+      alert('Required field');
+      return false;
+    }
+
+    if (image.length == 0) {
+      alert('Required field');
+      return false;
+    }
+
+    if (services.length == 0) {
+      alert('Required field');
+      return false;
+    }
+  } else {
+    alert('compila tutti i campi');
     return false;
   }
 
   return true;
-};
+}
 
 /***/ }),
 
@@ -38920,8 +38922,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Tommaso\Desktop\BOOLEAN\ESERCIZI\Boolbnb\resources\js\back.js */"./resources/js/back.js");
-module.exports = __webpack_require__(/*! C:\Users\Tommaso\Desktop\BOOLEAN\ESERCIZI\Boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Boolean\Corso\Seconda Parte Corso\Settembre\progettoFinale\BoolBnB\Boolbnb\resources\js\back.js */"./resources/js/back.js");
+module.exports = __webpack_require__(/*! D:\Boolean\Corso\Seconda Parte Corso\Settembre\progettoFinale\BoolBnB\Boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
