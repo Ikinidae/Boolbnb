@@ -162,6 +162,7 @@
     </div>
 
     <script src="{{ asset('js/findAddress.js') }}" defer></script>
+    <script src="{{ asset('js/createEditValidation.js') }}" defer></script>
 @endsection
 
 
