@@ -38,7 +38,6 @@ class ApartmentController extends Controller
     {
         $apartments = Apartment::All()->where('user_id', auth()->user()->id);
         return view('ura.apartments.index', compact('apartments'));
-
     }
 
     /**
@@ -82,7 +81,6 @@ class ApartmentController extends Controller
         $apartment->services()->sync($data['services']);
 
         return redirect()->route('ura.apartments.index')->with('created', "The apartment {$apartment->title} has been created");
-
     }
 
     /**
@@ -123,15 +121,26 @@ class ApartmentController extends Controller
      */
     public function update(Request $request, Apartment $apartment)
     {
-        $request->validate($this->validation_rules);
+        $request->validate([
+            'title'         => 'required|string|max:100',
+            'description'   => 'required|string|max:1000',
+            'price'         => 'required|numeric|integer|min:0',
+            'rooms'         => 'required|numeric|integer|min:0',
+            'beds'          => 'required|numeric|integer|min:0',
+            'bathrooms'     => 'required|numeric|integer|min:0',
+            'mq'            => 'required|numeric|integer|min:0',
+            'address'       => 'required|string|max:255',
+            'image'         => 'file|image|max:1024',
+            'services'      => 'required'
+        ]);
         $data = $request->all();
 
-        Storage::delete($apartment->image);
+        if ($request->image) {
+            Storage::delete($apartment->image);
 
-        $img_path = Storage::put('uploads', $data['image']);
-        $data['image'] = $img_path;
-
-        // dd($data);
+            $img_path = Storage::put('uploads', $data['image']);
+            $data['image'] = $img_path;
+        }
 
         $apartment->update($data);
         $apartment->services()->sync($data['services']);

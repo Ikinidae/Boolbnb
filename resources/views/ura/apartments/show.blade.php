@@ -9,7 +9,6 @@
         <h3>Bathrooms: {{ $apartment->bathrooms }}</h3>
         <h3>Mq: {{ $apartment->mq }}</h3>
         <h3>Address: {{ $apartment->address }}</h3>
-        <h3>Visible: {{ $apartment->visible }}</h3>
         <p>{{ $apartment->description }}</p>
 
         @foreach ($apartment->services as $service)

@@ -103,7 +103,7 @@
          {{-- Image --}}
         <div class="mb-3">
             <label class="form-label" for="image">Image</label>
-            <input class="form-control mb-3 @error('image') is-invalid @enderror" type="file" name="image" id="image" accept="image/*" value="{{ old('image', $apartment->image) }}">
+            <input class="form-control mb-3 @error('image') is-invalid @enderror" type="file" name="image" id="image" accept="image/*" value="{{ asset('storage/' . $apartment ->image) }}">
             @error('image')
                 <div class="invalid-feedback">
                     {{ $message }}
