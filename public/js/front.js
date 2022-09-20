@@ -5211,28 +5211,48 @@ __webpack_require__.r(__webpack_exports__);
   name: 'NavBar',
   data: function data() {
     return {
-      keyword: null,
+      api_key: 'k8V0aFCAwuHo8eDICtxR16HCuAjRAWff',
+      latitude: null,
+      longitude: null,
+      radius: null,
+      nameAddress: [],
+      searchAddress: [],
+      // array dove salveremo i risultati da stampare
       Apartments: []
     };
   },
-  watch: {
-    keyword: function keyword(after, before) {
-      this.getResults();
-    }
-  },
   methods: {
-    getResults: function getResults() {
+    // log(){
+    //     console.log('radius',this.radius);
+    // },
+    // FUZZY SEARCH
+    addressSearch: function addressSearch() {
+      tt.services.fuzzySearch({
+        key: this.api_key,
+        query: document.getElementById("query").value
+      }).then(this.handleResults);
+    },
+    handleResults: function handleResults(result) {
+      this.nameAddress = result.results;
+      console.log('risultati', this.nameAddress); // console.log('log1', this.latLong);
+      // console.log('log2', this.latitude);
+      // console.log('log3', this.longitude);
+    },
+    selectAddress: function selectAddress(i) {
+      this.searchAddress = this.nameAddress[i].address.freeformAddress;
+      this.latitude = this.nameAddress[i].position.lat;
+      this.longitude = this.nameAddress[i].position.lng;
+      this.nameAddress = []; // console.log('address', this.nameAddress);
+      // console.log('lat', this.latitude);
+      // console.log('lon', this.longitude);
+    },
+    getApartments: function getApartments(radius, lat, lon) {
       var _this = this;
 
-      axios.get('/api/search', {
-        params: {
-          keyword: this.keyword
-        }
-      }).then(function (res) {
+      axios.get("/api/distance/" + radius + "/" + lat + "/" + lon).then(function (res) {
         _this.Apartments = res.data;
-        console.log('log1', res.data);
-        console.log('log2', _this.Apartments);
-      })["catch"](function (error) {});
+        console.log('risultato res', res);
+      });
     }
   }
 });
@@ -5360,32 +5380,96 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.keyword,
-      expression: "keyword"
+      value: _vm.searchAddress,
+      expression: "searchAddress"
     }],
-    staticClass: "form-control me-2",
+    staticClass: "form-control form-create address-form",
     attrs: {
-      type: "search",
-      placeholder: "Search",
-      "aria-label": "Search"
+      required: "",
+      autocomplete: "off",
+      type: "text",
+      name: "address",
+      id: "query"
     },
     domProps: {
-      value: _vm.keyword
+      value: _vm.searchAddress
     },
     on: {
+      keyup: _vm.addressSearch,
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.keyword = $event.target.value;
+        _vm.searchAddress = $event.target.value;
       }
     }
-  }), _vm._v(" "), _c("button", {
+  }), _vm._v(" "), _c("label", {
+    attrs: {
+      "for": "radius"
+    }
+  }, [_vm._v("Choose radius distance")]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.radius,
+      expression: "radius"
+    }],
+    attrs: {
+      name: "radius",
+      id: "radius"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.radius = $event.target.multiple ? $$selectedVal : $$selectedVal[0];
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      value: "10"
+    }
+  }, [_vm._v("10")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "20"
+    }
+  }, [_vm._v("20")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "30"
+    }
+  }, [_vm._v("30")])]), _vm._v(" "), _c("div", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.nameAddress.length > 0,
+      expression: "nameAddress.length > 0"
+    }],
+    staticClass: "form-create address-form2"
+  }, [_c("ul", {
+    staticClass: "list-type"
+  }, _vm._l(_vm.nameAddress, function (name, i) {
+    return _c("li", {
+      key: i,
+      staticClass: "li-hover",
+      staticStyle: {
+        cursor: "pointer"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.selectAddress(i);
+        }
+      }
+    }, [_vm._v("\n                            " + _vm._s(name.address.freeformAddress) + "\n                        ")]);
+  }), 0)]), _vm._v(" "), _c("button", {
     staticClass: "btn btn-outline-success",
     attrs: {
       type: "submit"
     },
     on: {
       click: function click($event) {
-        return _vm.$emit("mysearch", _vm.Apartments);
+        return _vm.getApartments(_vm.radius, _vm.latitude, _vm.longitude);
       }
     }
   }, [_vm._v("Search")])])])])]);
@@ -41238,7 +41322,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Boolean\Corso\Seconda Parte Corso\Settembre\progettoFinale\BoolBnB\Boolbnb\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\Tommaso\Desktop\BOOLEAN\ESERCIZI\Boolbnb\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })

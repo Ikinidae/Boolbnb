@@ -20,4 +20,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/apartment', 'Api\ApartmentController@index')->name('api.apartments.index');
 Route::get('/search', 'Api\ApartmentController@getApartments')->name('api.getApartments.search');
+Route::get('/distance/{radius}/{lat}/{lon}', 'Api\ApartmentController@radiusSearch')->name('api.radiusSearch.distance');
+
 

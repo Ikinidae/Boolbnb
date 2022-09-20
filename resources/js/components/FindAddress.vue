@@ -10,10 +10,13 @@
             class="form-control form-create address-form"
             name="address"
             id="query"
-            v-model="searchAddess"
+            v-model="searchAddress"
         />
+
         <input type="text" hidden name="latitude" v-model="latitude" />
         <input type="text" hidden name="longitude" v-model="longitude" />
+
+
         <div class="form-create address-form2" v-show="nameAddress.length > 0">
             <ul class="list-type">
                 <li
@@ -40,7 +43,7 @@ export default {
             latitude: null,
             longitude: null,
             nameAddress: [],
-            searchAddess:[]
+            searchAddress:[]
         };
     },
     mounted() {
@@ -61,7 +64,7 @@ export default {
             // console.log('log3', this.longitude);
         },
         selectAddress(i){
-            this.searchAddess = this.nameAddress[i].address.freeformAddress;
+            this.searchAddress = this.nameAddress[i].address.freeformAddress;
             this.latitude = this.nameAddress[i].position.lat;
             this.longitude = this.nameAddress[i].position.lng;
             this.nameAddress = []

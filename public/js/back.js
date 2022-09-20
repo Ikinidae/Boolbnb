@@ -38920,8 +38920,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Boolean\Corso\Seconda Parte Corso\Settembre\progettoFinale\BoolBnB\Boolbnb\resources\js\back.js */"./resources/js/back.js");
-module.exports = __webpack_require__(/*! D:\Boolean\Corso\Seconda Parte Corso\Settembre\progettoFinale\BoolBnB\Boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Tommaso\Desktop\BOOLEAN\ESERCIZI\Boolbnb\resources\js\back.js */"./resources/js/back.js");
+module.exports = __webpack_require__(/*! C:\Users\Tommaso\Desktop\BOOLEAN\ESERCIZI\Boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
