@@ -2,8 +2,10 @@
 
 use App\Models\User;
 use App\Models\Apartment;
+use Illuminate\Http\File;
 use Faker\Generator as Faker;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Storage;
 
 class ApartmentSeeder extends Seeder
 {
@@ -29,7 +31,10 @@ class ApartmentSeeder extends Seeder
             $apartment -> address = $faker -> address();
             $apartment -> latitude = $faker -> randomFloat(5,-90,90);
             $apartment -> longitude = $faker -> randomFloat(5,-180,180);
-            $apartment -> image = 'https://www.startpreventivi.it/wp-content/themes/Avada-Child-Theme/images/Blog/Case-Appartamenti/Appartamento-moderno-elegante/' . rand(1, 15) . '-appartamento-moderno-elegante.jpg';
+
+            $contents = new File(__DIR__ . '/../../storage/app/public/default/default(' . rand(0,20) . ')-min.jpg');
+            $apartment->image = Storage::put('uploads', $contents);
+
             $apartment -> visible = $faker -> boolean();
             $apartment -> save();
         }

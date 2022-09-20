@@ -2,21 +2,6 @@ const { event } = require('jquery');
 
 require('./bootstrap');
 
-// window.prova = function () {
-//     console.log('ciao');
-// }
-// window.check_title = function() {
-//     const title = document.getElementById('title');
-//     if (title.value == "") {
-//         console.log('ciao');
-//         title.setCustomValidity("Insert a title");
-//         title.reportValidity();
-
-//         title.focus();
-//         return false;
-//     }
-// };
-
 const form = document.getElementById("form");
 if (form) {
     form.onsubmit = function () { return validationForm() };

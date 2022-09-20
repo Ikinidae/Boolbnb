@@ -9,8 +9,6 @@
         <h3>Bathrooms: {{ $apartment->bathrooms }}</h3>
         <h3>Mq: {{ $apartment->mq }}</h3>
         <h3>Address: {{ $apartment->address }}</h3>
-        <h3>Latitude: {{ $apartment->latitude }}</h3>
-        <h3>Longitude: {{ $apartment->longitude }}</h3>
         <h3>Visible: {{ $apartment->visible }}</h3>
         <p>{{ $apartment->description }}</p>
 
