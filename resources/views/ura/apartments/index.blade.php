@@ -32,34 +32,32 @@
                         <th>Address</th>
                         <th>latitude</th>
                         <th>longitude</th>
-                        <th>image</th>
-                        <th>Services</th>
+                            <th>Services</th>
                         <th>Visible</th>
 
-                        <th colspan="3">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr data-id="{{ $apartment->id }}">
-                        <td>{{ $apartment->id }}</td>
-                        <td>{{ $apartment->title }}</td>
-                        <td>{{ $apartment->description }}</td>
-                        <td>{{ $apartment->price }}</td>
-                        <td>{{ $apartment->rooms }}</td>
-                        <td>{{ $apartment->beds }}</td>
-                        <td>{{ $apartment->bathrooms }}</td>
-                        <td>{{ $apartment->mq }}</td>
-                        <td>{{ $apartment->address }}</td>
-                        <td>{{ $apartment->latitude }}</td>
-                        <td>{{ $apartment->longitude }}</td>
-                        <td>{{ $apartment->image }}</td>
-                        <td>
-                            @foreach ($apartment->services as $service)
-                                <span class="tag">{{ $service->name }}</span>
-                            @endforeach
-                        </td>
-                        {{-- <td>{{ $apartment->services }}</td> --}}
-                        <td>{{ $apartment->visible }}</td>
+                    <th colspan="3">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-id="{{ $apartment->id }}">
+                    <td>{{ $apartment->id }}</td>
+                    <td>{{ $apartment->title }}</td>
+                    <td>{{ $apartment->description }}</td>
+                    <td>{{ $apartment->price }}</td>
+                    <td>{{ $apartment->rooms }}</td>
+                    <td>{{ $apartment->beds }}</td>
+                    <td>{{ $apartment->bathrooms }}</td>
+                    <td>{{ $apartment->mq }}</td>
+                    <td>{{ $apartment->address }}</td>
+                    <td>{{ $apartment->latitude }}</td>
+                    <td>{{ $apartment->longitude }}</td>
+                    <td>
+                        @foreach ($apartment->services as $service)
+                            <span class="tag">{{ $service->name }}</span>
+                        @endforeach
+                    </td>
+                    {{-- <td>{{ $apartment->services }}</td> --}}
+                    <td>{{ $apartment->visible }}</td>
 
 
                         {{-- SOSTITUIRE CATEGORY CON SERVICES --}}

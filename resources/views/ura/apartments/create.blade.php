@@ -6,7 +6,7 @@
 
     <div>
 
-        <form action="{{ route('ura.apartments.store') }}" method="post" novalidate enctype="multipart/form-data">
+        <form action="{{ route('ura.apartments.store') }}" id="form" method="post" novalidate enctype="multipart/form-data">
             @csrf
 
             {{-- Title --}}
@@ -157,12 +157,11 @@
             </fieldset>
 
             {{-- Save Button --}}
-            <button onclick="validationApartments()" id="submit" type="submit" class="btn btn-primary">Save</button>
+            <button id="submit" type="submit" class="btn btn-primary">Save</button>
         </form>
     </div>
 
     <script src="{{ asset('js/findAddress.js') }}" defer></script>
-    <script src="{{ asset('js/createEditValidation.js') }}" defer></script>
 @endsection
 
 

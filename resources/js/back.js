@@ -17,53 +17,63 @@ require('./bootstrap');
 //     }
 // };
 
-window.validationApartments = function () {
-    // const submit = document.getElementById('submit');
-    const title = document.getElementById('title');
-    const description = document.getElementById('description');
-    const price = document.getElementById('price');
-    const rooms = document.getElementById('rooms');
-    const beds = document.getElementById('beds');
-    const bathrooms = document.getElementById('bathrooms');
-    const mq = document.getElementById('mq');
+const form = document.getElementById("form");
+if (form) {
+    form.onsubmit = function () { return validationForm() };
+}
 
-    if (title.value == "") {
-        // title.setCustomValidity("Insert a title");
-        // submit.preventDefault();
-        window.alert("Insert a title");
-        title.focus();
-        return false;
-    }
-    if (description.value == "") {
-        window.alert("Insert a description");
-        description.focus();
-        return false;
-    }
-    if (isNaN(price.value)) {
-        window.alert("Insert a price");
-        price.focus();
-        return false;
-    }
-    if (isNaN(rooms.value)) {
-        window.alert("Insert a valid number");
-        rooms.focus();
-        return false;
-    }
-    if (isNaN(beds.value)) {
-        window.alert("Insert a valid number");
-        beds.focus();
-        return false;
-    }
-    if (isNaN(bathrooms.value)) {
-        window.alert("Insert a valid number");
-        bathrooms.focus();
-        return false;
-    }
-    if (isNaN(mq.value)) {
-        window.alert("Insert a valid number");
-        mq.focus();
-        return false;
-    }
-    return true
+function validationForm() {
+    const title = document.getElementById('title').value;
+    const description = document.getElementById('description').value;
+    const price = document.getElementById('price').value;
+    const rooms = document.getElementById('rooms').value;
+    const beds = document.getElementById('beds').value;
+    const bathrooms = document.getElementById('bathrooms').value;
+    const mq = document.getElementById('mq').value;
+    const image = document.getElementById('image').value;
+    const services = document.getElementById('services').value;
 
+
+    if (title != "" & description != "" & price != "" & rooms != "" & beds != "" & bathrooms != "" & mq != "" & image != "") {
+        if (title.length == 0) {
+            alert('Required field');
+            return false;
+        }
+        if (description.length == 0) {
+            alert('Required field');
+            return false;
+        }
+        if (price.length == 0) {
+            alert('Required field');
+            return false;
+        }
+        if (rooms.length == 0) {
+            alert('Required field');
+            return false;
+        }
+        if (beds.length == 0) {
+            alert('Required field');
+            return false;
+        }
+        if (bathrooms.length == 0) {
+            alert('Required field');
+            return false;
+        }
+        if (mq.length == 0) {
+            alert('Required field');
+            return false;
+        }
+        if (image.length == 0) {
+            alert('Required field');
+            return false;
+        }
+        if (services.length == 0) {
+            alert('Required field');
+            return false;
+        }
+    } else {
+        alert('compila tutti i campi');
+        return false;
+    }
+    return true;
 }
