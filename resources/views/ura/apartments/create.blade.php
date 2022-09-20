@@ -95,7 +95,7 @@
             {{-- Image --}}
             <div class="mb-3">
                 <label class="form-label" for="image">Image*</label>
-                <input class="form-control @error('image') is-invalid @enderror" type="file" name="image" id="image" accept="image/*">
+                <input class="form-control @error('image') is-invalid @enderror" type="file" name="image" id="image" accept="image/*" value="{{ old('image') }}">
                 @error('image')
                     <div class="invalid-feedback">
                         {{ $message }}
