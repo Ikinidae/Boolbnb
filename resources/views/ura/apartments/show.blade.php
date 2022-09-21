@@ -6,6 +6,7 @@
         <img class="w-75" src="{{ asset('storage/' . $apartment->image) }}" alt="{{ $apartment->title }}">
         <h3>Price: {{ $apartment->price }}€ per night</h3>
         <h3>Rooms: {{ $apartment->rooms }}</h3>
+        <h3>Beds: {{ $apartment->beds }}</h3>
         <h3>Bathrooms: {{ $apartment->bathrooms }}</h3>
         <h3>Mq: {{ $apartment->mq }}</h3>
         <h3>Address: {{ $apartment->address }}</h3>

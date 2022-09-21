@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
+use App\Models\Service;
 use App\Models\Apartment;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ApartmentController extends Controller
 {
@@ -13,13 +14,10 @@ class ApartmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function services()
     {
-        $apartments = Apartment::with('services')->paginate(5);
-        return response()->json([
-            'success' => true,
-            'response' => $apartments,
-        ]);
+        $services = Service::all();
+        return response()->json($services);
     }
 
     public function getApartments(Request $request) {
@@ -35,7 +33,7 @@ class ApartmentController extends Controller
         //     ->get();
         // crea una variabile con apartment e la tabella servizi
         // $allApartments = Apartment::with('service')->get();
-        $allApartments = Apartment::all();
+        $allApartments = Apartment::with('services')->get();
 
         // crea un array vuoto
         $apartments = [];

@@ -40,9 +40,10 @@
                         <option value="50">50</option>
                     </select>
 
-                    <!-- <label for="rooms">Choose min rooms</label>
-                    <select @change="selectRooms" name="rooms" id="rooms" v-model="rooms">
-                        <option value="Any">Any</option>
+                    <!-- Rooms -->
+                    <label for="rooms">Choose min rooms</label>
+                    <select @change="log" name="rooms" id="rooms" v-model="rooms">
+                        <!-- <option value="Any">Any</option> -->
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -50,17 +51,47 @@
                         <option value="5">5</option>
                     </select>
 
+                    <!-- Beds -->
                     <label for="beds">Choose min beds</label>
-                    <select @change="" name="beds" id="beds" v-model="beds">
-                        <option value="Any">Any</option>
+                    <select @change="log" name="beds" id="beds" v-model="beds">
+                        <!-- <option value="Any">Any</option> -->
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
                         <option value="5">5</option>
-                    </select> -->
+                    </select>
 
-                    <!-- nel button viene fatta partire la funzione getApartments(lat long radius) con i valori di lat lon e radius  -->
+                    <!-- Services -->
+                    <div id="filter-list" class="show">
+                        <ul>
+                            <li :key="i" v-for="(service, i) in services">
+                                <input
+                                    type="checkbox"
+                                    :name="service.name"
+                                    :id="service.id"
+                                    :value="service.name"
+                                    v-model="selectedServices"
+                                    @change="log"
+                                /><label :for="service.id">
+                                    {{ service.name }}
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- <div v-for="(service, i) in services" :key="i" class="form-check">
+
+                    <input
+                        class="form-check-input"
+                        type="checkbox"
+                        name="services[]"
+                        value="{{ $service->id }}"
+                        id="service-{{ $service->id }}"
+                    >
+                    <label class="form-check-label" for="service-{{ $service->id }}">{{ $service->name }}</label>
+                    </div> -->
+
                     <div class=" form-create address-form2" v-show="nameAddress.length > 0">
                         <ul class="list-type">
                             <li
@@ -75,8 +106,9 @@
                         </ul>
                     </div>
 
-                    <button @click="$emit('mysearch', Apartments)" class="btn btn-outline-danger" type="submit">Search</button>
-                    <!-- <button @click="getApartments(radius,latitude,longitude)" class="btn btn-outline-success" type="submit">Search</button> -->
+                    <!-- <button @click="$emit('mysearch', Apartments)" class="btn btn-outline-danger" type="submit">Search</button> -->
+                    <!-- <button @click="$emit('mysearch', filteredApt)" class="btn btn-outline-danger" type="submit">Search</button> -->
+                    <button @click="selectRooms" class="btn btn-outline-success" type="submit">Search</button>
                 <!-- </form> -->
                 </div>
             </div>
@@ -94,23 +126,28 @@ export default {
             latitude: null,
             longitude: null,
             radius: 20,
-            rooms: 'Any',
-            beds: 'Any',
+            rooms: 1,
+            beds: 1,
             nameAddress: [],
             searchAddress:[],
-
+            services: [],
+            selectedServices:[],
             // array dove salveremo i risultati da stampare
             Apartments: [],
             // nuovo array filtrato per camere
-            // filteredApt: []
+            filteredApt: []
         };
     },
-
+    created() {
+        this.getServices();
+    },
     methods: {
 
-        // log(){
-        //     console.log('radius',this.radius);
-        // },
+        log(){
+            console.log('rooms',this.rooms);
+            console.log('beds',this.beds);
+            console.log('services', this.selectedServices);
+        },
 
         // FUZZY SEARCH
         addressSearch() {
@@ -121,7 +158,7 @@ export default {
         },
         handleResults(result) {
             this.nameAddress = result.results;
-            console.log('risultati',this.nameAddress);
+            console.log('risultati handle results',this.nameAddress);
             // console.log('log1', this.latLong);
             // console.log('log2', this.latitude);
             // console.log('log3', this.longitude);
@@ -152,15 +189,32 @@ export default {
                     console.log('risultato chiamata axios da navbar', this.Apartments);
                 });
         },
-        // selectRooms(){
-        //     for (let i = 0; i < this.Apartments.length; i++) {
-        //         if (this.Apartments[i].rooms >= this.rooms) {
-        //             this.filteredApt.push(this.Apartments[i])
-        //         }
-        //     }
-        //     this.Apartments = this.filteredApt;
-        //     console.log(this.filteredApt);
-        // }
+        selectRooms(){
+            this.filteredApt = [];
+            for (let i = 0; i < this.Apartments.length; i++) {
+                if (this.Apartments[i].rooms >= this.rooms & this.Apartments[i].beds >= this.beds) {
+                    //  & this.Apartments[i].services.includes(this.selectedServices == true)
+                    this.filteredApt.push(this.Apartments[i])
+                }
+                else
+                console.log('questo appartmamento non è stato pushato', this.Apartments[i]);
+            }
+            // this.Apartments = this.filteredApt;
+            console.log('filteredapt', this.filteredApt);
+        },
+        getServices() {
+            axios.get("/api/service")
+                .then((res) => {
+                res.data.forEach((e) => {
+                    let obj = {
+                        id: e.id,
+                        name: e.name,
+                    };
+                    this.services.push(obj);
+                    console.log('log this.services', this.services);
+                });
+            });
+        },
     }
 }
 </script>
