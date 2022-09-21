@@ -5279,30 +5279,19 @@ __webpack_require__.r(__webpack_exports__);
         // per ogni appartamento controllo se le condizioni numero di stanze e letti sono verificate
         if (this.Apartments[i].rooms >= this.rooms & this.Apartments[i].beds >= this.beds) {
           // se si, pushare in un array con appartamenti filtrati
-          this.firstFilter.push(this.Apartments[i]); // // per ogni appartamento prendo ogni servizio e lo pusho in un array di servizi posseduti dal jesimo appartamento
-          // for (let j = 0; j < this.firstFilter.length; j++) {
-          //     console.log('sdfgsdfhxfghj', this.firstFilter.services[j]);
-          //     // for (let index = 0; index < this.firstFilter.services.length; index++) {
-          //     //     this.firstFilter.services[j].name.push(this.servicesArrayApt);
-          //     // }
-          //     // se array di servizi posseduti include array di servizi selezionati pushare nell'array apartments
-          //     // if (this.servicesArrayApt.includes(this.selectedServices)) {
-          //     //     this.filteredApt.push(this.firstFilter[j]);
-          //     // }
-          //     // if (this.selectedServices.includes(this.firstFilter.service[j].name)) {
-          //     //     this.filteredApt.push(this.firstFilter[j]);
-          //     // }
-          //     // this.firstFilter.services[j].push(this.servicesArrayApt)
-          // }
-          // this.filteredApt.push(this.Apartments[i])
-          // & this.Apartments[i].services[i].name.includes(this.selectedServices)
-        } else console.log('questo appartmamento non è stato pushato', this.Apartments[i]);
-      } // this.Apartments = this.filteredApt;
+          this.firstFilter.push(this.Apartments[i]);
 
+          for (var j = 0; j < this.firstFilter[i].services.length; j++) {
+            if (this.firstFilter[i].services[j].name.contains(this.selectedServices)) {
+              this.filteredApt.push(this.firstFilter[i]);
+            } else console.log('non funziona');
+          }
+        } else console.log('questo appartmamento non è stato pushato', this.Apartments[i]);
+      }
 
       console.log('primo filtro', this.firstFilter);
       console.log('filteredapt', this.filteredApt);
-      this.$emit('mysearch', this.firstFilter);
+      this.$emit('mysearch', this.filteredApt);
     },
     getServices: function getServices() {
       var _this2 = this;
