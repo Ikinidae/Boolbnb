@@ -1,11 +1,13 @@
 <template>
-    <div>
+
         <nav class="navbar navbar-expand-lg bg-light w-75">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" href="#">Boolbnb</a>
+                <a class="navbar-brand" href="#">
+                    <img class="nav-item logo"  src="../../logo boolbnb.png" alt="logo">
+                </a>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -29,8 +31,8 @@
                     />
 
                     <!-- Input per radiante -->
-                    <label for="radius">Choose radius distance</label>
-                    <select @change="getApartments(radius,latitude,longitude)" name="radius" id="radius" v-model="radius">
+                    <label  for="radius">Choose radius distance</label>
+                    <select  @change="getApartments(radius,latitude,longitude)" name="radius" id="radius" v-model="radius">
                         <option value="10">10</option>
                         <option value="20">20</option>
                         <option value="30">30</option>
@@ -59,7 +61,7 @@
                     </select> -->
 
                     <!-- nel button viene fatta partire la funzione getApartments(lat long radius) con i valori di lat lon e radius  -->
-                    <div class="form-create address-form2" v-show="nameAddress.length > 0">
+                    <div class=" form-create address-form2" v-show="nameAddress.length > 0">
                         <ul class="list-type">
                             <li
                                 :key="i"
@@ -73,13 +75,13 @@
                         </ul>
                     </div>
 
-                    <button @click="$emit('mysearch', Apartments)" class="btn btn-outline-success" type="submit">Search</button>
+                    <button @click="$emit('mysearch', Apartments)" class="btn btn-outline-danger" type="submit">Search</button>
                     <!-- <button @click="getApartments(radius,latitude,longitude)" class="btn btn-outline-success" type="submit">Search</button> -->
                 <!-- </form> -->
                 </div>
             </div>
         </nav>
-    </div>
+
 </template>
 
 <script>
@@ -164,5 +166,7 @@ export default {
 </script>
 
 <style>
-
+.logo{
+    height: 100px;
+}
 </style>
