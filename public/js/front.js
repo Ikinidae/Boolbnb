@@ -5223,6 +5223,9 @@ __webpack_require__.r(__webpack_exports__);
       selectedServices: [],
       // array dove salveremo i risultati da stampare
       Apartments: [],
+      firstFilter: [],
+      // array per i servizi del jesimo apt
+      servicesArrayApt: [],
       // nuovo array filtrato per camere
       filteredApt: []
     };
@@ -5264,19 +5267,30 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("/api/distance/" + radius + "/" + lat + "/" + lon).then(function (res) {
         _this.Apartments = res.data;
         console.log('risultato chiamata axios da navbar', _this.Apartments);
+        console.log('ricerca dei servizi', _this.Apartments[0].services[0].name);
       });
     },
     selectRooms: function selectRooms() {
+      this.firstFilter = [];
       this.filteredApt = [];
 
       for (var i = 0; i < this.Apartments.length; i++) {
         if (this.Apartments[i].rooms >= this.rooms & this.Apartments[i].beds >= this.beds) {
-          //  & this.Apartments[i].services.includes(this.selectedServices == true)
-          this.filteredApt.push(this.Apartments[i]);
+          this.firstFilter.push(this.Apartments[i]);
+
+          for (var j = 0; j < this.firstFilter.length; j++) {
+            // if (this.selectedServices.includes(this.firstFilter.service[j].name)) {
+            //     this.filteredApt.push(this.firstFilter[j]);
+            // }
+            this.firstFilter.services[j].push(this.servicesArrayApt);
+          } // this.filteredApt.push(this.Apartments[i])
+          // & this.Apartments[i].services[i].name.includes(this.selectedServices)
+
         } else console.log('questo appartmamento non è stato pushato', this.Apartments[i]);
       } // this.Apartments = this.filteredApt;
 
 
+      console.log('primo filtro', this.firstFilter);
       console.log('filteredapt', this.filteredApt);
     },
     getServices: function getServices() {
@@ -5317,14 +5331,14 @@ var render = function render() {
 
   return _c("div", {
     staticClass: "container"
-  }, [_c("NavBar", {
+  }, [_c("div", {}, [_c("NavBar", {
     on: {
       mysearch: _vm.getApartment
     }
-  }), _vm._v(" "), _c("div", {
+  })], 1), _vm._v(" "), _c("div", {
     staticClass: "text-center"
   }), _vm._v(" "), _c("div", {
-    staticClass: "row row-cols row-cols-md-2 g-4"
+    staticClass: "row row-cols row-cols-md-2 g-4 mt-3"
   }, _vm._l(_vm.apartments, function (apartment) {
     return _c("CardApartment", {
       key: apartment.id,
@@ -5333,7 +5347,7 @@ var render = function render() {
         apartment: apartment
       }
     });
-  }), 1)], 1);
+  }), 1)]);
 };
 
 var staticRenderFns = [];
@@ -5408,11 +5422,11 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("nav", {
-    staticClass: "navbar navbar-expand-lg bg-light w-75"
+    staticClass: "navbar navbar-expand-lg mx-auto w-75"
   }, [_c("div", {
     staticClass: "container-fluid"
-  }, [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
-    staticClass: "collapse navbar-collapse",
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "collapse navbar-collapse d-flex",
     attrs: {
       id: "navbarTogglerDemo03"
     }
@@ -5680,22 +5694,6 @@ var staticRenderFns = [function () {
     }
   }, [_c("span", {
     staticClass: "navbar-toggler-icon"
-  })]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("a", {
-    staticClass: "navbar-brand",
-    attrs: {
-      href: "#"
-    }
-  }, [_c("img", {
-    staticClass: "nav-item logo",
-    attrs: {
-      src: __webpack_require__(/*! ../../logo boolbnb.png */ "./resources/logo boolbnb.png"),
-      alt: "logo"
-    }
   })]);
 }];
 render._withStripped = true;
@@ -41584,17 +41582,6 @@ var app = new Vue({
     return h(_App_vue__WEBPACK_IMPORTED_MODULE_0__["default"]);
   }
 });
-
-/***/ }),
-
-/***/ "./resources/logo boolbnb.png":
-/*!************************************!*\
-  !*** ./resources/logo boolbnb.png ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/logo boolbnb.png?741161d4779a03dbec27a38a9da72561";
 
 /***/ }),
 

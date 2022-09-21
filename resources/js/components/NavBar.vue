@@ -78,18 +78,6 @@
                         </ul>
                     </div>
 
-                    <!-- <div v-for="(service, i) in services" :key="i" class="form-check">
-
-                    <input
-                        class="form-check-input"
-                        type="checkbox"
-                        name="services[]"
-                        value="{{ $service->id }}"
-                        id="service-{{ $service->id }}"
-                    >
-                    <label class="form-check-label" for="service-{{ $service->id }}">{{ $service->name }}</label>
-                    </div> -->
-
                     <div class=" form-create address-form2" v-show="nameAddress.length > 0">
                         <ul class="list-type">
                             <li
@@ -132,6 +120,12 @@ export default {
             selectedServices:[],
             // array dove salveremo i risultati da stampare
             Apartments: [],
+
+            firstFilter: [],
+
+            // array per i servizi del jesimo apt
+            servicesArrayApt: [],
+
             // nuovo array filtrato per camere
             filteredApt: []
         };
@@ -185,19 +179,32 @@ export default {
                 .then((res) => {
                     this.Apartments = res.data;
                     console.log('risultato chiamata axios da navbar', this.Apartments);
+                    console.log('ricerca dei servizi', this.Apartments[0].services[0].name);
                 });
         },
         selectRooms(){
+            this.firstFilter = [];
             this.filteredApt = [];
             for (let i = 0; i < this.Apartments.length; i++) {
                 if (this.Apartments[i].rooms >= this.rooms & this.Apartments[i].beds >= this.beds) {
-                    //  & this.Apartments[i].services.includes(this.selectedServices == true)
-                    this.filteredApt.push(this.Apartments[i])
+
+                    this.firstFilter.push(this.Apartments[i]);
+
+                    for (let j = 0; j < this.firstFilter.length; j++) {
+
+                        // if (this.selectedServices.includes(this.firstFilter.service[j].name)) {
+                        //     this.filteredApt.push(this.firstFilter[j]);
+                        // }
+                        this.firstFilter.services[j].push(this.servicesArrayApt)
+                    }
+                    // this.filteredApt.push(this.Apartments[i])
+                    // & this.Apartments[i].services[i].name.includes(this.selectedServices)
                 }
                 else
                 console.log('questo appartmamento non è stato pushato', this.Apartments[i]);
             }
             // this.Apartments = this.filteredApt;
+            console.log('primo filtro', this.firstFilter);
             console.log('filteredapt', this.filteredApt);
         },
         getServices() {
