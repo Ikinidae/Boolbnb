@@ -1,14 +1,12 @@
 <template>
 
-        <nav class="navbar navbar-expand-lg bg-light w-75">
+        <nav class="navbar navbar-expand-lg mx-auto w-75">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" href="#">
-                    <img class="nav-item logo"  src="../../logo boolbnb.png" alt="logo">
-                </a>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+
+                <div class="collapse navbar-collapse d-flex flex-column" id="navbarTogglerDemo03">
                 <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
@@ -19,46 +17,57 @@
                 </ul> -->
                 <!-- <form class="d-flex" role="search"> -->
                     <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" v-model=""> -->
-                    <input
-                        required
-                        autocomplete="off"
-                        @keyup="addressSearch"
-                        type="text"
-                        class="form-control form-create address-form"
-                        name="address"
-                        id="query"
-                        v-model="searchAddress"
-                    />
+                    <div>
+                        <a class="navbar-brand" href="#">
+                            <img class="nav-item logo"  src="../../logo boolbnb.png" alt="logo">
+                        </a>
+                    </div>
+                    <div class="mb-2">
+                        <input
+                            required
+                            autocomplete="off"
+                            @keyup="addressSearch"
+                            type="text"
+                            class="form-control form-create address-form me-3"
+                            name="address"
+                            id="query"
+                            v-model="searchAddress"
+                        />
+                    </div>
+
 
                     <!-- Input per radiante -->
-                    <label  for="radius">Choose radius distance</label>
-                    <select  @change="getApartments(radius,latitude,longitude)" name="radius" id="radius" v-model="radius">
-                        <option value="10">10</option>
-                        <option value="20">20</option>
-                        <option value="30">30</option>
-                        <option value="40">40</option>
-                        <option value="50">50</option>
-                    </select>
+                    <div class="m-2">
+                        <label  for="radius">Choose radius distance</label>
+                        <select class="me-3" @change="getApartments(radius,latitude,longitude)" name="radius" id="radius" v-model="radius">
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                            <option value="40">40</option>
+                            <option value="50">50</option>
+                        </select>
 
-                    <!-- <label for="rooms">Choose min rooms</label>
-                    <select @change="selectRooms" name="rooms" id="rooms" v-model="rooms">
-                        <option value="Any">Any</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
+                        <label for="rooms">Choose min rooms</label>
+                        <select class="me-3" @change="selectRooms" name="rooms" id="rooms" v-model="rooms">
+                            <option value="Any">Any</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
 
-                    <label for="beds">Choose min beds</label>
-                    <select @change="" name="beds" id="beds" v-model="beds">
-                        <option value="Any">Any</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select> -->
+                        <label for="beds">Choose min beds</label>
+                        <select class="me-3" @change="" name="beds" id="beds" v-model="beds">
+                            <option value="Any">Any</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+
 
                     <!-- nel button viene fatta partire la funzione getApartments(lat long radius) con i valori di lat lon e radius  -->
                     <div class=" form-create address-form2" v-show="nameAddress.length > 0">
@@ -75,7 +84,7 @@
                         </ul>
                     </div>
 
-                    <button @click="$emit('mysearch', Apartments)" class="btn btn-outline-danger" type="submit">Search</button>
+                    <button @click="$emit('mysearch', Apartments)" class="btn btn-outline-danger m-2" type="submit">Search</button>
                     <!-- <button @click="getApartments(radius,latitude,longitude)" class="btn btn-outline-success" type="submit">Search</button> -->
                 <!-- </form> -->
                 </div>
