@@ -5,7 +5,7 @@
 
         <!-- main -->
         <div class="text-center">
-                BoolBnb
+
         </div>
 
         <!-- card component -->
