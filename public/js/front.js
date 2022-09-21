@@ -5282,7 +5282,7 @@ __webpack_require__.r(__webpack_exports__);
           this.firstFilter.push(this.Apartments[i]);
 
           for (var j = 0; j < this.firstFilter[i].services.length; j++) {
-            if (this.firstFilter[i].services[j].name.contains(this.selectedServices)) {
+            if (this.firstFilter[i].services[j].name.includes(this.selectedServices)) {
               this.filteredApt.push(this.firstFilter[i]);
             } else console.log('non funziona');
           }

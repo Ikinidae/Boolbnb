@@ -197,7 +197,7 @@ export default {
                     this.firstFilter.push(this.Apartments[i]);
 
                     for (let j = 0; j < this.firstFilter[i].services.length; j++) {
-                        if (this.firstFilter[i].services[j].name.contains(this.selectedServices)) {
+                        if (this.firstFilter[i].services[j].name.includes(this.selectedServices)) {
                             this.filteredApt.push(this.firstFilter[i]);
                         }
                         else
