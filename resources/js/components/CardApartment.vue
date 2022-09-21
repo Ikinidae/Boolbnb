@@ -9,7 +9,6 @@
         </div>
     </div> -->
 
-<!-- <div class="row row-cols row-cols-md-2 g-4"> -->
     <div class="col-sm-6 col-md-4 g-4">
         <div class="card h-100">
             <img :src="`/storage/${apartment.image}`" class="card-img-top" :alt="apartment.title">
@@ -25,9 +24,6 @@
             </div>
         </div>
     </div>
-<!-- </div> -->
-
-
 </template>
 
 <script>
