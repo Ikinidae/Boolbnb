@@ -1,7 +1,9 @@
 <template>
-    <div class="container ">
+    <div class="container">
         <!-- navbar component -->
-        <NavBar @mysearch="getApartment"></NavBar>
+        <div class="">
+            <NavBar @mysearch="getApartment"></NavBar>
+        </div>
 
         <!-- main -->
         <div class="text-center">
@@ -9,7 +11,7 @@
         </div>
 
         <!-- card component -->
-        <div class="row row-cols row-cols-md-2 g-4">
+        <div class="row row-cols row-cols-md-2 g-4 mt-3">
             <CardApartment class="container " v-for="apartment in apartments" :key="apartment.id" :apartment="apartment" ></CardApartment>
         </div>
 
