@@ -78,18 +78,6 @@
                         </ul>
                     </div>
 
-                    <!-- <div v-for="(service, i) in services" :key="i" class="form-check">
-
-                    <input
-                        class="form-check-input"
-                        type="checkbox"
-                        name="services[]"
-                        value="{{ $service->id }}"
-                        id="service-{{ $service->id }}"
-                    >
-                    <label class="form-check-label" for="service-{{ $service->id }}">{{ $service->name }}</label>
-                    </div> -->
-
                     <div class=" form-create address-form2" v-show="nameAddress.length > 0">
                         <ul class="list-type">
                             <li
@@ -130,9 +118,17 @@ export default {
             searchAddress:[],
             services: [],
             selectedServices:[],
-            // array dove salveremo i risultati da stampare
+
+            // array dove salviamo i dati del json ricevuto dall'api
             Apartments: [],
-            // nuovo array filtrato per camere
+
+            // array dove salviamo gli appartamenti per letti e stanze
+            firstFilter: [],
+
+            // array per i servizi del j-esimo apt
+            servicesArrayApt: [],
+
+            // array finale dove dobbiamo mettere gli apt filtrati per tutto quanto
             filteredApt: []
         };
     },
@@ -185,20 +181,51 @@ export default {
                 .then((res) => {
                     this.Apartments = res.data;
                     console.log('risultato chiamata axios da navbar', this.Apartments);
+                    console.log('ricerca dei servizi', this.Apartments[0].services[0].name);
                 });
         },
-        selectRooms(){
+        selectRooms() {
+            this.firstFilter = [];
             this.filteredApt = [];
+
             for (let i = 0; i < this.Apartments.length; i++) {
+
+                // per ogni appartamento controllo se le condizioni numero di stanze e letti sono verificate
                 if (this.Apartments[i].rooms >= this.rooms & this.Apartments[i].beds >= this.beds) {
-                    //  & this.Apartments[i].services.includes(this.selectedServices == true)
-                    this.filteredApt.push(this.Apartments[i])
+
+                    // se si, pushare in un array con appartamenti filtrati
+                    this.firstFilter.push(this.Apartments[i]);
+
+                    // // per ogni appartamento prendo ogni servizio e lo pusho in un array di servizi posseduti dal jesimo appartamento
+                    // for (let j = 0; j < this.firstFilter.length; j++) {
+
+                    //     console.log('sdfgsdfhxfghj', this.firstFilter.services[j]);
+                    //     // for (let index = 0; index < this.firstFilter.services.length; index++) {
+                    //     //     this.firstFilter.services[j].name.push(this.servicesArrayApt);
+                    //     // }
+
+                    //     // se array di servizi posseduti include array di servizi selezionati pushare nell'array apartments
+                    //     // if (this.servicesArrayApt.includes(this.selectedServices)) {
+                    //     //     this.filteredApt.push(this.firstFilter[j]);
+                    //     // }
+
+                    //     // if (this.selectedServices.includes(this.firstFilter.service[j].name)) {
+                    //     //     this.filteredApt.push(this.firstFilter[j]);
+                    //     // }
+                    //     // this.firstFilter.services[j].push(this.servicesArrayApt)
+                    // }
+
+                    // this.filteredApt.push(this.Apartments[i])
+                    // & this.Apartments[i].services[i].name.includes(this.selectedServices)
                 }
                 else
-                console.log('questo appartmamento non è stato pushato', this.Apartments[i]);
+                    console.log('questo appartmamento non è stato pushato', this.Apartments[i]);
             }
             // this.Apartments = this.filteredApt;
+            console.log('primo filtro', this.firstFilter);
             console.log('filteredapt', this.filteredApt);
+
+            this.$emit('mysearch', this.firstFilter);
         },
         getServices() {
             axios.get("/api/service")
