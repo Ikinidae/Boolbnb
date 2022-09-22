@@ -9,7 +9,11 @@ import App from './App.vue';
 // importiamo la libreria vue-router
 import VueRouter from 'vue-router'
 
+// importiamo vue head
+import VueHead from 'vue-head'
+
 Vue.use(VueRouter)
+Vue.use(VueHead)
 
 
 import PageHome from './pages/PageHome.vue';
