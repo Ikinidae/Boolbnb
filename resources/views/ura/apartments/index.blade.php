@@ -17,6 +17,8 @@
 
     <h1>Apartments</h1>
     @forelse ($apartments as $apartment)
+    <div class="table-responsive">
+
 
             <table class="table table-md table-striped table-hover ">
                 <thead>
@@ -87,6 +89,7 @@
                     </tr>
                 </tbody>
             </table>
+    </div>
 
     @empty
         <p>No apartments</p>

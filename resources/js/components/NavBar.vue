@@ -1,6 +1,6 @@
 <template>
 
-        <nav class="navbar navbar-expand-lg mx-auto w-75">
+    <nav class="navbar navbar-expand-lg mx-auto w-75">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -17,53 +17,101 @@
                 </ul> -->
                 <!-- <form class="d-flex" role="search"> -->
                     <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" v-model=""> -->
-                    <input
-                        required
-                        autocomplete="off"
-                        @keyup="addressSearch"
-                        type="text"
-                        class="form-control form-create address-form"
-                        name="address"
-                        id="query"
-                        v-model="searchAddress"
-                    />
+                    <div>
+                        <a class="navbar-brand" href="#">
+                            <img class="nav-item logo"  src="../../logo boolbnb.png" alt="logo">
+                        </a>
+                    </div>
+                    <div class="form-group">
+                            <div class="mb-2">
+                            <input
+                            required
+                            autocomplete="off"
+                            @keyup="addressSearch"
+                            type="text"
+                            class="form-control form-create address-form me-3"
+                            name="address"
+                            id="query"
+                            v-model="searchAddress"
+                            placeholder="Search"
+                        />
 
-                    <!-- Input per radiante -->
-                    <label  for="radius">Choose radius distance</label>
-                    <select  @change="getApartments(radius,latitude,longitude)" name="radius" id="radius" v-model="radius">
-                        <option value="10">10</option>
-                        <option value="20">20</option>
-                        <option value="30">30</option>
-                        <option value="40">40</option>
-                        <option value="50">50</option>
-                    </select>
+                        </div>
 
-                    <!-- Rooms -->
-                    <label for="rooms">Choose min rooms</label>
-                    <select @change="log" name="rooms" id="rooms" v-model="rooms">
-                        <!-- <option value="Any">Any</option> -->
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
+                        <div class=" form-create address-form2" v-show="nameAddress.length > 0">
+                        <ul class="list-group">
+                            <li
+                                :key="i"
+                                v-for="(name, i) in nameAddress"
+                                @click="selectAddress(i)"
+                                style="cursor: pointer"
+                                class="li-hover list-group-item"
+                            >
+                                {{ name.address.freeformAddress }}
+                            </li>
+                        </ul>
+                    </div>
 
-                    <!-- Beds -->
-                    <label for="beds">Choose min beds</label>
-                    <select @change="log" name="beds" id="beds" v-model="beds">
-                        <!-- <option value="Any">Any</option> -->
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
+                    </div>
+
+
+                    <div class="dropdown m-2 ">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            filters
+                            </button>
+                            <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
+                                <li>
+                                     <!-- Input per radiante -->
+                                    <label  for="radius">Choose radius distance</label>
+                                     <select class="me-3"  @change="getApartments(radius,latitude,longitude)" name="radius" id="radius" v-model="radius">
+                                        <option value="10">10</option>
+                                        <option value="20">20</option>
+                                        <option value="30">30</option>
+                                        <option value="40">40</option>
+                                        <option value="50">50</option>
+                                    </select>
+                                </li>
+
+                                <li>
+                                    <!-- Rooms -->
+                                    <label for="rooms">Choose min rooms</label>
+                                    <select class="me-3" @change="log" name="rooms" id="rooms" v-model="rooms">
+                                        <!-- <option value="Any">Any</option> -->
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </li>
+
+                                <li>
+                                    <!-- Beds -->
+                                    <label for="beds">Choose min beds</label>
+                                    <select class="me-3" @change="log" name="beds" id="beds" v-model="beds">
+                                        <!-- <option value="Any">Any</option> -->
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </li>
+                            </ul>
+                    </div>
+
+
+
+
+
 
                     <!-- Services -->
-                    <div id="filter-list" class="show">
-                        <ul>
-                            <li :key="i" v-for="(service, i) in services">
+                    <div id="filter-list" class="show dropdown m-2">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </button>
+                        <ul class=" dropdown-menu" >
+                            <li class="dropdown-item" :key="i" v-for="(service, i) in services">
                                 <input
                                     type="checkbox"
                                     :name="service.name"
@@ -71,30 +119,19 @@
                                     :value="service.name"
                                     v-model="selectedServices"
                                     @change="log"
-                                /><label :for="service.id">
-                                    {{ service.name }}
-                                </label>
+                                />
+                                    <label :for="service.id">
+                                        {{ service.name }}
+                                    </label>
                             </li>
                         </ul>
                     </div>
 
-                    <div class=" form-create address-form2" v-show="nameAddress.length > 0">
-                        <ul class="list-type">
-                            <li
-                                :key="i"
-                                v-for="(name, i) in nameAddress"
-                                @click="selectAddress(i)"
-                                style="cursor: pointer"
-                                class="li-hover"
-                            >
-                                {{ name.address.freeformAddress }}
-                            </li>
-                        </ul>
-                    </div>
+
 
                     <!-- <button @click="$emit('mysearch', Apartments)" class="btn btn-outline-danger" type="submit">Search</button> -->
                     <!-- <button @click="$emit('mysearch', filteredApt)" class="btn btn-outline-danger" type="submit">Search</button> -->
-                    <button @click="selectRooms" class="btn btn-outline-success" type="submit">Search</button>
+                    <button @click="selectRooms" class="btn btn-outline-danger" type="submit">Search</button>
                 <!-- </form> -->
                 </div>
             </div>
@@ -196,36 +233,21 @@ export default {
                     // se si, pushare in un array con appartamenti filtrati
                     this.firstFilter.push(this.Apartments[i]);
 
-                    // // per ogni appartamento prendo ogni servizio e lo pusho in un array di servizi posseduti dal jesimo appartamento
-                    // for (let j = 0; j < this.firstFilter.length; j++) {
-
-                    //     console.log('sdfgsdfhxfghj', this.firstFilter.services[j]);
-                    //     // for (let index = 0; index < this.firstFilter.services.length; index++) {
-                    //     //     this.firstFilter.services[j].name.push(this.servicesArrayApt);
-                    //     // }
-
-                    //     // se array di servizi posseduti include array di servizi selezionati pushare nell'array apartments
-                    //     // if (this.servicesArrayApt.includes(this.selectedServices)) {
-                    //     //     this.filteredApt.push(this.firstFilter[j]);
-                    //     // }
-
-                    //     // if (this.selectedServices.includes(this.firstFilter.service[j].name)) {
-                    //     //     this.filteredApt.push(this.firstFilter[j]);
-                    //     // }
-                    //     // this.firstFilter.services[j].push(this.servicesArrayApt)
-                    // }
-
-                    // this.filteredApt.push(this.Apartments[i])
-                    // & this.Apartments[i].services[i].name.includes(this.selectedServices)
+                    for (let j = 0; j < this.firstFilter[i].services.length; j++) {
+                        if (this.firstFilter[i].services[j].name.includes(this.selectedServices)) {
+                            this.filteredApt.push(this.firstFilter[i]);
+                        }
+                        else
+                        console.log('non funziona');
+                    }
                 }
                 else
                     console.log('questo appartmamento non è stato pushato', this.Apartments[i]);
             }
-            // this.Apartments = this.filteredApt;
             console.log('primo filtro', this.firstFilter);
             console.log('filteredapt', this.filteredApt);
 
-            this.$emit('mysearch', this.firstFilter);
+            this.$emit('mysearch', this.filteredApt);
         },
         getServices() {
             axios.get("/api/service")
@@ -246,6 +268,6 @@ export default {
 
 <style>
 .logo{
-    height: 100px;
+    height: 150px;
 }
 </style>
