@@ -1,9 +1,10 @@
 <template>
-    <div >
+    <div>
+        sdfgdsfgds
 
         <!-- navbar component -->
 
-        <!-- <NavBar @mysearch="getApartment"></NavBar> -->
+        <NavBar @mysearch="getApartment"></NavBar>
 
 
         <!-- main -->
@@ -12,13 +13,8 @@
         </div> -->
 
         <!-- card component -->
-        <!-- <div class="row row-cols row-cols-md-2 g-4 mt-3">
+        <div class="row row-cols row-cols-md-2 g-4 mt-3">
             <CardApartment class="container " v-for="apartment in apartments" :key="apartment.id" :apartment="apartment" ></CardApartment>
-        </div> -->
-
-        <div class="container">
-            <router-view></router-view>
-
         </div>
 
 
@@ -26,18 +22,18 @@
 </template>
 
 <script>
-// import NavBar from './components/NavBar.vue';
-// import CardApartment from './components/CardApartment.vue';
+import NavBar from '../components/NavBar.vue';
+import CardApartment from '../components/CardApartment.vue';
 
 export default {
-    name: "App",
+    name: "PageHome",
     components: {
-        // NavBar,
-        // CardApartment
+        NavBar,
+        CardApartment
     },
     data(){
         return{
-            // apartments: []
+            apartments: []
         }
     },
 
@@ -49,15 +45,12 @@ export default {
     //         })
     //         .catch(error => {});
     // },
-
-
-    // VECCHIA APP
-    // methods: {
-    //     getApartment(textUser){
-    //         this.apartments = textUser;
-    //         console.log('app.vue', this.apartments);
-    //     }
-    // }
+    methods: {
+        getApartment(textUser){
+            this.apartments = textUser;
+            console.log('app.vue', this.apartments);
+        }
+    }
 };
 
 </script>

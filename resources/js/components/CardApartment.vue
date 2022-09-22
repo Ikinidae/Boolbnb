@@ -22,6 +22,7 @@
             <div class="card-footer">
                 <small class="text-muted">{{ apartment.price }}€</small>
             </div>
+            <router-link :to="{name: 'show', params: {id: apartment.id} }" class="btn btn-primary">Read</router-link>
         </div>
     </div>
 </template>
