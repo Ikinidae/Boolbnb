@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container-fluid bg">
         <!-- navbar component -->
         <div class="">
             <NavBar @mysearch="getApartment"></NavBar>
@@ -53,4 +53,9 @@ export default {
 </script>
 <style lang="scss" scoped>
     @import 'bootstrap/scss/bootstrap';
+
+.bg{
+   background-image: url(../backgrounduck.png);
+    min-height: 100%;
+}
 </style>
