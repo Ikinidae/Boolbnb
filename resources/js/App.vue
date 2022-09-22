@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid bg">
+    <div class=" bg">
         <!-- navbar component -->
 
         <!-- <NavBar @mysearch="getApartment"></NavBar> -->
@@ -15,7 +15,7 @@
             <CardApartment class="container " v-for="apartment in apartments" :key="apartment.id" :apartment="apartment" ></CardApartment>
         </div> -->
 
-        <div class="container">
+        <div class="container-fluid">
             <router-view></router-view>
 
         </div>
@@ -68,5 +68,6 @@ export default {
     min-height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment:fixed;
 }
 </style>

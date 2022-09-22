@@ -2,11 +2,16 @@
 
     <nav class="navbar navbar-expand-lg mx-auto w-75">
             <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <div>
+                        <a class="navbar-brand" href="#">
+                            <img class="nav-item logo"  src="../../logo boolbnb.png" alt="logo">
+                        </a>
+                    </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse d-flex" id="navbarTogglerDemo03">
+                <div class="collapse navbar-collapse"  id="navbarTogglerDemo01">
                 <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
@@ -17,13 +22,9 @@
                 </ul> -->
                 <!-- <form class="d-flex" role="search"> -->
                     <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" v-model=""> -->
-                    <div>
-                        <a class="navbar-brand" href="#">
-                            <img class="nav-item logo"  src="../../logo boolbnb.png" alt="logo">
-                        </a>
-                    </div>
+
                     <div class="form-group">
-                            <div class="mb-2">
+                            <div>
                             <input
                             required
                             autocomplete="off"
@@ -38,14 +39,14 @@
 
                         </div>
 
-                        <div class=" form-create address-form2" v-show="nameAddress.length > 0">
-                        <ul class="list-group">
+                        <div class="form-create address-form2" v-show="nameAddress.length > 0">
+                        <ul class="list-group scroller m-2">
                             <li
                                 :key="i"
                                 v-for="(name, i) in nameAddress"
                                 @click="selectAddress(i)"
                                 style="cursor: pointer"
-                                class="li-hover list-group-item"
+                                class="li-hover list-group-item "
                             >
                                 {{ name.address.freeformAddress }}
                             </li>
@@ -269,5 +270,13 @@ export default {
 <style>
 .logo{
     height: 150px;
+}
+
+.scroller {
+  width: 300px;
+  height: 100px;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
 }
 </style>

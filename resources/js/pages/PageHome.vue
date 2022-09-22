@@ -1,10 +1,10 @@
 <template>
     <div>
-        sdfgdsfgds
+
 
         <!-- navbar component -->
 
-        <NavBar @mysearch="getApartment"></NavBar>
+        <NavBar  @mysearch="getApartment"></NavBar>
 
 
         <!-- main -->
