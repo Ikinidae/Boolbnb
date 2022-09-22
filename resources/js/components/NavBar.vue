@@ -224,6 +224,7 @@ export default {
         },
         selectRooms() {
             this.firstFilter = [];
+            this.servicesArrayApt = [],
             this.filteredApt = [];
 
             for (let i = 0; i < this.Apartments.length; i++) {
@@ -234,16 +235,28 @@ export default {
                     // se si, pushare in un array con appartamenti filtrati
                     this.firstFilter.push(this.Apartments[i]);
 
-                    for (let j = 0; j < this.firstFilter[i].services.length; j++) {
-                        if (this.firstFilter[i].services[j].name.includes(this.selectedServices)) {
-                            this.filteredApt.push(this.firstFilter[i]);
+                    // per ogni appartamento filtrato
+                    for (let k = 0; k < this.firstFilter.length; k++) {
+                        this.servicesArrayApt = [];
+
+                        // per ogni servizio salvare il nome nell'array servicesArrayApt
+                        for (let j = 0; j < this.firstFilter[k].services.length; j++) {
+                            this.servicesArrayApt.push(this.firstFilter[k].services[j].name);
                         }
-                        else
-                        console.log('non funziona');
+                        // creare un'array
+                        let intersect = this.servicesArrayApt.filter(service => this.selectedServices.includes(service));
+                        console.log('intersect', intersect);
+
+                        // per ogni servizio selezionato nei filtri fare il confronto con quelli dell'appartamento
+                        if (intersect.length == this.selectedServices.length && !this.filteredApt.includes(this.firstFilter[k])) {
+                            this.filteredApt.push(this.firstFilter[k]);
+                        } else {
+                            console.log("Ika sei grande");
+                        }
                     }
-                }
-                else
+                } else {
                     console.log('questo appartmamento non è stato pushato', this.Apartments[i]);
+                }
             }
             console.log('primo filtro', this.firstFilter);
             console.log('filteredapt', this.filteredApt);
@@ -259,7 +272,7 @@ export default {
                         name: e.name,
                     };
                     this.services.push(obj);
-                    console.log('log this.services', this.services);
+                    // console.log('log this.services', this.services);
                 });
             });
         },

@@ -21,5 +21,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/service', 'Api\ApartmentController@services')->name('api.service.services');
 Route::get('/search', 'Api\ApartmentController@getApartments')->name('api.getApartments.search');
 Route::get('/distance/{radius}/{lat}/{lon}', 'Api\ApartmentController@radiusSearch')->name('api.radiusSearch.distance');
-
+Route::get('/apartments/{apartment}', 'Api\ApartmentController@show')->name('api.apartments.show');
 
