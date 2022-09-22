@@ -23,7 +23,7 @@ const routes = [
         component: PageHome,
     },
     {
-     path: '/page/:id',
+     path: '/show/:id',
      name: 'show',
      component: PageShow,
      props: true,
