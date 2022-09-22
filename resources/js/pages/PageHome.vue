@@ -1,6 +1,5 @@
 <template>
     <div>
-        sdfgdsfgds
 
         <!-- navbar component -->
 
