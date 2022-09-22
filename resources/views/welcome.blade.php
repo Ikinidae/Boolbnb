@@ -100,8 +100,9 @@
                 @endif
 
             </div>
-            <div id="app">
+            <div id="papera">
 
+                {{-- <script src="{{ asset('js/front.js') }}"></script> --}}
             </div>
 
 

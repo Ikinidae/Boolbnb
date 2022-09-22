@@ -57,7 +57,7 @@
 
                     <div class="dropdown m-2 ">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            filters *
+                            filters
                             </button>
                             <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
                                 <li>
