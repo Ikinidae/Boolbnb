@@ -19,6 +19,10 @@
                 <p class="card-text mb-auto pb-3">Rooms: {{ apartment.rooms }}</p>
                 <p class="card-text mb-auto pb-3">Beds: {{ apartment.beds }}</p>
             </div>
+            <div class="services">
+                <p v-for="service in apartment.services" :key="service.id" class="service">{{ service.name }}</p>
+
+            </div>
             <div class="card-footer">
                 <small class="text-muted">{{ apartment.price }}€</small>
             </div>
