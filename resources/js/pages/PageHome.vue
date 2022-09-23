@@ -13,9 +13,11 @@
         </div> -->
 
         <!-- card component -->
-        <div class="row row-cols row-cols-md-2 g-4 mt-3">
-            <CardApartment class="container " v-for="apartment in apartments" :key="apartment.id" :apartment="apartment"></CardApartment>
+        <div class="index-cards">
+            <CardApartment v-for="apartment in apartments" :key="apartment.id" :apartment="apartment"></CardApartment>
         </div>
+
+
 
 
     </div>
@@ -24,14 +26,14 @@
 <script>
 import NavBar from '../components/NavBar.vue';
 import CardApartment from '../components/CardApartment.vue';
-import NavBarProva from '../components/NavBarProva.vue';
+
 
 export default {
     name: "PageHome",
     components: {
     NavBar,
     CardApartment,
-    NavBarProva
+
 },
     data(){
         return{

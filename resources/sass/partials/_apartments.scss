@@ -1,0 +1,146 @@
+// .btn-color {
+//     background-color: $color-accent !important;
+//     border-color: $color-accent !important;
+// }
+
+// .h2-color {
+//     color: $color-accent;
+// }
+
+.custom-margin {
+    margin-right: 10px;
+}
+
+.spacing {
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+.left {
+    width: 30%;
+    // background-color: $color-gray-1;
+    // color: $color-gray-2;
+    padding-top: 20px;
+}
+
+.menu {
+    list-style-type: none;
+    margin-left: 0 ;
+}
+
+.menu-items {
+    text-decoration: none;
+    // color: $color-gray-2;
+}
+
+.menu-items:hover {
+    text-decoration: none;
+    // color: $color-accent;
+}
+
+ul {
+    margin-left: 0 ;
+}
+
+.apartment-padding {
+    padding: 26px;
+}
+
+.section-padding {
+    margin-top: 5px;
+    padding: 14px;
+}
+
+.table {
+    margin-top: 20px;
+}
+
+.between-tables {
+    padding-top: 25px;
+}
+
+.nav-flex {
+    display: flex;
+    min-height: 100%;
+}
+
+.delete {
+    background-color: white;
+    // color: $color-gray-2;
+    padding: 5px;
+    width: 100px;
+    margin-bottom: 10px;
+    border-width: 1px;
+    border-radius: 10px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all ease-in-out 0.2s;
+    cursor: pointer;
+}
+
+.delete:hover {
+    // border: 1px solid $color-accent;
+    // background-color: $color-accent;
+    color: white;
+}
+
+.listaptimg {
+    width: 120px;
+    height: 120px;
+    margin-right: 20px;
+    margin-left: 20px;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 900px) {
+    .apartment-padding {
+        max-width: 100%;
+        table {
+            max-width: 100%;
+            tbody {
+                max-width: 100%;
+                tr {
+                    td {
+                        &:first-child,
+                        &:nth-child(3) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 420px) {
+    .apartment-padding {
+        max-width: 100%;
+        table {
+            max-width: 100%;
+            tbody {
+                max-width: 100%;
+                tr {
+                    td {
+                        &:first-child,
+                        &:nth-child(3),
+                        &:nth-child(4) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width:420px) {
+    .margin-section{
+        .apartment-padding{
+            flex-direction: column;
+            .sponsorship-card{
+                width: 100%;
+                margin-top: 1rem;
+            }
+        }
+    }
+}

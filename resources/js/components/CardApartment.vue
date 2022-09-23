@@ -9,24 +9,36 @@
         </div>
     </div> -->
 
-    <div class="col-sm-6 col-md-4 g-4">
+    <div class="index-card custom">
         <div class="card h-100">
-            <img :src="`/storage/${apartment.image}`" class="card-img-top" :alt="apartment.title">
-            <div class="card-body">
-                <h5 class="card-title">{{ apartment.title }}</h5>
-                <p class="card-text mb-auto pb-3">{{ apartment.description }}</p>
-                <p class="card-text mb-auto pb-3">Address: {{ apartment.address }}</p>
-                <p class="card-text mb-auto pb-3">Rooms: {{ apartment.rooms }}</p>
-                <p class="card-text mb-auto pb-3">Beds: {{ apartment.beds }}</p>
-            </div>
-            <div class="services">
-                <p v-for="service in apartment.services" :key="service.id" class="service">{{ service.name }}</p>
 
-            </div>
+            <div class="index-cover-img">
+                    <img :src="`/storage/${apartment.image}`" class="card-img-top" :alt="apartment.title">
+
+                    <div class="index-cover-img-l">
+                        <i class="fa-solid fa-bed"></i
+                        ><span>{{  apartment.beds  }}</span>
+                        <i class="fa-solid fa-toilet"></i
+                        ><span>{{ apartment.bathrooms }}</span>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>{{ apartment.address }}</span>
+                    </div>
+                </div>
+                <div class="index-card-text">
+                    <p class="index-card-title">{{ apartment.title  }}</p>
+                    <p>{{  apartment.description }}</p>
+                </div>
             <div class="card-footer">
                 <small class="text-muted">{{ apartment.price }}€</small>
             </div>
-            <router-link :to="{name: 'show', params: {id: apartment.id} }" class="button_accent">Read</router-link>
+            <div class="index-card-price" style="width: 100%">
+                    <router-link
+                    :to="{name: 'show', params: {id: apartment.id} }"
+
+                        class="index-btn"
+                        >Read</router-link
+                    >
+                </div>
         </div>
     </div>
 </template>

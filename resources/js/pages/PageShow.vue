@@ -1,28 +1,33 @@
 <template>
-    <div v-if ="apartment">
-        <div class="w-100 p-3 px-5">
-            <h1 class="mt-5 mb-3"> {{ apartment.title }}</h1>
-            <div class="w-75 mx-auto">
-                <img :src="`/storage/${apartment.image}`" class="card-img-top" :alt="apartment.title">
+
+    <div v-if ="apartment" style="padding-top: 0.5rem">
+        <!-- Carta della casa -->
+        <div class="show-container">
+            <div class="show-title">{{ apartment.title }}</div>
+            <span class="show-owner">{{ apartment.address }}</span>
+            <div class="show-owner">
+                        <i class="fa-solid fa-bed"></i>
+                       <span>{{  apartment.beds  }}</span>
+                        <i class="fa-solid fa-toilet"></i>
+                        <span>{{ apartment.bathrooms }}</span>
+
             </div>
-            <h4 class="mt-3">Price: {{ apartment.price }} € per night</h4>
-            <h4 class="mt-3">Rooms: {{ apartment.rooms }}</h4>
-            <h4 class="mt-3">Beds: {{ apartment.beds }}</h4>
-            <h4 class="mt-3">Bathrooms: {{ apartment.bathrooms }}</h4>
-            <h4 class="mt-3">Mq: {{ apartment.mq }}</h4>
-            <h4 class="mt-3">Address: {{ apartment.address }}</h4>
-            <h5 class="mt-3">Description: {{ apartment.description }}</h5>
-
-            <div class="services mt-3">
-                <h5>Servizi aggiuntivi:</h5>
-                <h5 v-for="service in apartment.services" :key="service.id" class="ms-2 service">{{ service.name }}</h5>
+            <div class="show-cont-img">
+                <img :src="`/storage/${apartment.image}`" :alt="apartment.title">
+                <!-- <div id="map" class="id"></div> -->
+                <div id="map-div" class="id"></div>
             </div>
-
-            <div id="map-div"></div>
-
-            <div>
-                    <!-- Form della email -->
-                <form>
+            <div class="show-opacity">{{ apartment.description }}</div>
+            <div class="show-price">
+                <i>Il prezzo a notte è:</i> <span>{{ apartment.price }}€</span>
+            </div>
+            <div >
+                <span class="show-price">Servizi inclusi:</span>
+                <ul>
+                    <li v-for="service in apartment.services" :key="service.id">{{ service.name }}</li>
+                </ul>
+            </div>
+              <form>
                     <!-- email -->
                     <label for="email">Your e-mail</label>
                     <input
@@ -59,7 +64,7 @@
                     <!-- message -->
                     <label for="text">Your message</label>
                     <textarea
-                        class="form-control form-create description-form"
+                        class="form-control form-create description-form description-form"
                         type="text"
 
                         name="text"
@@ -69,10 +74,9 @@
                     </textarea>
 
                     <div class="submit">
-                        <button @click="sendMessage(apartment.id)" class="button-send" type="submit">Invia</button>
+                        <button @click="sendMessage(apartment.id)" class="button_accent" type="submit">Invia</button>
                     </div>
                 </form>
-            </div>
         </div>
     </div>
 </template>

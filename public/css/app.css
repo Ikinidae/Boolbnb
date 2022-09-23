@@ -11222,6 +11222,407 @@ body {
     margin: 0.1rem auto;
   }
 }
+.hero {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 20px;
+  height: 600px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-origin: border-box;
+}
+
+.autocomplete {
+  z-index: 10;
+  width: 80%;
+  border: 1px solid;
+  position: absolute;
+}
+
+.index-search-bar {
+  width: 50%;
+  margin: 0 auto;
+  position: relative;
+}
+.index-search-bar .index-search {
+  width: 100%;
+  border: 0.5px solid lightgray;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 0px lightgray;
+  margin-top: 16px;
+  padding: 10px 15px 10px 15px;
+}
+
+.opacity {
+  opacity: 0.5;
+}
+
+.index-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+.index-cards .index-card {
+  display: flex;
+  flex-direction: column;
+  width: calc(25% - 72px);
+  margin: 32px;
+  border-radius: 20px;
+  border: none;
+}
+.index-cards .index-card .index-cover-img {
+  width: 100%;
+  position: relative;
+}
+.index-cards .index-card .index-cover-img .index-cover-img-l {
+  position: absolute;
+  bottom: 10%;
+  left: 3%;
+  z-index: 10;
+  color: white;
+}
+.index-cards .index-card .index-cover-img .index-sponsor {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  z-index: 10;
+  background-color: white;
+  padding: 5px;
+  border-radius: 30px;
+}
+.index-cards .index-card .index-img-top {
+  width: 100%;
+  border-radius: 20px 20px 0px 0px;
+}
+.index-cards .index-card .index-card-text {
+  margin: 1rem auto;
+  width: 90%;
+}
+.index-cards .index-card .index-card-text p {
+  margin: 0.2rem 0;
+}
+.index-cards .index-card .index-card-price {
+  width: 90%;
+  margin-top: auto;
+  padding: 0px 10px 20px 10px;
+}
+.index-cards .index-card .index-card-price .index-btn {
+  padding: 5px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 0px lightgray;
+  margin-top: 16px;
+  text-decoration: none;
+  transition: 0.3s;
+  color: rgb(255, 255, 255);
+  background-color: rgb(241, 74, 74);
+}
+.index-cards .index-card .index-card-price .index-btn:hover {
+  color: rgb(12, 5, 5);
+}
+
+.index-card-title {
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 1080px) {
+  .index-cards {
+    margin-top: 16px;
+  }
+  .index-cards .index-card {
+    width: calc(33.3333333333% - 32px);
+    margin: 16px;
+  }
+  .hero {
+    height: 280px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .index-cards .index-card {
+    width: calc(50% - 36px);
+    margin: 18px;
+  }
+  .hero {
+    height: 280px;
+  }
+}
+@media screen and (max-width: 430px) {
+  .index-search-bar {
+    width: 80%;
+  }
+  .index-search-bar .index-search {
+    width: 100%;
+  }
+  .index-cards .index-card {
+    width: 80%;
+  }
+  .hero {
+    height: 175px;
+  }
+}
+.search-as {
+  width: 80%;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: small;
+  font-weight: bold;
+}
+
+.radiusdiv {
+  border: 0.5px solid lightgray;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 0 lightgray;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  display: inline-block;
+  padding: 10px;
+}
+
+.stanze-letti {
+  width: 100px;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: small;
+  font-weight: bold;
+}
+
+.container-cards-as {
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.advanced {
+  justify-content: space-between;
+  padding: 30px 0;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.card-as {
+  color: rgb(113, 113, 113);
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  display: inline-block;
+  width: calc(25% - 20px);
+  margin: 20px 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  padding: 0 0 20px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+}
+.card-as img {
+  width: 100%;
+  border-radius: 15px;
+}
+.card-as .card-img-as {
+  margin-bottom: 10px;
+  position: relative;
+}
+.card-as .icons-as {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+}
+.card-as .card-title-as {
+  color: black;
+  font-weight: bolder;
+  font-size: 1.2rem;
+}
+.card-as .card-price-as span {
+  color: rgb(53, 53, 53);
+  font-weight: bold;
+  font-size: 1.1em;
+}
+.card-as .card-body-as {
+  padding: 10px;
+  text-align: left;
+}
+.card-as .card-body-as * {
+  margin-bottom: 15px;
+}
+.card-as .button-show {
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: small;
+  font-weight: bold;
+  color: white;
+  border: 0px white solid;
+  cursor: pointer;
+}
+
+.no-results-as {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 100px;
+}
+
+.search-bar-as {
+  flex-wrap: wrap;
+}
+
+@media screen and (min-width: 1024px) {
+  .card .form-control {
+    width: 20vw;
+  }
+}
+@media screen and (max-width: 965px) {
+  .container-as {
+    text-align: center;
+  }
+  .card-as {
+    width: calc(33.3333333333% - 5px);
+  }
+  .search-bar-as {
+    display: inline-block;
+    text-align: center;
+  }
+  .search-bar-as div {
+    display: block;
+  }
+}
+@media screen and (max-width: 680px) {
+  .search-bar-as span {
+    display: block;
+    margin-bottom: 15px;
+  }
+  .card-as {
+    font-size: 12px;
+    line-height: 15px;
+    width: calc(50% - 5px);
+    display: inline-block;
+    padding: 0 0 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+  }
+  .card-as .card-title-as {
+    line-height: 25px;
+  }
+  .card-as .button-show {
+    font-size: 0.5rem;
+  }
+  .card-as .card-title-as {
+    font-size: 1.2rem;
+  }
+  .card-as .card-price-as span {
+    font-size: 1.1em;
+  }
+  .card-as .card-body-as {
+    padding: 10px;
+  }
+  .card-as .card-body-as * {
+    margin-bottom: 15px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .card-as {
+    width: calc(100% - 20px);
+  }
+  .container-cards-as {
+    justify-content: center;
+  }
+  #filter {
+    display: flex;
+    align-items: center;
+  }
+  body > main > div > div > div > div.flex.advanced > div.filters-as.flex.posrev {
+    margin: 0;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  body > main > div > div > div > div.flex.advanced > div.filters-as.flex.posrev .flex {
+    margin: 0;
+  }
+  body > main > div > div > div > div.flex.advanced > div.filters-as.flex.posrev > * {
+    margin: 0.1rem auto;
+  }
+}
+.show-container {
+  margin: 0 auto;
+  width: 80%;
+  margin-top: 5vh;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 0px lightgray;
+  padding: 30px;
+  background-color: rgb(255, 255, 255);
+}
+.show-container label {
+  margin: 1rem 0;
+  display: inline-block;
+  color: red;
+  font-weight: bold;
+}
+.show-container .show-title {
+  font-size: 2em;
+  color: red;
+  font-weight: 700;
+}
+.show-container .show-owner {
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.show-container .show-cont-img {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 50px 0;
+}
+.show-container .show-cont-img img {
+  width: calc(50% - 20px);
+  border-radius: 10px;
+}
+.show-container .show-opacity {
+  opacity: 0.5;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.show-container .show-price {
+  margin: 1.5rem 0;
+  color: red;
+  font-weight: bolder;
+}
+.show-container .show-price span {
+  margin-left: 0.5em;
+  font-weight: 500;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border: 2px solid red;
+}
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+}
+input::-webkit-file-upload-button,
+textarea::-webkit-file-upload-button,
+select::-webkit-file-upload-button {
+  border-radius: 5px;
+  border: 1px solid red;
+  background-color: transparent;
+  color: red;
+}
+
+.id {
+  width: calc(50% - 20px);
+  height: 350px;
+  display: inline-block;
+  border-radius: 10px;
+}
+
 /*!
  * Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
