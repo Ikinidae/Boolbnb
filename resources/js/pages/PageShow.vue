@@ -1,21 +1,22 @@
 <template>
 
     <div v-if ="apartment">
-        <div class="vw-100">
-            <h1> {{ apartment.title }}</h1>
-            <!-- <img class="w-75" src="{{ asset('storage/' . apartment.image) }}" alt="{{ apartment.title }}"> -->
-            <img :src="`/storage/${apartment.image}`" class="card-img-top" :alt="apartment.title">
-            <h3>Price: {{ apartment.price }}€ per night</h3>
-            <h3>Rooms: {{ apartment.rooms }}</h3>
-            <h3>Beds: {{ apartment.beds }}</h3>
-            <h3>Bathrooms: {{ apartment.bathrooms }}</h3>
-            <h3>Mq: {{ apartment.mq }}</h3>
-            <h3>Address: {{ apartment.address }}</h3>
-            <p>Description{{ apartment.description }}</p>
+        <div class="vw-100 p-3 px-5">
+            <h1 class="mt-5 mb-3"> {{ apartment.title }}</h1>
+            <div class="w-75 mx-auto">
+                <img :src="`/storage/${apartment.image}`" class="card-img-top" :alt="apartment.title">
+            </div>
+            <h4 class="mt-3">Price: {{ apartment.price }} € per night</h4>
+            <h4 class="mt-3">Rooms: {{ apartment.rooms }}</h4>
+            <h4 class="mt-3">Beds: {{ apartment.beds }}</h4>
+            <h4 class="mt-3">Bathrooms: {{ apartment.bathrooms }}</h4>
+            <h4 class="mt-3">Mq: {{ apartment.mq }}</h4>
+            <h4 class="mt-3">Address: {{ apartment.address }}</h4>
+            <h5 class="mt-3">Description: {{ apartment.description }}</h5>
 
-            <div class="services">
-                <span v-for="service in apartment.services" :key="service.id" class="service">{{ service.name }}</span>
-
+            <div class="services mt-3">
+                <h5>Servizi aggiuntivi:</h5>
+                <h5 v-for="service in apartment.services" :key="service.id" class="ms-2 service">{{ service.name }}</h5>
             </div>
 
             <div id="map-div"></div>

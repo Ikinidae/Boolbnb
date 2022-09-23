@@ -39,7 +39,7 @@
 
                         </div>
 
-                        <div class="form-create address-form2" v-show="nameAddress.length > 0">
+                        <div class="form-create address-form2 autocomplete" v-show="nameAddress.length > 0">
                         <ul class="list-group scroller m-2">
                             <li
                                 :key="i"
@@ -283,6 +283,14 @@ export default {
 <style>
 .logo{
     height: 150px;
+}
+
+.autocomplete {
+    z-index: 10;
+    padding: 10px;
+    /* border: 1px solid; */
+    border-radius: 20px;
+    position: absolute;
 }
 
 .scroller {

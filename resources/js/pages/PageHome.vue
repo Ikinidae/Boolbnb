@@ -14,7 +14,7 @@
 
         <!-- card component -->
         <div class="row row-cols row-cols-md-2 g-4 mt-3">
-            <CardApartment class="container " v-for="apartment in apartments" :key="apartment.id" :apartment="apartment" ></CardApartment>
+            <CardApartment class="container " v-for="apartment in apartments" :key="apartment.id" :apartment="apartment"></CardApartment>
         </div>
 
 
