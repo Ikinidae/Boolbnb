@@ -5403,7 +5403,11 @@ __webpack_require__.r(__webpack_exports__);
     return {
       is404: false,
       apartment: [],
-      API_KEY: 'k8V0aFCAwuHo8eDICtxR16HCuAjRAWff'
+      API_KEY: 'k8V0aFCAwuHo8eDICtxR16HCuAjRAWff',
+      email: '',
+      name: '',
+      surname: '',
+      text: ''
     };
   },
   mounted: function mounted() {
@@ -5422,22 +5426,54 @@ __webpack_require__.r(__webpack_exports__);
     axios.get('/api/apartments/' + this.id).then(function (res) {
       if (res.data.success) {
         _this.apartment = res.data.result;
-        var map = tt.map({
-          key: _this.API_KEY,
-          container: 'map-div',
-          center: {
-            lng: _this.apartment.longitude,
-            lat: _this.apartment.latitude
-          },
-          zoom: 12
-        });
-        var marker = new tt.Marker().setLngLat({
+        console.log(_this.apartment);
+      }
+
+      var map = tt.map({
+        key: _this.API_KEY,
+        container: 'map-div',
+        center: {
           lng: _this.apartment.longitude,
           lat: _this.apartment.latitude
-        }).addTo(map);
-        console.log(result);
-      }
+        },
+        zoom: 12
+      });
+      var marker = new tt.Marker().setLngLat({
+        lng: _this.apartment.longitude,
+        lat: _this.apartment.latitude
+      }).addTo(map);
     });
+  },
+  methods: {
+    log: function log() {
+      console.log('ciao', this.email);
+      console.log(this.name);
+      console.log(this.surname);
+      console.log(this.text);
+    },
+    sendMessage: function sendMessage($id) {
+      var _this2 = this;
+
+      if (this.email != '' && this.text != '' && this.name != '' && this.surname != '') {
+        axios.post('/api/message', {
+          apartment_id: $id,
+          text: this.text,
+          name: this.name,
+          surname: this.surname,
+          email: this.email
+        }).then(function (res) {
+          if (res.data.success) {
+            _this2.email = '';
+            _this2.text = '';
+            _this2.name = '';
+            _this2.surname = '';
+          }
+        })["catch"](function (error) {
+          console.log('voleviiiiiiii');
+          console.log(error);
+        });
+      }
+    }
   }
 });
 
@@ -5994,7 +6030,124 @@ var render = function render() {
     attrs: {
       id: "map-div"
     }
-  })])]) : _vm._e();
+  }), _vm._v(" "), _c("div", [_c("form", [_c("label", {
+    attrs: {
+      "for": "email"
+    }
+  }, [_vm._v("Your e-mail")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.email,
+      expression: "email"
+    }],
+    staticClass: "form-control form-create",
+    attrs: {
+      type: "text",
+      name: "email_sender",
+      id: "email_sender"
+    },
+    domProps: {
+      value: _vm.email
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.email = $event.target.value;
+      }
+    }
+  }), _vm._v(" "), _c("br"), _vm._v(" "), _c("label", {
+    attrs: {
+      "for": "text"
+    }
+  }, [_vm._v("Your name")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.name,
+      expression: "name"
+    }],
+    staticClass: "form-control form-create",
+    attrs: {
+      type: "text",
+      name: "name",
+      id: "name"
+    },
+    domProps: {
+      value: _vm.name
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.name = $event.target.value;
+      }
+    }
+  }), _vm._v(" "), _c("br"), _vm._v(" "), _c("label", {
+    attrs: {
+      "for": "text"
+    }
+  }, [_vm._v("Your surname")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.surname,
+      expression: "surname"
+    }],
+    staticClass: "form-control form-create",
+    attrs: {
+      type: "text",
+      name: "surname",
+      id: "surname"
+    },
+    domProps: {
+      value: _vm.surname
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.surname = $event.target.value;
+      }
+    }
+  }), _vm._v(" "), _c("br"), _vm._v(" "), _c("label", {
+    attrs: {
+      "for": "text"
+    }
+  }, [_vm._v("Your message")]), _vm._v(" "), _c("textarea", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.text,
+      expression: "text"
+    }],
+    staticClass: "form-control form-create description-form",
+    attrs: {
+      type: "text",
+      name: "text",
+      id: "text"
+    },
+    domProps: {
+      value: _vm.text
+    },
+    on: {
+      change: _vm.log,
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.text = $event.target.value;
+      }
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "submit"
+  }, [_c("button", {
+    staticClass: "button-send",
+    attrs: {
+      type: "submit"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.sendMessage(_vm.apartment.id);
+      }
+    }
+  }, [_vm._v("Invia")])])])])])]) : _vm._e();
 };
 
 var staticRenderFns = [];
