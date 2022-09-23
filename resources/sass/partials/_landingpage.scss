@@ -1,0 +1,155 @@
+.hero {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+    height: 600px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-origin: border-box;
+}
+
+.autocomplete {
+    z-index: 10;
+    width: 80%;
+    border: 1px solid ;
+    position: absolute;
+
+
+}
+
+.index-search-bar {
+    width: 50%;
+    margin: 0 auto;
+    position: relative;
+    .index-search {
+        width: 100%;
+        border: 0.5px solid lightgray;
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px 0px lightgray;
+        margin-top: 16px;
+        padding: 10px 15px 10px 15px;
+    }
+}
+
+.opacity {
+    opacity: 0.5;
+}
+
+.index-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0 auto;
+
+    .index-card {
+        display: flex;
+        flex-direction: column;
+        width: calc((100% / 4) - 72px);
+        margin: 32px;
+        border-radius: 20px;
+        border: none ;
+        .index-cover-img {
+            width: 100%;
+            position: relative;
+
+            .index-cover-img-l {
+                position: absolute;
+                bottom: 10%;
+                left: 3%;
+                z-index: 10;
+                color: white;
+            }
+
+            .index-sponsor {
+                position: absolute;
+                top: 5%;
+                left: 5%;
+                z-index: 10;
+                background-color: white;
+                padding: 5px;
+                border-radius: 30px;
+            }
+        }
+
+        .index-img-top {
+            width: 100%;
+            border-radius: 20px 20px 0px 0px;
+        }
+
+        .index-card-text {
+            margin: 1rem auto;
+            width: 90%;
+            p {
+                margin: 0.2rem 0;
+            }
+        }
+
+        .index-card-price {
+            width: 90%;
+            margin-top: auto;
+            padding: 0px 10px 20px 10px;
+            .index-btn {
+                padding: 5px;
+                width: 100%;
+                border-radius: 10px;
+                box-shadow: 5px 5px 10px 0px lightgray;
+                margin-top: 16px;
+                text-decoration: none;
+                transition: 0.3s;
+                &:hover {
+                    color: white;
+
+                }
+            }
+        }
+    }
+}
+
+.index-card-title {
+    opacity: 0.5;
+}
+
+// SECTION Media Query
+@media screen and (max-width: 1080px) {
+    .index-cards {
+        margin-top: 16px;
+        .index-card {
+            width: calc((100% / 3 - 32px));
+            margin: 16px;
+        }
+    }
+
+    .hero {
+        height: 280px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .index-cards {
+        .index-card {
+            width: calc((100%/2 - 36px));
+            margin: 18px;
+        }
+    }
+    .hero {
+        height: 280px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .index-search-bar {
+        width: 80%;
+        .index-search {
+            width: 100%;
+        }
+    }
+    .index-cards {
+        .index-card {
+            width: 80%;
+        }
+    }
+    .hero {
+        height: 175px;
+    }
+}

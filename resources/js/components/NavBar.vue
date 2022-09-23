@@ -1,36 +1,26 @@
 <template>
 
-    <nav class="navbar navbar-expand-lg mx-auto w-75">
-            <div class="container-fluid">
-                <div>
+    <div>
+            <div class="container">
+                <!-- <div>
                         <a class="navbar-brand" href="#">
                             <img class="nav-item logo"  src="../../logo boolbnb.png" alt="logo">
                         </a>
-                    </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    </div> -->
+                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-                </button>
+                </button> -->
+                <div class="flex advanced">
+                    <div class="posrev">
 
-                <div class="collapse navbar-collapse"  id="navbarTogglerDemo01">
-                <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                    </li>
-                </ul> -->
-                <!-- <form class="d-flex" role="search"> -->
-                    <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" v-model=""> -->
-
-                    <div class="form-group">
+                            <div class="form-group">
                             <div>
                             <input
                             required
                             autocomplete="off"
                             @keyup="addressSearch"
                             type="text"
-                            class="form-control form-create address-form me-3"
+                            class="search-as"
                             name="address"
                             id="query"
                             v-model="searchAddress"
@@ -39,26 +29,24 @@
 
                         </div>
 
-                        <div class="form-create address-form2 autocomplete" v-show="nameAddress.length > 0">
-                        <ul class="list-group scroller m-2">
-                            <li
-                                :key="i"
-                                v-for="(name, i) in nameAddress"
-                                @click="selectAddress(i)"
-                                style="cursor: pointer"
-                                class="li-hover list-group-item "
-                            >
-                                {{ name.address.freeformAddress }}
-                            </li>
-                        </ul>
+                        <div class=" autocomplete" v-show="nameAddress.length > 0">
+                            <ul class="list-group scroller">
+                                <li
+                                    :key="i"
+                                    v-for="(name, i) in nameAddress"
+                                    @click="selectAddress(i)"
+                                    style="cursor: pointer"
+                                    class="li-hover list-group-item "
+                                >
+                                    {{ name.address.freeformAddress }}
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-
-                    </div>
-
-
-                    <div class="dropdown m-2 ">
+                </div>
+                <div class="dropdown m-2 ">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            filters
+                                <span> <i class="fa-solid fa-filter"></i>Filters </span>
                             </button>
                             <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
                                 <li>
@@ -100,14 +88,8 @@
                                 </li>
                             </ul>
                     </div>
-
-
-
-
-
-
-                    <!-- Services -->
-                    <div id="filter-list" class="show dropdown m-2">
+                     <!-- Services -->
+                     <div id="filter-list" class="show dropdown m-2">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Services
                         </button>
@@ -127,16 +109,47 @@
                             </li>
                         </ul>
                     </div>
+                    <button @click="selectRooms" class="btn btn-outline-danger" type="submit">Search</button>
+
+            </div>
+
+
+
+
+
+                <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                    </li>
+                </ul> -->
+                <!-- <form class="d-flex" role="search"> -->
+                    <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" v-model=""> -->
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
                     <!-- <button @click="$emit('mysearch', Apartments)" class="btn btn-outline-danger" type="submit">Search</button> -->
                     <!-- <button @click="$emit('mysearch', filteredApt)" class="btn btn-outline-danger" type="submit">Search</button> -->
-                    <button @click="selectRooms" class="btn btn-outline-danger" type="submit">Search</button>
+
                 <!-- </form> -->
-                </div>
             </div>
-        </nav>
+    </div>
+
+
 
 </template>
 
@@ -287,10 +300,10 @@ export default {
 
 .autocomplete {
     z-index: 10;
-    padding: 10px;
-    /* border: 1px solid; */
+    padding: 5px;
     border-radius: 20px;
     position: absolute;
+    scrollbar-color: rgb(199, 55, 69);
 }
 
 .scroller {

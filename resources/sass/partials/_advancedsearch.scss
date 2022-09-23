@@ -1,0 +1,207 @@
+// "as" stands for Advanced Search
+
+.search-as {
+    width: 80%;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: small;
+    font-weight: bold;
+}
+
+.radiusdiv{
+    border: 0.5px solid lightgray;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 0 lightgray;
+    min-width: fit-content;
+    display: inline-block;
+    padding: 10px;
+}
+
+.stanze-letti {
+    width: 100px;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: small;
+    font-weight: bold;
+}
+
+.container-cards-as {
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+}
+.advanced {
+    justify-content: space-between;
+    padding: 30px 0;
+    margin: 0 auto;
+    width: 80%;
+}
+.card-as {
+    color: rgb(113, 113, 113);
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+        "Helvetica Neue", sans-serif ;
+    font-weight: 400 ;
+    font-size: 14px ;
+    line-height: 20px ;
+
+    img {
+        width: 100%;
+        border-radius: 15px;
+    }
+    .card-img-as {
+        margin-bottom: 10px;
+        position: relative;
+    }
+    .icons-as {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        color: white;
+    }
+
+    .card-title-as {
+        color: black;
+        font-weight: bolder;
+        font-size: 1.2rem;
+    }
+
+    .card-price-as {
+        span {
+            color: rgb(53, 53, 53);
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+    }
+
+    .card-body-as {
+        padding: 10px;
+        text-align: left;
+
+        * {
+            margin-bottom: 15px;
+        }
+    }
+
+    .button-show {
+        text-decoration: none;
+        padding: 5px 10px ;
+        border-radius: 5px;
+        font-size: small;
+        font-weight: bold;
+        color: white;
+        border: 0px white solid ;
+        cursor: pointer;
+
+    }
+
+    display: inline-block;
+    width: calc((100% / 4) - 20px);
+    margin: 20px 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    padding: 0 0 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+}
+.no-results-as {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 100px;
+}
+.search-bar-as {
+    flex-wrap: wrap;
+}
+
+@media screen and (min-width: 1024px) {
+    .card {
+        .form-control {
+            width: 20vw;
+        }
+    }
+}
+@media screen and (max-width: 965px) {
+    .container-as {
+        text-align: center;
+    }
+    .card-as {
+        width: calc((100% / 3) - 5px);
+    }
+    .search-bar-as {
+        display: inline-block;
+        text-align: center;
+        div {
+            display: block;
+        }
+    }
+}
+@media screen and (max-width: 680px) {
+    .search-bar-as {
+        span {
+            display: block;
+            margin-bottom: 15px;
+        }
+    }
+    .card-as {
+        .card-title-as {
+            line-height: 25px;
+        }
+        font-size: 12px ;
+        line-height: 15px ;
+        width: calc((100% / 2) - 5px);
+        .button-show {
+            font-size: 0.5rem ;
+        }
+        .card-title-as {
+            font-size: 1.2rem;
+        }
+
+        .card-price-as {
+            span {
+                font-size: 1.1em;
+            }
+        }
+
+        .card-body-as {
+            padding: 10px;
+            * {
+                margin-bottom: 15px;
+            }
+        }
+        display: inline-block;
+        padding: 0 0 20px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 15px;
+    }
+}
+@media screen and (max-width: 420px) {
+    .card-as {
+        width: calc(100% - 20px);
+    }
+    .container-cards-as {
+        justify-content: center;
+    }
+    #filter {
+        display: flex ;
+        align-items: center;
+    }
+    body
+        > main
+        > div
+        > div
+        > div
+        > div.flex.advanced
+        > div.filters-as.flex.posrev {
+            margin: 0;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        .flex{
+
+            margin: 0;
+        }
+        > *{
+            margin: 0.1rem auto;
+        }
+    }
+}

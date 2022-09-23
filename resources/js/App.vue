@@ -65,9 +65,10 @@ export default {
 
 .bg{
    background-image: url(../backgrounduck.png);
-    min-height: 100%;
+    min-height: 100vw;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment:fixed;
+
 }
 </style>

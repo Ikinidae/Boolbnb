@@ -4,7 +4,7 @@
 
         <!-- navbar component -->
 
-        <NavBar  @mysearch="getApartment"></NavBar>
+        <NavBar @mysearch="getApartment"></NavBar>
 
 
         <!-- main -->
@@ -24,13 +24,15 @@
 <script>
 import NavBar from '../components/NavBar.vue';
 import CardApartment from '../components/CardApartment.vue';
+import NavBarProva from '../components/NavBarProva.vue';
 
 export default {
     name: "PageHome",
     components: {
-        NavBar,
-        CardApartment
-    },
+    NavBar,
+    CardApartment,
+    NavBarProva
+},
     data(){
         return{
             apartments: []
