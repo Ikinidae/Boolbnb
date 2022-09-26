@@ -27,7 +27,7 @@
                     <li v-for="service in apartment.services" :key="service.id">{{ service.name }}</li>
                 </ul>
             </div>
-              <form>
+              <div>
                     <!-- email -->
                     <label for="email">Your e-mail</label>
                     <input
@@ -37,6 +37,7 @@
                         name="email_sender"
                         id="email_sender"
                         v-model="email"
+
                     />
                     <br />
                     <!-- name -->
@@ -76,7 +77,7 @@
                     <div class="submit">
                         <button @click="sendMessage(apartment.id)" class="button_accent" type="submit">Invia</button>
                     </div>
-                </form>
+                </div>
         </div>
     </div>
 </template>
@@ -95,7 +96,8 @@ export default {
             email: '',
             name: '',
             surname: '',
-            text: ''
+            text: '',
+            users:''
         }
     },
     mounted() {
@@ -114,7 +116,7 @@ export default {
             .then(res => {
                 if (res.data.success) {
                     this.apartment = res.data.result;
-                    console.log(this.apartment);
+                    console.log('mappa',this.apartment);
                 }
                 var map = tt.map({
                     key: this.API_KEY,
@@ -126,7 +128,21 @@ export default {
                 var marker = new tt.Marker()
                     .setLngLat({lng: this.apartment.longitude, lat: this.apartment.latitude})
                     .addTo(map);
-            })
+            });
+
+
+            // PROVA PER FAR COMPARIRE EMAIL AUTOCOMPILATA
+        // axios.get('/api/users')
+        //     .then(res => {
+        //         if (res.data.success) {
+        //             this.users = res.data.result;
+        //             console.log('chiamata users',this.users);
+        //         }
+
+        //     }).catch(function (error) {
+        //         console.log('volevi vedere users');
+        //         console.log(error);
+        //     });
 
     },
     methods: {
@@ -135,6 +151,7 @@ export default {
             console.log(this.name);
             console.log(this.surname);
             console.log(this.text);
+            console.log('ciaooo',this.text);
         },
 
         sendMessage($id){

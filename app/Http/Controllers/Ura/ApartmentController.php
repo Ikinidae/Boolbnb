@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Ura;
 
+use App\Models\User;
+use App\Models\Message;
 use App\Models\Service;
+// use Illuminate\Validation\Rule;
 use App\Models\Apartment;
 use App\Models\Sponsorship;
-// use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -91,7 +93,15 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {
+        // $message = Message::all();
+
+        // dd('risultati users', $message[2]->text);
+
         return view('ura.apartments.show', compact('apartment'));
+        // return view('ura.apartments.show', [
+        //     'apartment' => $apartment,
+        //     'message' => $message
+        // ]);
     }
 
     /**

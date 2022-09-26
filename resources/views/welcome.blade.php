@@ -52,6 +52,7 @@
             <main class="bg" style="padding: 70px 0">
                 <div  id="papera"></div>
             </main>
+
             @include('layouts.footer')
 
         </body>

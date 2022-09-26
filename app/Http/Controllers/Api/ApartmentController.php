@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\User;
 use App\Models\Service;
 use App\Models\Apartment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ApartmentController extends Controller
 {
@@ -18,6 +21,27 @@ class ApartmentController extends Controller
     {
         $services = Service::all();
         return response()->json($services);
+    }
+    public function users()
+    {
+
+        // $id = Auth::id();
+        // $user = DB::table('users')->find($id);
+        // dd('dd dell id',$user);
+
+        $users = User::all()->where('id',$id);
+        if($users){
+            return response()->json([
+                "success" => true,
+                "result" => $users
+
+            ]);
+        } else{
+            return response()->json([
+                "success" => false,
+
+            ]);
+        }
     }
 
     public function getApartments(Request $request) {

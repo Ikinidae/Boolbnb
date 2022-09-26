@@ -22,4 +22,5 @@ Route::get('/service', 'Api\ApartmentController@services')->name('api.service.se
 Route::get('/search', 'Api\ApartmentController@getApartments')->name('api.getApartments.search');
 Route::get('/distance/{radius}/{lat}/{lon}', 'Api\ApartmentController@radiusSearch')->name('api.radiusSearch.distance');
 Route::get('/apartments/{apartment}', 'Api\ApartmentController@show')->name('api.apartments.show');
+Route::get('/users', 'Api\ApartmentController@users')->name('api.users.users');
 Route::post('/message', 'Api\MessageController@store')->name('api.message.store');

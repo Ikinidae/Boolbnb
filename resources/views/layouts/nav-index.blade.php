@@ -28,7 +28,7 @@
                                         @csrf
                                         <button class="button_accent m-right" type="submit"
                                             style="cursor: pointer">Logout</button>
-                                    </form>
+                                  </form>
                                 @endguest
             </div>
         </div>
