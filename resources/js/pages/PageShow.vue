@@ -27,7 +27,7 @@
                     <li v-for="service in apartment.services" :key="service.id">{{ service.name }}</li>
                 </ul>
             </div>
-              <form>
+              <div>
                     <!-- email -->
                     <label for="email">Your e-mail</label>
                     <input
@@ -76,7 +76,7 @@
                     <div class="submit">
                         <button @click="sendMessage(apartment.id)" class="button_accent" type="submit">Invia</button>
                     </div>
-                </form>
+                </div>
         </div>
     </div>
 </template>
@@ -135,6 +135,7 @@ export default {
             console.log(this.name);
             console.log(this.surname);
             console.log(this.text);
+            console.log('ciaooo',this.text);
         },
 
         sendMessage($id){

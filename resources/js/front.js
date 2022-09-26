@@ -22,16 +22,16 @@ const routes = [
         component: PageHome,
     },
     {
-     path: '/show/:id',
-     name: 'show',
-     component: PageShow,
-     props: true,
+        path: '/show/:id',
+        name: 'show',
+        component: PageShow,
+        props: true,
     },
     {
-     // questa è la pagina di dettaglio di un post
-     path: '*',
-     name: 'page404',
-     component: Page404,
+        // questa è la pagina di dettaglio di un post
+        path: '*',
+        name: 'page404',
+        component: Page404,
 
     },
 

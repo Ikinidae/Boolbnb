@@ -40,7 +40,7 @@
                 <div id="papera"></div>
             </main>
             @include('layouts.footer')
-            <script src="{{ asset('js/front.js') }}"></script>
+
         </body>
 
         </div>
