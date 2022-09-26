@@ -1,6 +1,6 @@
 <header>
     <nav class="nav-new">
-        <div class="navbar-guest" style="padding: 5px 0 ">
+        <div class="navbar-guest" style="padding: 10px 0 ">
 
             <div class="nav-logo" href="{{ url('/') }}"><a href="/" style="text-decoration: none; color:inherit">
                     <img style="height: 50px; width: 200px;" src="{{ asset('images/logo-boolbnb.png') }}" alt="tag">
@@ -11,11 +11,11 @@
                 <!-- Authentication Links -->
                 @guest
                     <button class="button_accent" style="margin-right: 20px">
-                        <a  href="{{ route('login') }}">{{ __('Accedi') }}</a>
+                        <a  href="{{ route('login') }}">{{ __('Login') }}</a>
                                                             </button>
                                                @if (Route::has('register'))
                             <button class="button_accent">
-                                <a  href="{{ route('register') }}">{{ __('Iscriviti') }}</a>
+                                <a  href="{{ route('register') }}">{{ __('Register') }}</a>
                                                                 </button>
      @endif
                                 @else

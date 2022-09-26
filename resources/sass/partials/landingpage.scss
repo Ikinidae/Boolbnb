@@ -11,8 +11,6 @@
 
 .autocomplete {
     z-index: 10;
-    width: 80%;
-    border: 1px solid ;
     position: absolute;
 
 
@@ -52,6 +50,7 @@
         .index-cover-img {
             width: 100%;
             position: relative;
+            padding: 2px;
 
             .index-cover-img-l {
                 position: absolute;

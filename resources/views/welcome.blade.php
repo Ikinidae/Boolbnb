@@ -27,6 +27,19 @@
 
         <!-- Styles -->
         <style>
+            .bg{
+                    background-image: url(images/backgrounduck.png);
+                    min-height: 100vh;
+                    width: 100vw;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-attachment:fixed;
+
+                }
+                main{
+                    display:flex;min-height: calc(100vh - 8vh );
+                    flex-direction:column;
+                }
 
         </style>
 
@@ -34,13 +47,13 @@
     </head>
     <body>
 
-        <body>
+        <body >
             @include('layouts.nav-index')
-            <main  style="margin-top: 70px">
-                <div id="papera"></div>
+            <main class="bg" style="padding: 70px 0">
+                <div  id="papera"></div>
             </main>
             @include('layouts.footer')
-            <script src="{{ asset('js/front.js') }}"></script>
+
         </body>
 
         </div>

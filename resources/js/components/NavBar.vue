@@ -303,14 +303,15 @@ export default {
     padding: 5px;
     border-radius: 20px;
     position: absolute;
+    margin: 0 -20px;
     scrollbar-color: rgb(199, 55, 69);
 }
 
 .scroller {
-  width: 300px;
-  height: 100px;
+  width: 180px;
+  height: 180px;
   overflow-y: scroll;
-  scrollbar-color: rebeccapurple green;
+  /* scrollbar-color: rebeccapurple green; */
   scrollbar-width: thin;
 }
 </style>
