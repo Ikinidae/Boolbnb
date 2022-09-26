@@ -20,7 +20,7 @@
      @endif
                                 @else
                                     <button class="button_accent" style="margin-right: 20px">
-                                        <a href="/admin/dashboard" role="button"v-pre>
+                                        <a href="/ura/home" role="button"v-pre>
                                             {{ Auth::user()->name }}
                                         </a>
                                     </button>
