@@ -29,8 +29,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    @include('ura.partials.top-nav')
-    <div class="container-fluid">
+    {{-- @include('ura.partials.top-nav') --}}
+    @include('layouts.nav-index')
+
+    <div class="container-fluid" style="margin-top: 70px">
         <div class="row">
             @include('ura.partials.side-nav')
 

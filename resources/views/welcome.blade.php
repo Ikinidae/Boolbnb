@@ -36,9 +36,11 @@
 
         <body>
             @include('layouts.nav-index')
+
             <main  style="margin-top: 70px">
                 <div id="papera"></div>
             </main>
+
             @include('layouts.footer')
 
         </body>

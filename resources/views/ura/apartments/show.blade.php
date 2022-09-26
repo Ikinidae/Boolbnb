@@ -17,6 +17,22 @@
         @endforeach
     </div>
 
+    {{-- <div>
+        @foreach ($message as $message)
+        <h5>{{$message->text}}</h5>
+
+        @endforeach
+    </div> --}}
+
+    <div>
+
+        <a  class="nav-link" href=" {{route('ura.messages.show', ['message' => $apartment->id] )}}">
+            Show Messages
+        </a>
+
+    </div>
+
+
     {{-- Opzione 1 immagine di default --}}
     {{-- <img class="img-fluid" src="{{ asset($apartment->image ? 'storage/' . $apartment->image : 'img/fallback.png') }}" alt="{{ $apartment->title }}"> --}}
 
