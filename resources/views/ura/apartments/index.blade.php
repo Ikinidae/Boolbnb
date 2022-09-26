@@ -32,9 +32,7 @@
                         <th>Bathrooms</th>
                         <th>mq</th>
                         <th>Address</th>
-                        <th>latitude</th>
-                        <th>longitude</th>
-                            <th>Services</th>
+                        <th>Services</th>
                         <th>Visible</th>
 
                     <th colspan="3">Actions</th>
@@ -51,8 +49,7 @@
                     <td>{{ $apartment->bathrooms }}</td>
                     <td>{{ $apartment->mq }}</td>
                     <td>{{ $apartment->address }}</td>
-                    <td>{{ $apartment->latitude }}</td>
-                    <td>{{ $apartment->longitude }}</td>
+
                     <td>
                         @foreach ($apartment->services as $service)
                             <span class="tag">{{ $service->name }}</span>
@@ -83,8 +80,12 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger"
-                                    onclick="return confirm('Sei sicuro di voler eliminare {{ $apartment->title }}?')">Delete</button>
+                                    onclick="return confirm('Are you sure you want delete this apartment named: {{ $apartment->title }}?')">Delete</button>
                             </form>
+                        </td>
+                        <td>
+                            <a href="{{route('ura.messages.show', ['message' => $apartment->id] )}}"
+                                class="btn btn-warning">Messages</a>
                         </td>
                     </tr>
                 </tbody>

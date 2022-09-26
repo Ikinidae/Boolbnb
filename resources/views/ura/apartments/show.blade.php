@@ -24,13 +24,13 @@
         @endforeach
     </div> --}}
 
-    <div>
+    {{-- <div>
 
         <a  class="nav-link" href=" {{route('ura.messages.show', ['message' => $apartment->id] )}}">
             Show Messages
         </a>
 
-    </div>
+    </div> --}}
 
 
     {{-- Opzione 1 immagine di default --}}

@@ -1,15 +1,15 @@
 <template>
 
-    <div v-if ="apartment" style="padding-top: 0.5rem">
+    <div v-if="apartment" style="padding-top: 0.5rem">
         <!-- Carta della casa -->
         <div class="show-container">
             <div class="show-title">{{ apartment.title }}</div>
             <span class="show-owner">{{ apartment.address }}</span>
             <div class="show-owner">
-                        <i class="fa-solid fa-bed"></i>
-                       <span>{{  apartment.beds  }}</span>
-                        <i class="fa-solid fa-toilet"></i>
-                        <span>{{ apartment.bathrooms }}</span>
+                <i class="fa-solid fa-bed"></i>
+                <span>{{ apartment.beds }}</span>
+                <i class="fa-solid fa-toilet"></i>
+                <span>{{ apartment.bathrooms }}</span>
 
             </div>
             <div class="show-cont-img">
@@ -19,65 +19,44 @@
             </div>
             <div class="show-opacity">{{ apartment.description }}</div>
             <div class="show-price">
-                <i>Il prezzo a notte è:</i> <span>{{ apartment.price }}€</span>
+                Price per night:<span>{{ apartment.price }}€</span>
             </div>
-            <div >
-                <span class="show-price">Servizi inclusi:</span>
+            <div>
+                <span class="show-price">Services included: </span>
                 <ul>
                     <li v-for="service in apartment.services" :key="service.id">{{ service.name }}</li>
                 </ul>
             </div>
-              <div>
-                    <!-- email -->
-                    <label for="email">Your e-mail</label>
-                    <input
-                        class="form-control form-create"
-                        type="text"
-
-                        name="email_sender"
-                        id="email_sender"
-                        v-model="email"
-
-                    />
-                    <br />
-                    <!-- name -->
-                    <label for="text">Your name</label>
-                    <input
-                        class="form-control form-create"
-                        type="text"
-
-                        name="name"
-                        id="name"
-                        v-model="name"
-                    />
-                    <br />
-                    <!-- surname -->
-                    <label for="text">Your surname</label>
-                    <input
-                        class="form-control form-create"
-                        type="text"
-
-                        name="surname"
-                        id="surname"
-                        v-model="surname"
-                    />
-                    <br />
-                    <!-- message -->
-                    <label for="text">Your message</label>
-                    <textarea
-                        class="form-control form-create description-form description-form"
-                        type="text"
-
-                        name="text"
-                        id="text"
-                        @change="log"
-                        v-model="text">
+            <div>
+                <!-- email -->
+                <label for="email">Your e-mail</label>
+                <input class="form-control form-create" type="text" name="email_sender" id="email_sender"
+                    v-model="email" />
+                <br />
+                <!-- name -->
+                <label for="text">Your name</label>
+                <input class="form-control form-create" type="text" name="name" id="name" v-model="name" />
+                <br />
+                <!-- surname -->
+                <label for="text">Your surname</label>
+                <input class="form-control form-create" type="text" name="surname" id="surname" v-model="surname" />
+                <br />
+                <!-- message -->
+                <label for="text">Your message</label>
+                <textarea class="form-control form-create description-form description-form" type="text" name="text"
+                    id="text" @change="log" v-model="text">
                     </textarea>
 
-                    <div class="submit">
-                        <button @click="sendMessage(apartment.id)" class="button_accent" type="submit">Invia</button>
+                <div class="submit mt-3">
+                    <button @click="sendMessage(apartment.id), toggleClass()"  class="button_accent" type="submit">Invia</button>
+                </div>
+
+                <div id="message_alert" class="alert alert-success d-flex align-items-center d-none mt-3" role="alert">
+                    <div>
+                       Your message has been sent
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 </template>
@@ -97,7 +76,7 @@ export default {
             name: '',
             surname: '',
             text: '',
-            users:''
+            users: ''
         }
     },
     mounted() {
@@ -116,7 +95,7 @@ export default {
             .then(res => {
                 if (res.data.success) {
                     this.apartment = res.data.result;
-                    console.log('mappa',this.apartment);
+                    console.log('mappa', this.apartment);
                 }
                 var map = tt.map({
                     key: this.API_KEY,
@@ -126,12 +105,12 @@ export default {
                 });
 
                 var marker = new tt.Marker()
-                    .setLngLat({lng: this.apartment.longitude, lat: this.apartment.latitude})
+                    .setLngLat({ lng: this.apartment.longitude, lat: this.apartment.latitude })
                     .addTo(map);
             });
 
 
-            // PROVA PER FAR COMPARIRE EMAIL AUTOCOMPILATA
+        // PROVA PER FAR COMPARIRE EMAIL AUTOCOMPILATA
         // axios.get('/api/users')
         //     .then(res => {
         //         if (res.data.success) {
@@ -146,36 +125,43 @@ export default {
 
     },
     methods: {
-        log(){
+        log() {
             console.log('ciao', this.email);
             console.log(this.name);
             console.log(this.surname);
             console.log(this.text);
-            console.log('ciaooo',this.text);
+            console.log('ciaooo', this.text);
         },
 
-        sendMessage($id){
-            if(this.email != '' && this.text != '' && this.name != '' && this.surname != ''){
+        sendMessage($id) {
+            if (this.email != '' && this.text != '' && this.name != '' && this.surname != '') {
                 axios.post('/api/message', {
-                apartment_id: $id,
-                text: this.text,
-                name: this.name,
-                surname: this.surname,
-                email: this.email
-            })
-            .then(res => {
-                if (res.data.success) {
-                    this.email = '';
-                    this.text = '';
-                    this.name = '';
-                    this.surname = '';
-                }
-            }).catch(function (error) {
-                console.log('voleviiiiiiii');
-                console.log(error);
-            });
+                    apartment_id: $id,
+                    text: this.text,
+                    name: this.name,
+                    surname: this.surname,
+                    email: this.email
+                })
+                    .then(res => {
+                        if (res.data.success) {
+                            this.email = '';
+                            this.text = '';
+                            this.name = '';
+                            this.surname = '';
+
+                        };
+
+                    }).catch(function (error) {
+                        console.log('voleviiiiiiii');
+                        console.log(error);
+                    });
             }
+
         },
+        toggleClass(){
+            document.getElementById("message_alert").classList.toggle('d-none');
+
+        }
 
     }
 }
@@ -183,8 +169,8 @@ export default {
 
 
 <style lang="scss" scoped>
-    #map-div{
-        height: 500px;
-        width: 500px;
-    }
+#map-div {
+    height: 500px;
+    width: 500px;
+}
 </style>
