@@ -1,156 +1,107 @@
 <template>
-
-    <div>
-            <div class="container">
-                <!-- <div>
-                        <a class="navbar-brand" href="#">
-                            <img class="nav-item logo"  src="../../logo boolbnb.png" alt="logo">
-                        </a>
-                    </div> -->
-                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button> -->
-                <div class="flex advanced">
-                    <div class="posrev">
-
-                            <div class="form-group">
-                            <div>
-                            <input
-                            required
-                            autocomplete="off"
-                            @keyup="addressSearch"
-                            type="text"
-                            class="search-as"
-                            name="address"
-                            id="query"
-                            v-model="searchAddress"
-                            placeholder="Search"
-                        />
-
-                        </div>
-
-                        <div class=" autocomplete" v-show="nameAddress.length > 0">
-                            <ul class="list-group scroller">
-                                <li
-                                    :key="i"
-                                    v-for="(name, i) in nameAddress"
-                                    @click="selectAddress(i)"
-                                    style="cursor: pointer"
-                                    class="li-hover list-group-item "
-                                >
-                                    {{ name.address.freeformAddress }}
-                                </li>
-                            </ul>
-                        </div>
+    <div class="container">
+        <div class="flex advanced">
+            <div class="posrev">
+                <div class="form-group">
+                    <div>
+                        <input
+                        required
+                        autocomplete="off"
+                        @keyup="addressSearch"
+                        type="text"
+                        class="search-as"
+                        name="address"
+                        id="query"
+                        v-model="searchAddress"
+                        placeholder="Search"/>
                     </div>
-                </div>
-                <div class="dropdown m-2 ">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <span> <i class="fa-solid fa-filter"></i>Filters </span>
-                            </button>
-                            <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
-                                <li>
-                                     <!-- Input per radiante -->
-                                    <label  for="radius">Choose radius distance</label>
-                                     <select class="me-3"  @change="getApartments(radius,latitude,longitude)" name="radius" id="radius" v-model="radius">
-                                        <option value="10">10</option>
-                                        <option value="20">20</option>
-                                        <option value="30">30</option>
-                                        <option value="40">40</option>
-                                        <option value="50">50</option>
-                                    </select>
-                                </li>
 
-                                <li>
-                                    <!-- Rooms -->
-                                    <label for="rooms">Choose min rooms</label>
-                                    <select class="me-3" @change="log" name="rooms" id="rooms" v-model="rooms">
-                                        <!-- <option value="Any">Any</option> -->
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select>
-                                </li>
-
-                                <li>
-                                    <!-- Beds -->
-                                    <label for="beds">Choose min beds</label>
-                                    <select class="me-3" @change="log" name="beds" id="beds" v-model="beds">
-                                        <!-- <option value="Any">Any</option> -->
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select>
-                                </li>
-                            </ul>
-                    </div>
-                     <!-- Services -->
-                     <div id="filter-list" class="show dropdown m-2">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Services
-                        </button>
-                        <ul class=" dropdown-menu" >
-                            <li class="dropdown-item" :key="i" v-for="(service, i) in services">
-                                <input
-                                    type="checkbox"
-                                    :name="service.name"
-                                    :id="service.id"
-                                    :value="service.name"
-                                    v-model="selectedServices"
-                                    @change="log"
-                                />
-                                    <label :for="service.id">
-                                        {{ service.name }}
-                                    </label>
+                    <div class=" autocomplete" v-show="nameAddress.length > 0">
+                        <ul class="list-group scroller">
+                            <li
+                                :key="i"
+                                v-for="(name, i) in nameAddress"
+                                @click="selectAddress(i)"
+                                style="cursor: pointer"
+                                class="li-hover list-group-item "
+                            >
+                                {{ name.address.freeformAddress }}
                             </li>
                         </ul>
                     </div>
-                    <button @click="selectRooms" class="btn btn-outline-danger" type="submit">Search</button>
-
+                </div>
             </div>
+            <div class="dropdown m-2">
 
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span> <i class="fa-solid fa-filter"></i>Filters </span>
+                </button>
 
-
-
-
-                <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
+                    <li>
+                        <!-- Input per radiante -->
+                        <label  for="radius">Choose radius distance</label>
+                            <select class="me-3"  @change="getApartments(radius,latitude,longitude)" name="radius" id="radius" v-model="radius">
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                            <option value="40">40</option>
+                            <option value="50">50</option>
+                        </select>
                     </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+
+                    <li>
+                        <!-- Rooms -->
+                        <label for="rooms">Choose min rooms</label>
+                        <select class="me-3" @change="log" name="rooms" id="rooms" v-model="rooms">
+                            <!-- <option value="Any">Any</option> -->
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
                     </li>
-                </ul> -->
-                <!-- <form class="d-flex" role="search"> -->
-                    <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" v-model=""> -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <!-- <button @click="$emit('mysearch', Apartments)" class="btn btn-outline-danger" type="submit">Search</button> -->
-                    <!-- <button @click="$emit('mysearch', filteredApt)" class="btn btn-outline-danger" type="submit">Search</button> -->
-
-                <!-- </form> -->
+                    <li>
+                        <!-- Beds -->
+                        <label for="beds">Choose min beds</label>
+                        <select class="me-3" @change="log" name="beds" id="beds" v-model="beds">
+                            <!-- <option value="Any">Any</option> -->
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </li>
+                </ul>
             </div>
+            <!-- Services -->
+            <div id="filter-list" class="show dropdown m-2">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Services
+                </button>
+                <ul class=" dropdown-menu" >
+                    <li class="dropdown-item" :key="i" v-for="(service, i) in services">
+                        <input
+                            type="checkbox"
+                            :name="service.name"
+                            :id="service.id"
+                            :value="service.name"
+                            v-model="selectedServices"
+                            @change="log"
+                        />
+                            <label :for="service.id">
+                                {{ service.name }}
+                            </label>
+                    </li>
+                </ul>
+            </div>
+            <!-- search button -->
+            <button @click="selectRooms" class="btn btn-outline-danger" type="submit">Search</button>
+        </div>
     </div>
-
-
-
 </template>
 
 <script>
@@ -309,7 +260,7 @@ export default {
 
 .scroller {
   width: 180px;
-  height: 180px;
+  height: 250px;
   overflow-y: scroll;
   /* scrollbar-color: rebeccapurple green; */
   scrollbar-width: thin;

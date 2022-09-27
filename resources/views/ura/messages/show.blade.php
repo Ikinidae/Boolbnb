@@ -6,6 +6,8 @@
 
         @foreach ($messages as $message)
         <h5>{{$message->text}}</h5><br>
+        <h5>{{$message->email}}</h5><br>
+        <h5>{{$message->name}}</h5><br><br>
         @endforeach
 
     </div>

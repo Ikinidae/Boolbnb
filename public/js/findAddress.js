@@ -106,7 +106,6 @@ __webpack_require__.r(__webpack_exports__);
       searchAddress: []
     };
   },
-  mounted: function mounted() {},
   methods: {
     addressSearch: function addressSearch() {
       tt.services.fuzzySearch({

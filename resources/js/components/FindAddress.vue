@@ -1,6 +1,7 @@
 <template>
-
     <div class="form-group">
+
+        <!-- address input -->
         <label class="form-label" for="address">Address*</label>
         <input
             required
@@ -13,10 +14,11 @@
             v-model="searchAddress"
         />
 
+        <!-- hidden inputs for coordinates -->
         <input type="text" hidden name="latitude" v-model="latitude" />
         <input type="text" hidden name="longitude" v-model="longitude" />
 
-
+        <!-- list of addresses -->
         <div class="form-create address-form2" v-show="nameAddress.length > 0">
             <ul class="list-type">
                 <li
@@ -46,9 +48,6 @@ export default {
             searchAddress:[]
         };
     },
-    mounted() {
-
-    },
     methods: {
         addressSearch() {
             tt.services.fuzzySearch({
@@ -72,10 +71,7 @@ export default {
             // console.log('lat', this.latitude);
             // console.log('lon', this.longitude);
         }
-
-
     }
-
 }
 </script>
 

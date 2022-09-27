@@ -6,6 +6,7 @@
     padding: 10px;
     font-size: small;
     font-weight: bold;
+    min-width: 100px;
 }
 
 .radiusdiv{
@@ -33,9 +34,12 @@
 }
 .advanced {
     justify-content: space-between;
-    padding: 30px 0;
+    padding: 30px 12%;
     margin: 0 auto;
     width: 80%;
+    background-color: rgba(0, 0, 0, 0.288);
+    border-radius: 10px;
+    margin-top: 20px;
 }
 .card-as {
     color: rgb(113, 113, 113);
@@ -115,6 +119,13 @@
 }
 
 @media screen and (min-width: 1024px) {
+    .advanced {
+        justify-content: space-between;
+        padding: 30px 12%;
+        margin: 0 auto;
+        width: 90%;
+        margin-top: 20px;
+    }
     .card {
         .form-control {
             width: 20vw;
@@ -122,6 +133,13 @@
     }
 }
 @media screen and (max-width: 965px) {
+    .advanced {
+        justify-content: space-between;
+        padding: 30px 20px;
+        margin: 0 auto;
+        width: 90%;
+        margin-top: 20px;
+    }
     .container-as {
         text-align: center;
     }
@@ -137,6 +155,13 @@
     }
 }
 @media screen and (max-width: 680px) {
+    .advanced {
+        justify-content: space-between;
+        padding: 30px 20px;
+        margin: 0 auto;
+        width: 90%;
+        margin-top: 20px;
+    }
     .search-bar-as {
         span {
             display: block;

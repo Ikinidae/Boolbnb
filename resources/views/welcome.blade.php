@@ -28,36 +28,28 @@
         <!-- Styles -->
         <style>
             .bg{
-                    background-image: url(images/backgrounduck.png);
-                    min-height: 100vh;
-                    width: 100vw;
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    background-attachment:fixed;
-
-                }
-                main{
-                    display:flex;min-height: calc(100vh - 8vh );
-                    flex-direction:column;
-                }
-
+                background-image: url(images/backgrounduck.png);
+                /* min-height: 100vh; */
+                min-height: calc(100vh - 8vh);
+                background-repeat: no-repeat;
+                background-size: cover;
+                /* background-attachment:fixed; */
+                background-position: center center
+            }
+            main{
+                display:flex;
+                min-height: calc(100vh - 8vh );
+                flex-direction:column;
+            }
         </style>
-
 
     </head>
     <body>
+        @include('layouts.nav-index')
+        <main class="bg" style="padding: 70px 0">
+            <div  id="papera"></div>
+        </main>
 
-        <body >
-            @include('layouts.nav-index')
-            <main class="bg" style="padding: 70px 0">
-                <div  id="papera"></div>
-            </main>
-
-            @include('layouts.footer')
-
-        </body>
-
-        </div>
-
+        @include('layouts.footer')
     </body>
 </html>
