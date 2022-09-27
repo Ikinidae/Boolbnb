@@ -8,15 +8,24 @@
                 </div>
                 <div class="index-card-text">
                     <div class="index-cover-img-l">
+                        <span>Rooms:</span>
+                        <span>{{ apartment.rooms }}</span>
+                        <br>
                         <i class="fa-solid fa-bed"></i
                         ><span>{{  apartment.beds  }}</span>
-                        <i class="fa-solid fa-toilet"></i
-                        ><span>{{ apartment.bathrooms }}</span>
+                        <br>
                         <i class="fa-solid fa-location-dot"></i>
                         <span>{{ apartment.address }}</span>
                     </div>
                     <p class="index-card-title">{{ apartment.title  }}</p>
                     <p>{{  apartment.description }}</p>
+                    <!-- services -->
+                    <div>
+                        <span class="show-price">Services included: </span>
+                        <ul>
+                            <li v-for="service in apartment.services" :key="service.id">{{ service.name }}</li>
+                        </ul>
+                    </div>
                 </div>
             <div class="card-footer">
                 <small class="text-muted">{{ apartment.price }}€</small>

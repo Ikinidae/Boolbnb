@@ -6,29 +6,41 @@
             <div class="show-title">{{ apartment.title }}</div>
             <span class="show-owner">{{ apartment.address }}</span>
             <div class="show-owner">
+                <span>Rooms:</span>
+                <span>{{ apartment.rooms }}</span>
                 <i class="fa-solid fa-bed"></i>
                 <span>{{ apartment.beds }}</span>
-                <i class="fa-solid fa-toilet"></i>
-                <span>{{ apartment.bathrooms }}</span>
-
             </div>
+
             <div class="show-cont-img">
-                <img :src="`/storage/${apartment.image}`" :alt="apartment.title">
-                <!-- <div id="map" class="id"></div> -->
+                <!-- img -->
+
+                <img class="col-md-7 col-12" :src="`/storage/${apartment.image}`" :alt="apartment.title">
+
+
+                <!-- map -->
                 <div id="map-div" class="id"></div>
             </div>
+
+            <!-- description -->
             <div class="show-opacity">{{ apartment.description }}</div>
             <div class="show-price">
                 Price per night:<span>{{ apartment.price }}€</span>
             </div>
+            <div class="show-price">
+                Mq:<span>{{ apartment.mq }}m</span>
+            </div>
+
+            <!-- services -->
             <div>
                 <span class="show-price">Services included: </span>
                 <ul>
                     <li v-for="service in apartment.services" :key="service.id">{{ service.name }}</li>
                 </ul>
             </div>
+            <!-- email form -->
             <div>
-                <!-- email -->
+                <!-- email address -->
                 <label for="email">Your e-mail</label>
                 <input class="form-control form-create" type="text" name="email_sender" id="email_sender"
                     v-model="email" />
@@ -169,8 +181,5 @@ export default {
 
 
 <style lang="scss" scoped>
-#map-div {
-    height: 500px;
-    width: 500px;
-}
+
 </style>
