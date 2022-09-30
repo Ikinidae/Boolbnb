@@ -1,7 +1,9 @@
 <template>
     <div class="container">
-        <div class="flex advanced">
-            <div class="posrev">
+        <div class="d-flex advanced">
+            <div class="posrev w-50">
+
+                <!-- address searchbar -->
                 <div class="form-group">
                     <div>
                         <input
@@ -31,6 +33,8 @@
                     </div>
                 </div>
             </div>
+
+            <!-- dropdown filter radius, rooms, beds -->
             <div class="dropdown m-2">
 
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -77,6 +81,7 @@
                     </li>
                 </ul>
             </div>
+
             <!-- Services -->
             <div id="filter-list" class="show dropdown m-2">
                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">

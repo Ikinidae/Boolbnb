@@ -118,6 +118,23 @@ class ApartmentController extends Controller
         }
     }
 
+    // default apartments in home
+    public function defaultApartments()
+    {
+        $defaultApartments = Apartment::with('services')->get();
 
+        if($defaultApartments){
+            return response()->json([
+                "success" => true,
+                "result" => $defaultApartments
+
+            ]);
+        } else{
+            return response()->json([
+                "success" => false,
+
+            ]);
+        }
+    }
 
 }

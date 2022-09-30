@@ -3,22 +3,18 @@
 
 
         <!-- navbar component -->
-
         <NavBar @mysearch="getApartment"></NavBar>
-
-
-        <!-- main -->
-        <!-- <div class="text-center">
-
-        </div> -->
 
         <!-- card component -->
         <div class="index-cards">
             <CardApartment v-for="apartment in apartments" :key="apartment.id" :apartment="apartment"></CardApartment>
         </div>
 
-
-
+        <!-- default shown apartment -->
+        <div class="index-cards">
+            <CardApartment v-for="apartment in defaultApartments" :key="apartment.id" :apartment="apartment">
+            </CardApartment>
+        </div>
 
     </div>
 </template>
@@ -31,26 +27,31 @@ import CardApartment from '../components/CardApartment.vue';
 export default {
     name: "PageHome",
     components: {
-    NavBar,
-    CardApartment,
+        NavBar,
+        CardApartment,
 
-},
-    data(){
-        return{
-            apartments: []
+    },
+    data() {
+        return {
+            apartments: [],
+            defaultApartments: []
         }
     },
 
-    // created() {
-    //     axios.get('/api/apartment')
-    //         .then(res => {
-    //             this.apartments = res.data.response.data;
-    //             console.log(this.apartments);
-    //         })
-    //         .catch(error => {});
-    // },
+    created() {
+        axios.get('/api/apartments')
+            .then(res => {
+                this.defaultApartments = res.data.result;
+                console.log('defaultApartments', this.defaultApartments);
+            })
+            .catch(function (error) {
+                console.log('voleviiiiiiii');
+                console.log(error);
+            });
+    },
+
     methods: {
-        getApartment(textUser){
+        getApartment(textUser) {
             this.apartments = textUser;
             console.log('app.vue', this.apartments);
         }
@@ -59,5 +60,5 @@ export default {
 
 </script>
 <style lang="scss" scoped>
-    @import 'bootstrap/scss/bootstrap';
+@import 'bootstrap/scss/bootstrap';
 </style>

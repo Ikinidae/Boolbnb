@@ -24,3 +24,4 @@ Route::get('/distance/{radius}/{lat}/{lon}', 'Api\ApartmentController@radiusSear
 Route::get('/apartments/{apartment}', 'Api\ApartmentController@show')->name('api.apartments.show');
 Route::get('/users', 'Api\ApartmentController@users')->name('api.users.users');
 Route::post('/message', 'Api\MessageController@store')->name('api.message.store');
+Route::get('/apartments', 'Api\ApartmentController@defaultApartments')->name('api.apartments.defaultApartments');
