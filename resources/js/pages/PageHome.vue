@@ -6,11 +6,13 @@
         <NavBar @mysearch="getApartment"></NavBar>
 
         <!-- card component -->
+        <h1 class="ms-5 mt-5" v-if="apartments.length > 0">Your search results:</h1>
         <div class="index-cards">
             <CardApartment v-for="apartment in apartments" :key="apartment.id" :apartment="apartment"></CardApartment>
         </div>
 
         <!-- default shown apartment -->
+        <h1 class="ms-5 mt-5">Our selection:</h1>
         <div class="index-cards">
             <CardApartment v-for="apartment in defaultApartments" :key="apartment.id" :apartment="apartment">
             </CardApartment>
@@ -61,4 +63,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import 'bootstrap/scss/bootstrap';
+
+h1 {
+    color: #df5656;
+}
 </style>

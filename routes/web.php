@@ -30,6 +30,7 @@ Route::middleware('auth')
         Route::resource('apartments', 'ApartmentController');
         Route::resource('messages', 'MessageController');
         Route::get('/home', 'HomeController@index')->name('home');
+        Route::get('/sponsorization', 'SponsorizationController@index')->name('sponsorization');
 
    });
 

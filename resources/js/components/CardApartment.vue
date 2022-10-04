@@ -16,7 +16,7 @@
                     <i class="fa-solid fa-location-dot"></i>
                     <span>{{ apartment.address }}</span>
                 </div>
-                <p class="index-card-title">{{ apartment.title }}</p>
+                <p class=" title">{{ apartment.title }}</p>
                 <div class="description">
                     <p>{{ apartment.description }}</p>
                 </div>
@@ -55,6 +55,10 @@ export default {
 .card_img {
     object-fit: cover;
     height: 100%;
+}
+
+.title {
+    color: #df5656;
 }
 
 .description {

@@ -29,11 +29,10 @@
         <style>
             .bg{
                 background-image: url(images/backgrounduck.png);
-                /* min-height: 100vh; */
                 min-height: calc(100vh - 8vh);
                 background-repeat: no-repeat;
                 background-size: cover;
-                /* background-attachment:fixed; */
+                background-attachment:fixed;
                 background-position: center center
             }
             main{
