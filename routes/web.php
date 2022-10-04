@@ -29,9 +29,8 @@ Route::middleware('auth')
         // Route::get('users', 'UserController@index')->name('users.index');
         Route::resource('apartments', 'ApartmentController');
         Route::resource('messages', 'MessageController');
+        Route::resource('sponsorships', 'SponsorshipController');
         Route::get('/home', 'HomeController@index')->name('home');
-        Route::get('/sponsorship', 'SponsorshipController@index')->name('sponsorship');
-
    });
 
 
