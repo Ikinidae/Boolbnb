@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Ura;
 
+use App\Models\Apartment;
 use App\Models\Sponsorship;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -16,8 +17,11 @@ class SponsorshipController extends Controller
     public function index()
     {
         // $apartments = Apartment::All()->where('user_id', auth()->user()->id);
-        $sponsorships = Sponsorship::All();
-        return view('ura.sponsorships.index', compact('sponsorships'));
+        // $sponsorships = Sponsorship::All();
+        // return view('ura.sponsorships.index', [
+        //     'apartments'      => $apartments,
+        //     'sponsorships'  => $sponsorships,
+        // ]);
     }
 
     /**
@@ -27,7 +31,12 @@ class SponsorshipController extends Controller
      */
     public function create()
     {
-        //
+        $apartments = Apartment::All()->where('user_id', auth()->user()->id);
+        $sponsorships = Sponsorship::All();
+        return view('ura.sponsorships.create', [
+            'apartments'      => $apartments,
+            'sponsorships'  => $sponsorships,
+        ]);
     }
 
     /**
@@ -38,7 +47,8 @@ class SponsorshipController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
+        $data = $request->all();
     }
 
     /**

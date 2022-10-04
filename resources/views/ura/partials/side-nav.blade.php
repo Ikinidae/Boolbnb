@@ -1,4 +1,4 @@
-<nav class="col-md-2 d-md-block bg-light sidebar py-4">
+<nav id="side_nav" class="col-md-2 d-md-block bg-light sidebar py-4">
     <div class="sidebar-sticky">
         <ul class="nav flex-column">
             <li class="nav-item">
@@ -20,7 +20,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a  class="nav-link" href="{{route('ura.sponsorships.index')}}">
+                <a  class="nav-link" href="{{route('ura.sponsorships.create')}}">
                     <i class="fa-solid fa-plus"></i>
                     Add Sponsorship
                 </a>
