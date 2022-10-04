@@ -20,9 +20,9 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a  class="nav-link" href="{{route('ura.apartments.sponsorization')}}">
+                <a  class="nav-link" href="{{route('ura.sponsorships.index')}}">
                     <i class="fa-solid fa-plus"></i>
-                    Add Sponsorization
+                    Add Sponsorship
                 </a>
             </li>
         </ul>
