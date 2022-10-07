@@ -47,8 +47,21 @@ class SponsorshipController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
-        $data = $request->all();
+        // dd($request->all());
+        $apartment = Apartment::find($request->apartments);
+        $apartment_id = $request->apartments;
+        $sponsorship_id = $request->sponsorships;
+        $attach_data[1] = [
+            'apartment_id' => $apartment_id,
+            'sponsorship_id' => $sponsorship_id,
+        ];
+        $duck = Sponsorship::all();
+        dd($duck);
+        $apartment->sponsorships()->attach($attach_data);
+        return response()->json([
+            'success' => true,
+            'message' => "Transazione eseguita con Successo!"
+        ]);
     }
 
     /**
